@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+body {
+
+    color: #162d63;
+    background-color: #fff; }
+
+.btn.btn-primary {
+    color: #FFFFFF;
+    background: #29b1d0;
+}
+.btn.btn-primary:hover
+{
+
+    font-weight: 400;
+    border: 2px solid #f7f7f7;
+}
+
+.btn.btn-transparent {
+    font-weight: 300; }
+
+/*CSS For About Us on Main Page*/
+.wingBanner {
+    position: relative;
+    color: #FFFFFF;
+    background-color: #29b1d0;
+    text-align: center; }
+
+.wingBanner:before {
+    position: absolute;
+    left: 0;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent #162d63 transparent; }
+
+.wingBanner:after {
+    position: absolute;
+    right: 0;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent transparent #162d63; }
+
+
+#navbar {
+    position: relative;
+
+    background-color: #FFFFFF; }
+
+#navbar #logo a {
+    display: inline-block;
+    margin: 15px 0 0 30px;}
+
+#navbar #menu {
+    padding-top: 25px; }
+
+#navbar #menu #mainmenu {
+    float: right;
+    text-align: right;
+    list-style: none;
+    margin-right: 50px;
+    padding: 0; }
+
+#navbar #menu #mainmenu li {
+    display: inline-block;
+    height: 20px; }
+
+#navbar #menu #mainmenu li a {
+    display: inline-block;
+    color: #162d63;
+    font-family: Nexa-Bold, sans-serif;
+    line-height: 35px;
+    padding: 0 20px; }
+
+#navbar #menu #mainmenu li a:hover, #navbar #menu #mainmenu li a:focus {
+    color: #29b1d0  ; }
+
+#navbar #menu #mainmenu li a.btn {
+    color: #FFFFFF;
+    font-family: Overpass, sans-serif;
+    height: 35px;
+    width: 200px; }
+
+#section-loginBox {
+
+    position: relative;
+    background: #020C17 url("../images/login_backgroud.jpg") no-repeat  ;
+    background-size: cover;
+    margin-top: 10px;
+    height: 580px;
+    padding: 0;
+    color: #FFFFFF;
+    text-align: left; }
+
+#section-loginBox #loginBox {
+    z-index: 60;
+    position: relative;
+    width: 33%;
+    padding: 85px 0 0 20px; }
+
+#section-loginBox #loginBox p {
+    text-shadow: 1px 1px 1px #000; }
+
+#section-loginBox form {
+    position: relative;
+    margin-top: 45px;
+    margin-left: 30px; }
+
+/* for login and forgot password*/
+#section-loginBox form .btn {
+
+    width: 49%; }
+
+#section-loginBox form .btn.btn-transparent {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #000; }
+
+@media (min-width: 1000px) and (max-width: 1259px) {
+    .section {
+        margin: 0 -15px;
+        padding: 50px 40px; }
+    .section.section-white {
+        padding: 50px 30px; }
+    .spacer {
+        height: 40px; }
+
+    .wingBanner {
+        padding: 30px 75px;
+        margin: 0 40px; }
+
+    .wingBanner:before {
+        top: -45px;
+        border-width: 0 0 45px 75px; }
+
+    .wingBanner:after {
+        top: -45px;
+        border-width: 45px 0 0 75px; }
+
+    .wingBanner.banner-solo {
+        margin: 45px 40px 80px; }
+
+    #navbar {
+        margin: 0 -15px; }
+
+    #section-loginBox {
+        background-position: right -150px center; }
+
+    #section-loginBox #loginBox {
+        width: 44%; }
+
+    #section-loginBox .header-overlay {
+        right: -110px; }
+    }
+
+@media (min-width: 1260px) {
+
+    .section {
+        margin: 0 -30px;
+        padding: 50px 130px; }
+
+    .section.section-white {
+        padding: 50px 30px; }
+
+    .spacer {
+        height: 50px; }
+
+    .wingBanner {
+        padding: 50px 70px;
+        margin: 0 50px; }
+
+    .wingBanner:before {
+        top: -45px;
+        border-width: 0 0 45px 75px; }
+
+    .wingBanner:after {
+        top: -45px;
+        border-width: 45px 0 0 75px; }
+
+    .wingBanner.banner-solo {
+        margin: 45px 50px 60px; }
+
+    #navbar {
+        margin: 0 -30px; }
+
+    #section-moreTurnover .watermark {
+        left: -420px; } }
+
+
