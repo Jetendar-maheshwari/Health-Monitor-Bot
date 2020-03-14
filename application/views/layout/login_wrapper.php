@@ -210,11 +210,6 @@
 
                         </form>
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -437,11 +432,10 @@
                 [csrfName]: csrfHash,
             },
             success:function(data){
-                //alert("Data Send");
+            
             }
         });
     });
-
 
     $(document).on("click", "#sendMail", function (e) {
         e.preventDefault();
