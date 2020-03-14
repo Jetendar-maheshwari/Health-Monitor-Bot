@@ -61,7 +61,7 @@
                             <?php } ?> 
                         <?php } ?> 
                     </tbody>
-                </table>  <!-- /.table-responsive -->
+                </table> 
             </div>
         </div>
     </div>
