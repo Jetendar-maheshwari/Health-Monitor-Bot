@@ -420,19 +420,19 @@
     });
 
     var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
-            csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
+        csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 
     $(document).on("click", ".patient_register", function (e) {
         e.preventDefault();
         console.log("HEre");
         $.ajax({
-            url: "dashboard_patient/Survey/getSymptomsDetail",
+            url: "<?php echo base_url();?>" + "patient/create",
             method:"POST",
             data:{
                 [csrfName]: csrfHash,
             },
             success:function(data){
-            
+                alert("testing" + data);
             }
         });
     });

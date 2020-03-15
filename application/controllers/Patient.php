@@ -45,10 +45,8 @@ class Patient extends CI_Controller {
 	public function create()
 	{
 
-	    var_dump("I am here ");
-	    die;
-
-		$data['title'] = display('add_patient');
+        return json_encode(array("status"=>200, "message"=>"Successfully updated record!"));
+		/*$data['title'] = display('add_patient');
         $id = $this->input->post('id');
 		#-------------------------------#
 		$this->form_validation->set_rules('firstname', display('first_name'),'required|max_length[50]');
@@ -159,7 +157,7 @@ class Patient extends CI_Controller {
 		} else {
 			$data['content'] = $this->load->view('patient_form',$data,true);
 			$this->load->view('layout/main_wrapper',$data);
-		} 
+		} */
 	}
 
 
