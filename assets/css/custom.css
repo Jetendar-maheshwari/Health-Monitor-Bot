@@ -6220,6 +6220,7 @@ p.address {
     color: #29b1d0;
 }
     .fa-arrow-up {
+        color: #fff !important;
         scroll-behavior: smooth;
     border: 1px solid #29b1d0;
     padding: 6px;
@@ -6227,6 +6228,7 @@ p.address {
 }
 .fa-arrow-up:hover {
      color: #fff !important;
+     background-color: rgb(55, 160, 0);
 }
 body {
     background-color: #eaebed;
@@ -6316,4 +6318,7 @@ div.survey_questions_out.row h2 {
     }
     h1 {
         color: #29b1d0 !important;
+    }
+    a.btn.btn-primary.requestdemo:hover {
+        background-color: #37a000 !important;
     }

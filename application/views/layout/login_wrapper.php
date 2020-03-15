@@ -62,7 +62,7 @@
                             <li ><a href="#About" title="About">About</a></li>
                             <li ><a href="#offer" title="We offer">We offer</a></li>
                             <li ><a href="#" title="Contact">Contact</a></li>
-                            <li> <a class="btn btn-primary requestdemo" data-toggle="modal" >   Request Demo </a>
+                            <li> <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
 
                             </li>
                         </ul>
