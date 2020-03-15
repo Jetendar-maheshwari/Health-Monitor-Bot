@@ -27,18 +27,24 @@
                             </div>
                     </div>
                 </div>
-
+                <div class="col-xs-1 col-xs-offset-0"></div>
+                <div class="col-xs-9">
                 <div class="survey_questions_out row">
                 </div>
-
+                </div>
+</div>
                 <div class="result_out">
 
                 </div>
-
+                <div class="col-xs-1 col-xs-offset-0"></div>
+                <div class="col-xs-10">
                 <div class="range_out">
-
                 </div>
-                <button type="submit" class="btn-success">Submit</button>
+                </div>
+                </div>
+                <div style="text-align:center">
+                <button type="submit"  class="btn-success patientsubmit">Submit</button>
+                </div>
             </div>
             <?php echo form_close() ?>
         </div>

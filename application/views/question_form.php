@@ -18,6 +18,7 @@
                                 <input type="hidden" name="ques_id" value="<?php echo $ques_id;?>">
                             <?php } ?>
                             <div class="form-group row">
+                                
                                 <label for="description" class="col-xs-3 col-form-label">Question Description</label>
                                 <div class="col-xs-9">
                                     <textarea name="ques_detail" class="form-control"  placeholder="Question Description" rows="7"><?php echo $question->ques_detail ?></textarea>
@@ -32,17 +33,17 @@
                         <?php } ?>
 
                         <div class="dynamic_option row">
-                            <label class="col-sm-3">Options</label>
+                
                             <?php if(!empty($options)){
                                 foreach($options as $key=>$option){
                                     ?>
-                                    <div class="form-group row col-sm-12">
-                                        <div class="col-xs-3">
+                                    <div class="form-group  col-sm-12">
+                                        <div class="col-xs-2">
                                             <input type="hidden" name="option_id<?php echo $key;?>" value="<?php echo $option->opt_id; ?>">
                                         </div>
-                                        <label for="option" class="col-xs-1 col-form-label"> Option </label>
-                                        <div class="col-xs-5">
-                                            <input name="option<?php echo $key;?>" value="<?php echo $option->opt_descr; ?>"  type="text" class="form-control">
+                                        <label for="option" class="col-xs-1 col-form-label option"> Option </label>
+                                        <div class="col-xs-6">
+                                        <textarea rows="2"<?php echo $key;?>" value="<?php echo $option->opt_descr; ?>"  type="text" class="form-control"></textarea>
                                         </div>
                                         <label for="score" class="col-xs-1 col-form-label"> Score </label>
                                         <div class="col-xs-2">
@@ -53,12 +54,15 @@
                                     <script> i++;  </script>
                                 <?php }} ?>
                         </div>
-
-                        <div class="form-group row" style="float:right;">
-                            <div class="col-sm-12">
+                        <div class="plus">
+                        <div class="col-xs-1">
                                 <i class="fa fa-plus-circle fa-2x range" onclick="option()" style="color: dodgerblue" aria-hidden="true"></i>
-                                <br><br>
+                                </div> <label class= "addoption" > Add Option</label> </div>
+                                <div class="form-group button">
+                            <div class="col-sm-offset-3 col-sm-6">
                                 <div class="ui buttons">
+                                    <button type="reset" class="ui button"><?php echo display('reset') ?></button>
+                                    <div class="or"></div>
                                     <button class="ui positive button"><?php echo display('save') ?></button>
                                 </div>
                             </div>

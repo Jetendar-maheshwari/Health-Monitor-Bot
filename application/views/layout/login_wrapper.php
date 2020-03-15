@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><!--
@@ -34,7 +34,7 @@
     <link href="<?php echo base_url(); ?>assets/css/navbar.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 </head>
@@ -109,11 +109,11 @@
                     <div class="flasherror js-hint alert alert-danger" style="display: none">
                     </div>
 
-                    <button type="submit" class="btn btn-primary "><?= display('login') ?>
+                    <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
                     </button>
 
 
-                    <li> <a class="btn btn-primary patient_register" data-toggle="modal" >   Patient Register </a>
+                    <li> <a class="btn btn-primary patient_register" data-toggle="modal" >Patient Register </a>
 
 
                     <a  class="btn btn-transparent">Forgot your password?</a>
@@ -292,8 +292,8 @@
                  <div class="icon-center">
                 <i class="fa fa-wpforms fa-4x font-style"   aria-hidden="true"></i>
             </div>
-                <h4 class="para-text">The patient has to register first after registration he has to login
-                with the credientials.After that he has to fill the symptoms forms to see his health state.He can also see his previous history.Get the appointment with the doctor</h4>
+            <p class="step">The patient has to register first after registration he has to login
+                with the credientials.After that he has to fill the symptoms forms to see his health state.He can also see his previous history.Get the appointment with the doctor</p>
 
             </div>
 
@@ -306,9 +306,9 @@
                 </div>
 
 
-                <h4 class="para-text">When the patient condition is critical or moderate he can get the 
+                <p class="step">When the patient condition is critical or moderate he can get the 
                 auto appointment with the doctor and get the alert from hospital that the appointment with the
-                doctor has been fixed  </h4>
+                doctor has been fixed  </p>
             </div>
         </div>
 
@@ -318,14 +318,14 @@
                  <div class="icon-center">
                  <i class="fa fa-calendar fa-4x font-style" aria-hidden="true"></i>
              </div>
-                <h4 class="para-text">The admin of the hospital can see all the patient condition.He can add the sympton survey form.He can make urgent appointment with the doctors  </h4>
+             <p class="step">The admin of the hospital can see all the patient condition.He can add the sympton survey form.He can make urgent appointment with the doctors  </p>
             </div>
             <div class="col-md-6">
                 <h1 class="heading-h1">Step 4</h1>
                  <div class="icon-center">
                 <i class="fa fa-smile-o fa-4x font-style" aria-hidden="true"></i>
             </div>
-                 <h4 class="para-text">At the last step, the patient is very happy that he can save a lot of time and effort if the patient's condition is normal or critical he can get an appointment.The system is beneficial for both the patient and the hospital</h4>
+            <p class="step">At the last step, the patient is very happy that he can save a lot of time and effort if the patient's condition is normal or critical he can get an appointment.The system is beneficial for both the patient and the hospital</p>
             </div>
         </div>
 
@@ -349,39 +349,36 @@
 
     <div id="content">
     <div class="container-footer">
-    <div class="row">
-        <div class="col-md-3 ">
-             <img src="assets/images/mylogo.png" class="image-stylee">
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-4 ">
+            <div id= "thinkbots">
+            <a href="https://thinkbots.tech/" target="_blank"><img src="assets/images/thinkbots.jpg" class="image-stylee"></a>
+                                </div>
+                                <div id="borderbottom"></div>
+                               <p class="intro"> We create automated solutions that help our customers work smarter.</p>
+            </div>
+        <div class="col-md-4">
             <h3 class="underline-text">Address</h3>
-            <p>Technische Universität Chemnitz Straße der Nationen 62
+            <div id="borderbottom"></div>
+            <p class= "address">Technische Universität Chemnitz Straße der Nationen 62
                 09111 Chemnitz, Germany</p>
                
         </div>
        
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h3 class="underline-text">Contact</h3>
-            <p><strong>Website:</strong><a href="https://thinkbots.tech/"> www.thinkbots.tech</a></p>
+            <div id="borderbottom"></div>
+            <div class= "contact">
             <p><strong>Email:</strong> info@thinkbots.tech</p>
             <p><strong>Phone:</strong> +15776798658</p>
-              
-        </div>
-        <div class="col-md-3">
-             <h3 class="underline-text">Social Pages</h3>
-            <div class="center-icons">
-                <a href="https://www.facebook.com/thinkbots5/?modal=admin_todo_tour">
-                  <i class="fa fa-facebook font-style style-facebook" > </i></a>
-                  <a href="https://twitter.com/thinkbots5">
-                  <i class="fa fa-twitter font-style style-facebook" ></i></a>
-            </div>
-        </div>
+            <a href="https://www.facebook.com/thinkbots5" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/thinkbots5" class="fa fa-twitter"></a>
+                                </div>
     </div>
     </div>
 </div>
     <div class="page-border bottom colors-e background-solid" style= bottom:15px right:10px>
-    <a href="#top" class="hover-effect totop">
+    <a href="#navbar" class="hover-effect totop">
         <i class="fa fa-arrow-up fa-arrow-up"></i>
     </a>
 </div>
@@ -463,6 +460,46 @@
         });
     });
 
+
+
+    $(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+jQuery(document).ready(function() { 
+    fadeMenuWrap(); 
+    jQuery(window).scroll(fadeMenuWrap);
+});
+
+function fadeMenuWrap() { 
+    var scrollPos = window.pageYOffset || document.documentElement.scrollTop; 
+    if (scrollPos > 300) { 
+        jQuery('.fa-arrow-up').fadeIn(300); 
+    } else { 
+        jQuery('.fa-arrow-up').fadeOut(300); 
+    } 
+} 
 </script>
 </body>
 </html>
