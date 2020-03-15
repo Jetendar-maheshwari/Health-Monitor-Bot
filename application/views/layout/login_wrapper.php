@@ -374,8 +374,11 @@
             <a href="https://www.facebook.com/thinkbots5" class="fa fa-facebook"></a>
             <a href="https://twitter.com/thinkbots5" class="fa fa-twitter"></a>
                                 </div>
+                                
     </div>
+   
     </div>
+    
 </div>
     <div class="page-border bottom colors-e background-solid" style= bottom:15px right:10px>
     <a href="#navbar" class="hover-effect totop">
@@ -384,6 +387,7 @@
 </div>
     
 </div>
+<div class =copy-right> <p style= "text-align: center">&copy; 2020 Thinkbots<p></div>
 <!-- footer end -->
 
 

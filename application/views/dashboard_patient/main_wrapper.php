@@ -83,7 +83,7 @@ $settings = $this->db->select("site_align")
                         <ul class="nav navbar-nav">
                             <!-- settings -->
                             <li class="dropdown dropdown-user">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="pe-7s-settings"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="pe-7s-menu"></i></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?php echo base_url('dashboard_patient/home/profile'); ?>"><i class="pe-7s-users"></i> <?php echo display('profile') ?></a></li>
                                     <li><a href="<?php echo base_url('dashboard_patient/home/form'); ?>"><i class="pe-7s-settings"></i> <?php echo display('edit_profile') ?></a></li>

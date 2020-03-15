@@ -648,12 +648,7 @@ hr {
 }
 
 .content-header .header-icon {
-    font-size: 55px;
-    color: #37a000;
-    width: 68px;
-    float: left;
-    margin-top: -4px;
-    line-height: 0;
+    display: none;
 }
 
 .content-header .header-title {
@@ -666,11 +661,7 @@ hr {
 }
 
 .content-header .header-title small {
-    font-size: 13px;
-    display: inline-block;
-    padding-left: 4px;
-    font-weight: 600;
-    color: #7a7a7a;
+    display: none;
 }
 
 .header-title .breadcrumb {
@@ -3537,6 +3528,10 @@ pre .arg {
     background-color: #428bca;
     border-color: #3b7cb4;
 }
+.btn-primary:hover {
+    background-color: #37a000 !important;
+    border-color: #37a000 !important;
+}
 
 .btn-primary:hover,
 .btn-primary:focus,
@@ -3575,8 +3570,8 @@ pre .arg {
 /*--- Buttons success ---*/
 
 .btn-success {
-    background-color: #37a000;
-    border-color: #318d01;
+    background-color: #428bca;
+    border-color: #3b7cb4;
 }
 
 .btn-success:hover,
@@ -6121,14 +6116,21 @@ p.step
 
 /*----------footer styling-----------*/
 
-.footer-container
+.container-footer
 {
-    background-color: #989898;
+    height: 250px !important;
+    
 }
+
 #borderbottom {
     border-bottom: 2px solid #29b1d0;
     width: 60%;
     margin: 0 auto;
+}
+.copy-right {
+    border-top: 1px solid grey;
+    background-color: #fff;
+    padding: 4px;
 }
 .fa-facebook {
     background: #3B5998;
@@ -6138,7 +6140,7 @@ p.step
   width: 50px;
   text-align: center;
   text-decoration: none;
-  margin: 15px 2px;
+  margin: 10px 2px;
  
   }
   
@@ -6150,7 +6152,7 @@ p.step
   width: 50px;
   text-align: center;
   text-decoration: none;
-  margin: 15px 2px;
+  margin: 10px 2px;
 
   }
 .container-footer
@@ -6300,4 +6302,18 @@ div.survey_questions_out.row h2 {
             line-height: 1em;
             font-style: normal;
             text-align: center;
+    }
+    span.pe-7s-keypad {
+        color: #29b1d0;  
+    }
+    i.pe-7s-settings ,i.pe-7s-users,i.pe-7s-key,i.pe-7s-menu {
+        color: #29b1d0 !important;
+        background-color: transparent !important;
+        border: none !important
+    }
+    i.pe-7s-key {
+        margin-left: 3px;
+    }
+    h1 {
+        color: #29b1d0 !important;
     }

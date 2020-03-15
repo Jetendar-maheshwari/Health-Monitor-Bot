@@ -84,7 +84,7 @@
                             </div>
 
 
-                            <div class="form-group row">
+                            <div class="form-group button">
                                 <div class="col-sm-offset-3 col-sm-6">
                                     <div class="ui buttons">
                                         <button type="reset" class="ui button"><?php echo display('reset') ?></button>
