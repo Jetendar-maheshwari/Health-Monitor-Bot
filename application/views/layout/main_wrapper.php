@@ -115,14 +115,7 @@ $settings = $this->db->select("site_align")
                         <?php
                         $userRoles = array(
                             '1' => display('admin'),
-                            '2' => display('doctor'),
-                            '3' => display('accountant'),
-                            '4' => display('laboratorist'),
-                            '5' => display('nurse'),
-                            '6' => display('pharmacist'),
-                            '7' => display('receptionist'),
-                            '8' => display('representative'),
-                            '9' => display('case_manager')
+                            '2' => display('doctor')
                         );
                         echo $userRoles[$this->session->userdata('user_role')];
                         ?></a>
