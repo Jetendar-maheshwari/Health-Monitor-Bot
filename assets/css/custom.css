@@ -6229,3 +6229,38 @@ p.address {
 body {
     background-color: #eaebed;
 }
+
+textarea.form-control.mark{
+    margin-top: 15px;
+}
+.col-xs-1.col-form-label {
+    margin-top: 5px;
+}
+.col-xs-1.col-form-label.mark {
+    margin-top: 20px;
+    background-color: transparent; 
+}
+label.col-xs-2.col-form-label {
+margin-top: 2px;
+}
+label.add {
+    margin-top: 8px;
+}
+div.form-group.button {
+    margin: 0 auto;
+    width: 5%;
+}
+label.option {
+    margin-top: 15px !important;
+}
+div.form-group.row.buttons {
+margin: 0 auto;
+width: 1%;
+}
+div.plus {
+    margin: 0 auto;
+    width: 49%;
+}
+label.addoption {
+    padding-left: 6%;
+}

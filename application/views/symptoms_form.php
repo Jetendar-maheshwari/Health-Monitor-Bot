@@ -33,7 +33,7 @@
                         </div>
 
                         <!--Radio-->
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-sm-3"><?php echo display('status') ?></label>
                             <div class="col-xs-9">
                                 <div class="form-check">
@@ -41,7 +41,7 @@
                                     <label class="radio-inline"><input type="radio" name="status" value="0"><?php echo display('inactive') ?></label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <?php if(isset($ranges)){?>
                             <input type="hidden" name="length" id="length" value="<?php echo count($ranges);?>" />
                         <?php } else { ?>
@@ -53,20 +53,23 @@
                                 foreach($ranges as $key=>$range){
                                 ?>
                                 <div class="form-group row ">
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-2">
                                         <input type="hidden" name="range_id<?php echo $key;?>" value="<?php echo $range->range_id; ?>">
                                     </div>
-                                    <label for="name" class="col-xs-1 col-form-label"> From </label>
-                                    <div class="col-xs-2">
+                                    <label for="name" class="col-xs-1 col-form-label"> Range </label>
+                                    <div class="col-xs-4">
                                         <input name="from<?php echo $key;?>" value="<?php echo $range->range_from; ?>"  type="text" class="form-control">
                                     </div>
-                                    <label for="name" class="col-xs-1 col-form-label"> To </label>
-                                    <div class="col-xs-2">
+                                    <label for="name" class="col-xs-1 col-form-label"> _ </label>
+                                    <div class="col-xs-4">
                                         <input name="to<?php echo $key;?>"  value="<?php echo $range->range_to; ?>" type="text" class="form-control">
                                     </div>
-                                    <label for="name" class="col-xs-1 col-form-label"> Remark </label>
                                     <div class="col-xs-2">
-                                        <input name="remarks<?php echo $key;?>" value="<?php echo $range->remarks; ?>"  type="text" class="form-control">
+                                        <input type="hidden" name="range_id<?php echo $key;?>" value="<?php echo $range->range_id; ?>">
+                                    </div>
+                                    <label for="name" class="col-xs-1 col-form-label mark"> Remark </label>
+                                    <div class="col-xs-9">
+                                        <textarea rows="2"<?php echo $key;?> value="<?php echo $range->remarks; ?>"  class="form-control mark"></textarea>
                                         <input type="hidden" value="<?php echo $range->symptoms_id; ?>" name="symptoms_id<?php echo $key;?>" />
                                     </div>
                                 </div>
@@ -79,10 +82,10 @@
                             <div class="col-xs-3"> </div>
                             <div class="col-xs-1">
                                 <i class="fa fa-plus-circle fa-3x range" onclick="ranges()" style="color: dodgerblue" aria-hidden="true"></i>
-                            </div>  <label > Add Ranges</label>
+                            </div>  <label class= "add" > Add Ranges</label>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group button">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <div class="ui buttons">
                                     <button type="reset" class="ui button"><?php echo display('reset') ?></button>
