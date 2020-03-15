@@ -3,7 +3,7 @@
 body {
 
     color: #162d63;
-    background-color: #fff; }
+ }
 
 .btn.btn-primary {
     color: #FFFFFF;
@@ -91,7 +91,6 @@ body {
     position: relative;
     background: #020C17 url("../images/login_backgroud.jpg") no-repeat  ;
     background-size: cover;
-    margin-top: 10px;
     height: 580px;
     padding: 0;
     color: #FFFFFF;
