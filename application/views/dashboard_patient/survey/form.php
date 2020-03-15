@@ -20,7 +20,7 @@
                     <div class="col-md-9 col-sm-12">
 
                             <div class="form-group row">
-                                <label for="sym_id" class="col-xs-3 col-form-label">Symptoms</label>
+                                <label for="sym_id" class="col-xs-3 col-form-label">Choice Symptoms</label>
                                 <div class="col-xs-9" id=  >
                                     <?php echo form_dropdown('sym_id',$symptoms_list,$survey->sym_id,'class="form-control sym" id="sym_id_dropdown"') ?>
                                 </div>

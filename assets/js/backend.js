@@ -29,7 +29,7 @@ $( document ).ready(function() {
                     str+= '<h1> '+ symptoms.name +' </h1>'
                     var questions = symptoms.questions;
                     for (var i=0; i<questions.length; i++){
-                        str+= '<h2 text-align="left" width:100%;>' + "Q." + (i+1) +  questions[i].ques_detail + '</h2>';
+                        str+= '<h2 text-align="left" width:100%;>' + "Q. " + (  i+1) + "&nbsp;&nbsp;&nbsp;" + questions[i].ques_detail + '</h2>';
                         var options = questions[i].options;
                         for(var j=0; j<options.length; j++ ){
                             str+= '<input type="radio" onchange="calculateSCore()" name="questionId_'+questions[i].ques_id+'" value="'+ options[j].opt_id + '_'+  options[j].opt_score+ '"/> <span> '+options[j].opt_descr+' </span> <br>'
