@@ -109,19 +109,21 @@
     function  dynamic_add() {
         let sym_id = $('input[name=sym_id]').val();
         let str =  `<div class="form-group row ">
-                <div class="col-xs-3">
-                </div>
-                <label for="name" class="col-xs-1 col-form-label"> From </label>
                 <div class="col-xs-2">
+                </div>
+                <label for="name" class="col-xs-1 col-form-label"> Range </label>
+                <div class="col-xs-4">
                     <input name="from`+i+`"  type="text" class="form-control" id="from`+i+`">
                 </div>
-                <label for="name" class="col-xs-1 col-form-label"> To </label>
-                <div class="col-xs-2">
+                <label for="name" class="col-xs-1 col-form-label"> _ </label>
+                <div class="col-xs-4">
                     <input name="to`+i+`"  type="text" class="form-control" id="to`+i+`">
                 </div>
-                <label for="name" class="col-xs-1 col-form-label"> Remark </label>
                 <div class="col-xs-2">
-                    <input name="remarks`+i+`"  type="text" class="form-control" id="remarks`+i+`">
+                </div>
+                <label for="name" class="col-xs-1 col-form-label"> Remark </label>
+                <div class="col-xs-9">
+                    <textarea name="remarks`+i+`"  type="text" class="form-control mark" id="remarks`+i+`"></textarea>
                     <input type="hidden" value="`+sym_id+`" name="symptoms_id`+i+`" />
                 </div>
                 </div>`;
@@ -134,4 +136,4 @@
         let formDiv = $('.form-inner .dynamic_range');
         formDiv.append(dynamic_add());
     }
-</script>
+</script> 
