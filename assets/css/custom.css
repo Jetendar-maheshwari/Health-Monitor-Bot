@@ -3525,8 +3525,8 @@ pre .arg {
 /*--- Buttons primary ---*/
 
 .btn-primary {
-    background-color: #428bca;
-    border-color: #3b7cb4;
+    background-color: #29B1D0;
+    border-color: #29B1D0;
 }
 .btn-primary:hover {
     background-color: #37a000 !important;
@@ -3536,8 +3536,8 @@ pre .arg {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-    background-color: #3a95e4;
-    border-color: #3b7cb4;
+    background-color: #29B1D0;
+    border-color: #29B1D0;
 }
 
 .btn-primary.btn-transparent {
@@ -3570,10 +3570,13 @@ pre .arg {
 /*--- Buttons success ---*/
 
 .btn-success {
-    background-color: #428bca;
-    border-color: #3b7cb4;
+    background-color: #29B1D0;
+    border-color: #29B1D0;
 }
-
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #29B1D0;
+    border-color: #29B1D0;
+}
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active {
@@ -6321,4 +6324,7 @@ div.survey_questions_out.row h2 {
     }
     a.btn.btn-primary.requestdemo:hover {
         background-color: #37a000 !important;
+    }
+    i.fa.fa-plus-circle.fa-3x.range {
+        color: #29B1D0 !important;
     }
