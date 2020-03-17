@@ -113,10 +113,9 @@
                     </button>
 
 
-                    <li> <a class="btn btn-primary patient_register" data-toggle="modal" >Patient Register </a>
+                    <a class="btn btn-primary patient_register" data-toggle="modal" >Patient Register </a>
 
-
-                    <a  class="btn btn-transparent">Forgot your password?</a>
+                    <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
 
 
 
@@ -141,6 +140,15 @@
                                         <?php echo validation_errors(); ?>
                                     </div>
                                 <?php } ?>
+
+                    <div class="form-group" style="display:none" id="forgotpannel" >
+
+                            <input type="email" placeholder="Email Address" name="forgetpassword"  required id="forgetpassword" class="form-control">
+
+                         <button align="right" type="button" class="btn btn-primary ">Send
+                         </button>
+                     </div>
+
 
 
                 </div>
@@ -425,7 +433,6 @@
 
     $(document).on("click", ".patient_register", function (e) {
         e.preventDefault();
-        console.log("HEre");
         $.ajax({
             url: "<?php echo base_url();?>" + "patient/create",
             method:"POST",
@@ -435,6 +442,12 @@
             success:function(data){
                 alert("testing" + data);
             }
+        });
+    });
+
+    $(document).ready(function(){
+        $(".forgotbtn").click(function(){
+            $("#forgotpannel").show();
         });
     });
 
