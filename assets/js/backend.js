@@ -1,9 +1,12 @@
 var calculateSCore = function(){
+    debugger;
     var sum = 0;
     var options = $('input[type=radio]');
+
     for(var i=0; i<options.length; i++){
         if(options[i].checked){
-            sum+= parseInt(options[i].value, 10);
+            var split_value = (options[i].value).split('_');
+            sum+= parseInt(split_value[1], 10);
         }
     }
     var divR = $('.result_out');
