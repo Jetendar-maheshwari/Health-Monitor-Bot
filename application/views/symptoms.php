@@ -15,7 +15,7 @@
                         <th><?php echo display('serial') ?></th>
                         <th><?php echo display('name') ?></th>
                         <th><?php echo display('description') ?></th>
-                        <th><?php echo display('status') ?></th>
+                       
                         <th><?php echo display('action') ?></th>
                         <th>Questions</th>
                     </tr>
@@ -28,7 +28,7 @@
                                 <td><?php echo $sl; ?></td>
                                 <td><?php echo $symptom->name; ?></td>
                                 <td><?php echo character_limiter($symptom->description, 60); ?></td>
-                                <td><?php echo (($symptom->status==1)?display('active'):display('inactive')); ?></td>
+
                                 <td class="center">
                                     <a href="<?php echo base_url("symptoms/edit/$symptom->sym_id") ?>" class="btn btn-xs  btn-primary"><i class="fa fa-edit"></i></a>
                                     <a href="<?php echo base_url("symptoms/delete/$symptom->sym_id") ?>" onclick="return confirm('<?php echo display("are_you_sure") ?>')" class="btn btn-xs  btn-danger"><i class="fa fa-trash"></i></a>

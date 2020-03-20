@@ -59,11 +59,13 @@ class Survey extends CI_Controller {
             $data[$key] = $value;
         }
         $userId = $this->session->userdata('user_id');
-        $userName = $this->session->userdata('fullname');
-        var_dump($userId);
+
+        $this->survey_model->saveorupdateSurvey($userId, $data);
+
+        /*var_dump($userId);
         var_dump($userName);
         var_dump($data);
-        die;
+        die;*/
     }
 
     public function getSymptomsDetail(){

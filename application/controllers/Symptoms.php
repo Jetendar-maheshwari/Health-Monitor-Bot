@@ -36,13 +36,13 @@ class Symptoms extends CI_Controller {
 		#-------------------------------#
 		$this->form_validation->set_rules('name', display('name') ,'required|max_length[100]');
 		$this->form_validation->set_rules('description', display('description'),'trim');
-		$this->form_validation->set_rules('status', display('status') ,'required');
+		//$this->form_validation->set_rules('status', display('status') ,'required');
 		#-------------------------------#
 		$data['symptoms'] = (object)$postData = [
 			'sym_id' 	  => $this->input->post('sym_id',true),
 			'name' 		  => $this->input->post('name',true),
 			'description' => $this->input->post('description',true),
-			'status'      => $this->input->post('status',true)
+			'status'      => 1
 		];
 
 		#-------------------------------#

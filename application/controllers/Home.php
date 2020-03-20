@@ -117,6 +117,8 @@ class Home extends CI_Controller {
         $contactno = $this->input->post('contactno',true);
         $message = $this->input->post('message',true);
 
+        var_dump($name, $hospitalname);
+        die;
 
         //Load email library
         $this->load->library('email');
@@ -155,6 +157,9 @@ class Home extends CI_Controller {
         $this->email->subject($hospitalname);
         $this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno);
 
+        var_dump($this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno));
+        die;
+
 //Send email
         if($this->email->send()){
             echo 'Email Sent Successfully';
@@ -168,5 +173,9 @@ class Home extends CI_Controller {
 
     }
 
+    public function savePatient(){
 
+        var_dump("Here");
+        die;
+    }
 }

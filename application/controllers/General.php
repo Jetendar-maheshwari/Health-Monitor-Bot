@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Patient extends CI_Controller {
+class General extends CI_Controller {
 
 	public function __construct()
 	{
@@ -13,9 +13,6 @@ class Patient extends CI_Controller {
             'document_model' 
 		));
 
-		if ($this->session->userdata('isLogIn') == false
-			|| $this->session->userdata('user_role') != 1) 
-			redirect('login');
 	}
  
 	public function index()
@@ -45,8 +42,10 @@ class Patient extends CI_Controller {
 	public function create()
 	{
 
-        //return json_encode(array("status"=>200, "message"=>"Successfully updated record!"));
-		$data['title'] = display('add_patient');
+        $this->load->view('Modal/modal_patient_register',true);
+
+        return json_encode(array("status"=>200, "message"=>"Successfully updated record!"));
+		/*$data['title'] = display('add_patient');
         $id = $this->input->post('id');
 		#-------------------------------#
 		$this->form_validation->set_rules('firstname', display('first_name'),'required|max_length[50]');
@@ -157,7 +156,7 @@ class Patient extends CI_Controller {
 		} else {
 			$data['content'] = $this->load->view('patient_form',$data,true);
 			$this->load->view('layout/main_wrapper',$data);
-		}
+		}*/
 	}
 
 

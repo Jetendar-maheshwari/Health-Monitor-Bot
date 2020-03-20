@@ -14,7 +14,7 @@
                         <tr>
                             <th><?php echo display('serial') ?></th>
                             <th><?php echo display('ques_detail') ?></th>
-                            <th>Status</th>
+                            <th><?php echo display('action') ?></th>
 
                         </tr>
                     </thead>

@@ -152,7 +152,7 @@ $settings = $this->db->select("site_align")
                     <ul class="treeview-menu">
                         <li><a href="<?php echo base_url("symptoms/create") ?>"><?php echo display('add_symptoms') ?></a></li>
                         <li><a href="<?php echo base_url("symptoms") ?>"><?php echo display('symptoms_list') ?></a></li>
-                        <li><a href="<?php echo base_url("symptoms") ?>"><?php echo display('symptoms_list') ?></a></li>
+
                     </ul>
                 </li>
 
@@ -275,8 +275,8 @@ $settings = $this->db->select("site_align")
             <div class="p-l-30 p-r-30">
                 <div class="header-icon"><i class="fa fa-heartbeat"></i></div>
                 <div class="header-title">
-                    <h1><?php echo str_replace('_', ' ', ucfirst($this->uri->segment(1))) ?></h1>
-                    <small><?php echo (!empty($title)?$title:null) ?></small>
+                    <h1><?php echo (!empty($title)?$title:null) ?></h1>
+
                 </div>
             </div>
         </section>

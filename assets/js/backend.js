@@ -1,5 +1,4 @@
 var calculateSCore = function(){
-    debugger;
     var sum = 0;
     var options = $('input[type=radio]');
 
@@ -11,7 +10,9 @@ var calculateSCore = function(){
     }
     var divR = $('.result_out');
     divR.empty();
-    divR.append('<h1>' + sum + ' ' + (sum>1? 'Points' : 'Point') + '</h1>');
+    divR.append('<h1 >' + sum + ' ' + (sum>1? 'Points' : 'Point') + '</h1>');
+    divR.append('<input type="hidden" id="points" name="'+ sum +'" >');
+
 };
 
 $( document ).ready(function() {

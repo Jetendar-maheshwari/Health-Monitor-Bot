@@ -91,27 +91,7 @@ class Dashboard extends CI_Controller {
             case 2:
                     redirect('dashboard_doctor/home');
                 break;  
-            case 3:
-                    redirect('dashboard_accountant/home');
-                break; 
-            case 4:
-                    redirect('dashboard_laboratorist/home');
-                break;  
-            case 5:
-                    redirect('dashboard_nurse/home');
-                break; 
-            case 6:
-                    redirect('dashboard_pharmacist/home');
-                break;  
-            case 7:
-                    redirect('dashboard_receptionist/home');
-                break;  
-            case 8:
-                    redirect('dashboard_representative/home');
-                break;
-            case 9:
-                    redirect('dashboard_case_manager/home');
-                break; 
+
             case 10:
                     redirect('dashboard_patient/home');
                 break; 

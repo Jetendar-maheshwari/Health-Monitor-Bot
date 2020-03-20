@@ -28,6 +28,27 @@ class Survey_model extends CI_Model {
 		}
 	}
 
+	public function saveorupdateSurvey($userId , $data){
+
+        //$this->db->set('patient_id', $userId);
+        var_dump($data);
+         var_dump($data['sym_id']);
+         $symId = $data['sym_id'];
+        $this->db->select('*');
+        $this->db->from('question');
+        $this->db->where('sym_id', $symId);
+        $qResult  = $this->db->get()->result();
+        foreach ($qResult as $item){
+            var_dump($data['questionId_'. $item->ques_id]);
+                var_dump($data['questionId_'. $item->ques_id].str_split('_'));
+
+        }
+
+         die;
+
+
+    }
+
 	public function symptoms_detail($symptId)
     {
         $symp = null;
