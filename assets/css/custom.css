@@ -6328,3 +6328,13 @@ div.survey_questions_out.row h2 {
     i.fa.fa-plus-circle.fa-3x.range {
         color: #29B1D0 !important;
     }
+
+    .table-striped>tbody>tr:first-child {
+        background-color: #29B1D0;
+        color: #fff;
+    } 
+
+    .table-striped {
+        width: 90%;
+        margin: 0 auto;
+    }
