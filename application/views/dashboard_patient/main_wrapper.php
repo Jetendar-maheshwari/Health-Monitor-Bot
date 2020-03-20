@@ -116,7 +116,7 @@ $settings = $this->db->select("site_align")
                     <!-- sidebar menu -->
                     <ul class="sidebar-menu"> 
                         <li class="<?php echo (($this->uri->segment(2) == 'home') ? "active" : null) ?>">
-                            <a href="<?php echo base_url('dashboard_patient/home') ?>"><i class="fa fa-home"></i> <?php echo display('dashboard') ?></a>
+                            <a href="<?php echo base_url('dashboard_patient/home') ?>"><i class="fa fa-clock-o"></i> Appointment</a>
                         </li>   
 
                         <li class="<?php echo (($this->uri->segment(2) == 'case_manager') ? "active" : null) ?>">
