@@ -85,7 +85,6 @@
                         $userRoles = array(
                             ''  => display('select_user_role'),
                             '1' => display('admin'),
-                            '2' => display('doctor'),
                             '10' => display('patient')
                         );
                         echo form_dropdown('user_role', $userRoles, $user->user_role, 'class="form-control" id="user_role" ');

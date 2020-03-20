@@ -108,31 +108,28 @@ $settings = $this->db->select("site_align")
                         </div>
                         <div class="info">
                             <p><?php echo $this->session->userdata('fullname') ?></p>
-                            <a href="#"><i class="fa fa-circle text-success"></i>
-                            <?php echo display('patient'); ?></a>
+
                         </div>
                     </div> 
 
                     <!-- sidebar menu -->
                     <ul class="sidebar-menu"> 
                         <li class="<?php echo (($this->uri->segment(2) == 'home') ? "active" : null) ?>">
-                            <a href="<?php echo base_url('dashboard_patient/home') ?>"><i class="fa fa-clock-o"></i> Appointment</a>
+                            <a href="<?php echo base_url('dashboard_patient/home') ?>"><i class="fa fa-clock-o"></i> <?php echo display('appointment') ?></a>
                         </li>   
 
-                        <li class="<?php echo (($this->uri->segment(2) == 'case_manager') ? "active" : null) ?>">
-                            <a href="<?php echo base_url('dashboard_patient/case_manager/patient/index') ?>"><i class="fa fa-heartbeat"></i><span> <?php echo display('status') ?></a>
-                        </li>
+
 
                         <li class="treeview <?php echo (($this->uri->segment(2) == "survey") ? "active" : null) ?>">
                             <a href="#">
-                                <i class="fa fa-align-left"></i><span>Patient Survey</span>
+                                <i class="fa fa-align-left"></i><span>Symptoms Surveys</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo base_url("dashboard_patient/survey/survey/form") ?>">Fill Survey</a></li>
-                                <li><a href="<?php echo base_url("dashboard_patient/survey/survey/index") ?>">Check Survey History</a></li>
+                                <li><a href="<?php echo base_url("dashboard_patient/survey/survey/form") ?>"><?php echo display('fill_survey') ?></a></li>
+                                <li><a href="<?php echo base_url("dashboard_patient/survey/survey/index") ?>"><?php echo display('survey_history') ?></a></li>
                             </ul>
                         </li>
 
@@ -150,12 +147,6 @@ $settings = $this->db->select("site_align")
                             </ul>
                         </li>
 
-
-                       
-
-
-
-
                     </ul>
                 </div> <!-- /.sidebar -->
             </aside>
@@ -168,7 +159,10 @@ $settings = $this->db->select("site_align")
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><i class="fa fa-medkit buttons-color"></i></div>
                         <div class="header-title">
+
                             <h1><?php echo ucwords(str_replace('_', ' ', $this->uri->segment(1))) ?></h1>
+
+                            <h2><?php echo (!empty($title)?$title:null) ?></h2>
                             <small><?php echo (!empty($title)?$title:null) ?></small> 
                         </div>
                     </div>

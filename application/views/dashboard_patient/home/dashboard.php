@@ -9,9 +9,9 @@
                         <tr>
                             <th><?php echo display('serial') ?></th>
                             <th><?php echo display('appointment_id') ?></th>
-                            <th><?php echo display('type') ?>
+
                             <th><?php echo display('doctor_name') ?></th></th>
-                            <th><?php echo display('visiting_fees') ?></th></th>
+
                             <th><?php echo display('date') ?></th>
                             <th width="80"><?php echo display('action') ?></th>
                         </tr>
