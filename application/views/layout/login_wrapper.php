@@ -115,7 +115,6 @@
 
                     <a class="btn btn-primary patient_register" data-toggle="modal" >Patient Register </a>
 
-
                     <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
 
 
@@ -146,10 +145,12 @@
 
                             <input type="email" placeholder="Email Address" name="forgetpassword"  required id="forgetpassword" class="form-control">
 
-                         <button align="right" type="button" class="btn btn-primary ">Send
+                            
+                            
+                         <button type="button" class="btn btn-primary fp ">Send
                          </button>
-                     </div>
-
+                        </div>
+                        
 
 
                 </div>
@@ -157,7 +158,7 @@
 
         </div>
 
-
+        <div id="testmodal" class="modal fade">
         <div class="wingBanner banner-solo" id="About" >
 
             <h2>About </h2>
@@ -170,7 +171,7 @@
                 between the patient and the hospital.
             </p>
         </div>
-
+        </div>
 
         <!--Modal for Trail Request-->
         <div id="requestmodal" class="modal fade">
@@ -238,13 +239,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="username">User Name <i class="text-danger">*</i></label>
                                 <div class="col-sm-12">
-                                    <input type="text" placeholder="Name" name="username" id="username" required class="form-control" >
+                                <input type="text" placeholder="Name" name="username" id="username" required class="form-control" >
                                 </div>
-                            </div>
+                                </div>
                             <div class="form-group">
                                 <label class="control-label  col-sm-3" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
                                 <div class="col-sm-12">
-                                    <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
+                                <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -252,7 +253,7 @@
                                 <div class="col-sm-12">
                                     <input type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
                                 </div>
-                            </div>
+                                </div>
                             <div class="form-group">
                                 <label class="control-label  col-sm-3" for="contactno">Contact No</label>
                                 <div class="col-sm-12">
@@ -264,7 +265,7 @@
                             <div class="form-group">
                                 <label class="control-label  col-sm-3" for="message">Message <i class="text-danger">*</i></label>
                                 <div class="col-sm-12">
-                                    <input type="text-area"  name="message" id="message" required class="form-control">
+                                <input type="text-area"  name="message" id="message" required class="form-control">
                                 </div>
                             </div>
 
@@ -274,7 +275,7 @@
 
                                 <div class="col-sm-2">
                                     <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                    <button  class="btn btn-primary btn-sm sendMail" id="sendMail"  >Save</button>
+                                <button  class="btn btn-primary btn-sm" >Save</button>
                                 </div>
                             </div>
                         </form>
@@ -290,7 +291,7 @@
     <div class="container" id="offer">
         <div class="container-wrapper">
             <c class='fa fa-hand-o-right faa-wrench animated fa-4x'></c>
-            <h1>Monitor Health In Few Steps
+            <h1>Health Monitoring in Few Steps
             </h1>
          </div>
 
@@ -429,26 +430,21 @@
         })
     });
 
-
-
-    var BASE_URL = "<?php echo base_url();?>";
-
-
     var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
         csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
+
     $(document).on("click", ".patient_register", function (e) {
         e.preventDefault();
         $.ajax({
-            url: 'Home/savePatient',
+            url: "<?php echo base_url();?>" + "patient/create",
             method:"POST",
-            success: function(){
-                alert("success");
+            data:{
+                [csrfName]: csrfHash,
             },
-            error: function(){
-                alert("error");
+            success:function(data){
+                alert("testing" + data);
             }
         });
-
     });
 
     $(document).ready(function(){
@@ -457,9 +453,9 @@
         });
     });
 
-
     $(document).on("click", "#sendMail", function (e) {
         e.preventDefault();
+
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
         var emailaddress = $('#emailaddress').val();
@@ -467,7 +463,7 @@
         var message = $('#message').val();
 
         $.ajax({
-            url: "<?php echo base_url();?>" + "Home/requestTrail",
+            url: "dashboard_patient/Survey/getSymptomsDetail",
             method:"POST",
             data:{
                 [csrfName]: csrfHash,
@@ -478,7 +474,7 @@
                 message:message
             },
             success:function(data){
-
+                //alert("Data Send");
             }
         });
     });

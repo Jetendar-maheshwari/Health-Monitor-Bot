@@ -201,7 +201,7 @@ $settings = $this->db->select("site_align")
 
                 <li class="treeview <?php echo (($this->uri->segment(1) == "appointment" || $this->uri->segment(1) == "report") ? "active" : null) ?>">
                     <a href="#">
-                        <i class="fa fa-pencil"></i> <span><?php echo display('appointment') ?></span>
+                        <i class="fa fa-clock-o"></i> <span><?php echo display('appointment') ?></span>
                         <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
