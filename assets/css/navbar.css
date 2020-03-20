@@ -115,6 +115,11 @@ body {
 
     width: 49%; }
 
+    button.btn.btn-primary.fp  {
+width: 100px !important;
+margin-top: 15px;
+    }
+
 #section-loginBox form .btn.btn-transparent {
     color: #FFFFFF;
     text-shadow: 1px 1px 1px #000; }
