@@ -161,8 +161,6 @@ $settings = $this->db->select("site_align")
                         <div class="header-title">
 
                             <h1><?php echo ucwords(str_replace('_', ' ', $this->uri->segment(1))) ?></h1>
-
-                            <h2><?php echo (!empty($title)?$title:null) ?></h2>
                             <small><?php echo (!empty($title)?$title:null) ?></small> 
                         </div>
                     </div>
