@@ -20,7 +20,7 @@
                             <th><?php echo display('end_time') ?></th>
                             <th><?php echo display('per_patient_time') ?></th>
                             <th><?php echo display('serial_visibility_type') ?></th>
-                            <th><?php echo display('status') ?></th>
+
                             <th><?php echo display('action') ?></th>
                         </tr>
                     </thead>
@@ -37,7 +37,7 @@
                                     <td><?php echo $schedule->end_time; ?></td>
                                     <td><?php echo $schedule->per_patient_time; ?></td>
                                     <td><?php echo (($schedule->serial_visibility_type==1)?display('sequential'):display('timestamp')); ?></td>
-                                    <td><?php echo (($schedule->status==1)?display('active'):display('inactive')); ?></td>
+                                    
                                     <td class="center">
                                         <a href="<?php echo base_url("schedule/edit/$schedule->schedule_id") ?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a> 
                                         <a href="<?php echo base_url("schedule/delete/$schedule->schedule_id") ?>" onclick="return confirm('<?php echo display('are_you_sure') ?>')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a> 

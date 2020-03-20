@@ -30,17 +30,6 @@
                                     <textarea name="description" class="form-control"  placeholder="<?php echo display('description') ?>" rows="7"><?php echo $department->description ?></textarea>
                                 </div>
                             </div>
-
-                            <!--Radio-->
-                            <div class="form-group row">
-                                <label class="col-sm-3"><?php echo display('status') ?></label>
-                                <div class="col-xs-9"> 
-                                    <div class="form-check">
-                                        <label class="radio-inline"><input type="radio" name="status" value="1" checked><?php echo display('active') ?></label>
-                                        <label class="radio-inline"><input type="radio" name="status" value="0"><?php echo display('inactive') ?></label>
-                                    </div>
-                                </div>
-                            </div>
                             
                             <div class="form-group button">
                                 <div class="col-sm-offset-3 col-sm-6">

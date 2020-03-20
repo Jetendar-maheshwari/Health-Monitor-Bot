@@ -33,13 +33,13 @@ class Department extends CI_Controller {
 		#-------------------------------#
 		$this->form_validation->set_rules('name', display('department_name') ,'required|max_length[100]');
 		$this->form_validation->set_rules('description', display('description'),'trim');
-		$this->form_validation->set_rules('status', display('status') ,'required');
+
 		#-------------------------------#
 		$data['department'] = (object)$postData = [
 			'dprt_id' 	  => $this->input->post('dprt_id',true),
 			'name' 		  => $this->input->post('name',true),
 			'description' => $this->input->post('description',true),
-			'status'      => $this->input->post('status',true)
+			'status'      => 1
 		];
 		#-------------------------------#
 		if ($this->form_validation->run() === true) {

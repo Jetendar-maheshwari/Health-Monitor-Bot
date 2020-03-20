@@ -36,7 +36,6 @@ class Schedule extends CI_Controller {
 		$this->form_validation->set_rules('available_days[]', display('available_days'),'required|min_length[1]');
 		$this->form_validation->set_rules('per_patient_time', display('per_patient_time'),'required|min_length[1]');
 		$this->form_validation->set_rules('serial_visibility_type', display('serial_visibility_type') ,'max_length[5]');
-		$this->form_validation->set_rules('status', display('status'),'required');
 		#-------------------------------# 
 		$data['schedule'] = (object)$postData = [
 			'schedule_id' 	 => $this->input->post('schedule_id',true),
@@ -45,8 +44,7 @@ class Schedule extends CI_Controller {
 			'start_time' 	 => $this->input->post('start_time',true),
 			'end_time' 	 	 => $this->input->post('end_time',true),
 			'per_patient_time' => $this->input->post('per_patient_time',true),
-			'serial_visibility_type' => $this->input->post('serial_visibility_type',true),
-			'status'         => $this->input->post('status',true)
+			'serial_visibility_type' => $this->input->post('serial_visibility_type',true)
 		];  
 		#-------------------------------#
 		if ($this->form_validation->run() === true) {

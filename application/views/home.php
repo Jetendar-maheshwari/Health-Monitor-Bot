@@ -37,7 +37,7 @@
             <div class="panel-body">
                 <div class="statistic-box">
                     <h2><span class="count-number"><?php echo (!empty($notify->total_representative) ? $notify->total_representative : null) ?></span> <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i></span></h2>
-                    <div class="small"><?= display('representative') ?></div>
+                    <div class="small">Symptoms</div>
                     <div class="sparkline4"></div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         <div class="panel panel-default" id="js-timer">
             <div class="panel-body">
                 <div class="widget-title">
-                    <h3><?= display('total_progress')?></h3>
+                    <h3>Yearly Progress</h3>
                     <span><?= display('last_year_status') ?></span>
                 </div>
                 <canvas id="lineChart" height="170"></canvas>
@@ -63,8 +63,8 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3><?= display('enquiry') ?></h3>
-                <span><?= display('latest_enquiry') ?></span>
+                <h3>Patient Survey </h3>
+                <span>Latest Survey Filled</span>
             </div>
             <div class="panel-body"> 
                 <div class="message_inner">
@@ -98,7 +98,7 @@
                 labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
                 datasets: [
                     {
-                        label: "Patient",
+                        label: "Survey",
                         borderColor: "#2C3136",
                         borderWidth: "1",
                         backgroundColor: "rgba(0,0,0,.07)",

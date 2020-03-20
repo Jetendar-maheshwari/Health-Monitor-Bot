@@ -15,7 +15,6 @@
                             <th><?php echo display('serial') ?></th>
                             <th><?php echo display('department_name') ?></th>
                             <th><?php echo display('description') ?></th>
-                            <th><?php echo display('status') ?></th>
                             <th><?php echo display('action') ?></th>
                         </tr>
                     </thead>
@@ -27,7 +26,6 @@
                                     <td><?php echo $sl; ?></td>
                                     <td><?php echo $department->name; ?></td>
                                     <td><?php echo character_limiter($department->description, 60); ?></td>
-                                    <td><?php echo (($department->status==1)?display('active'):display('inactive')); ?></td>
                                     <td class="center">
                                         <a href="<?php echo base_url("department/edit/$department->dprt_id") ?>" class="btn btn-xs  btn-primary"><i class="fa fa-edit"></i></a> 
                                         <a href="<?php echo base_url("department/delete/$department->dprt_id") ?>" onclick="return confirm('<?php echo display("are_you_sure") ?>')" class="btn btn-xs  btn-danger"><i class="fa fa-trash"></i></a> 

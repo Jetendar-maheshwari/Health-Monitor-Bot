@@ -174,7 +174,6 @@ class Home extends CI_Controller {
     }
 
     public function savePatient(){
-
         var_dump("Here");
         die;
     }
