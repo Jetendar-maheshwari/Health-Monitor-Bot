@@ -44,7 +44,7 @@ $( document ).ready(function() {
                     var div2 = $('.range_out');
                     div2.empty();
                     var ranges = symptoms.ranges;
-                    var strr = '<table class="table table-striped " border="1"   > <tr>  <th> Range From </th> <th> Range To </th> <th> Remarks </th> </tr> ';
+                    var strr = '<table class="table table-striped remark " border="1"   > <tr>  <th> Range From </th> <th> Range To </th> <th> Remarks </th> </tr> ';
                     for (var i=0; i<ranges.length; i++){
                         strr+= `<td>${ranges[i].range_from}</td> <td> ${ranges[i].range_to} </td> <td> ${ranges[i].remarks} </td> </tr>`;
                     }

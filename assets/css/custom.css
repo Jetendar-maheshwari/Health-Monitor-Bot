@@ -6329,7 +6329,7 @@ div.survey_questions_out.row h2 {
         color: #29B1D0 !important;
     }
 
-    .table-striped>tbody>tr:first-child {
+    table.table.table-striped.remark >tbody>tr:first-child {
         background-color: #29B1D0;
         color: #fff;
     } 
