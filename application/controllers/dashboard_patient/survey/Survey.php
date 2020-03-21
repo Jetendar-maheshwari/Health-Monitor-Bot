@@ -14,9 +14,9 @@ class Survey extends CI_Controller {
 
 	public function index()
 	{ 
-		$data['title'] = display('document_list');
-		$data['documents'] = $this->document_model->read($this->session->userdata('user_id'));
-		$data['content'] = $this->load->view('dashboard_patient/document/document', $data, true);
+		$data['title'] = display('survey_list');
+		$data['surveys'] = $this->survey_model->read($this->session->userdata('user_id'));
+		$data['content'] = $this->load->view('dashboard_patient/survey/survey', $data, true);
 		$this->load->view('dashboard_patient/main_wrapper',$data);
 	} 
 

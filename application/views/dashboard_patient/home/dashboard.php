@@ -25,7 +25,7 @@
                             <tr>
                                 <td><?php echo $sl; ?></td>
                                 <td><?php echo $value->appointment_id; ?></td>
-                             
+
                                 <td><?php echo $value->doctor_name; ?></td>
 
                                 <td><?php echo date('d-m-Y', strtotime($value->date)); ?></td>

@@ -29,11 +29,11 @@ class Survey_model extends CI_Model {
 	}
 
 	public function saveorupdateSurvey($userId , $data){
+        $symId = $data['sym_id'];
 
-        //$this->db->set('patient_id', $userId);
-        var_dump($data);
+     /*   var_dump($data);
          var_dump($data['sym_id']);
-         $symId = $data['sym_id'];
+
         $this->db->select('*');
         $this->db->from('question');
         $this->db->where('sym_id', $symId);
@@ -43,8 +43,13 @@ class Survey_model extends CI_Model {
                 var_dump($data['questionId_'. $item->ques_id].str_split('_'));
 
         }
+        die;*/
 
-         die;
+        $dt = new DateTime();
+        $this->db->set('sym_id', $symId);
+        $this->db->set('patient_id', $userId);
+        $this->db->set('filled_date', $dt->format('Y-m-d H:i:s'));
+        $this->db->insert('patient_survey');
 
 
     }
@@ -111,29 +116,24 @@ class Survey_model extends CI_Model {
 
 
     public function read($id = null)
-	{
-		return $this->db->query("
+    {
+        return $this->db->query("
 			SELECT 
-				document.*,
-				CONCAT_WS(' ',u1.firstname, u1.lastname) AS doctor_name,
-				IF (document.upload_by=0,'Patient',CONCAT_WS(' ',u2.firstname, u2.lastname)) AS upload_by
+				patient_survey.*,
+				symptoms.name As Sym_name
 			FROM 
-				document
+				patient_survey
 			INNER JOIN 
-				patient ON patient.patient_id = document.patient_id
-			INNER JOIN 
-				cm_patient ON cm_patient.patient_id = document.patient_id
-			LEFT JOIN 
-				user u1 ON u1.user_id = document.doctor_id
-			LEFT JOIN 
-				user u2 ON u2.user_id = document.upload_by
+				symptoms ON symptoms.sym_id = patient_survey.sym_id
+			
 			WHERE 
-				patient.id = $id
-			GROUP BY 
-				document.id
+				patient_survey.patient_id = $id
+			
 			")
-			->result(); 
-	} 
+            ->result();
+    }
+
+
 
 	public function delete($id = null)
 	{

@@ -129,7 +129,7 @@ $settings = $this->db->select("site_align")
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="<?php echo base_url("dashboard_patient/survey/survey/form") ?>"><?php echo display('fill_survey') ?></a></li>
-                                <li><a href="<?php echo base_url("dashboard_patient/survey/survey/index") ?>"><?php echo display('survey_history') ?></a></li>
+                                <li><a href="<?php echo base_url("dashboard_patient/survey/survey") ?>"><?php echo display('survey_history') ?></a></li>
                             </ul>
                         </li>
 
