@@ -1,7 +1,7 @@
 <div class="row">
     <!--  form area -->
     <div class="col-sm-12">
-        <div  class="panel panel-default thumbnail"> 
+        <div  class="panel panel-default thumbnail">
 
             <div class="panel-heading">
                 <div class="btn-group">
@@ -9,16 +9,11 @@
                 </div>
             </div>
 
-
-
+            <?php echo form_open_multipart('dashboard_patient/survey/survey/submitSurvey','class="form-inner" id="mailForm" ') ?>
             <div class="panel-body">
-                <?php echo form_open_multipart('dashboard_patient/survey/survey/submitSurvey','class="form-inner" id="mailForm" ') ?>
-
                 <div class="row">
                     <div id="output" class="hide alert"></div>
-
                     <div class="col-md-9 col-sm-12">
-
                             <div class="form-group row">
                                 <label for="sym_id" class="col-xs-3 col-form-label">Choose Symptom</label>
                                 <div class="col-xs-9" id=  >
@@ -34,17 +29,23 @@
                 </div>
 </div>
                 <div class="result_out">
-
                 </div>
                 <div class="col-xs-1 col-xs-offset-0"></div>
                 <div class="col-xs-10">
-                <div class="range_out">
+                    <div class="range_out">
+                    </div>
                 </div>
                 </div>
+
+                <div class="alert alert-danger" id="submitError" style="display: none;">
+                    <strong>Danger!</strong> <span> </span>
                 </div>
+                <input type="hidden" name="total_score" id="total_score"/>
                 <div style="text-align:center">
-                <button type="submit"  class="btn-success patientsubmit">Submit</button>
+                    <button type="submit" style="display:none;" id="patientSubmitSurveyForm"  class="btn-success patientsubmit">Submit</button>
                 </div>
+
+
             </div>
             <?php echo form_close() ?>
         </div>

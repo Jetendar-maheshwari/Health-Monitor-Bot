@@ -17,7 +17,16 @@ class Symptoms_model extends CI_Model {
 			->order_by('sym_id','desc')
 			->get()
 			->result();
-	} 
+	}
+
+    public function read_by_sym_id($sym_id = null)
+    {
+        $ranges = $this->db->select("*")
+            ->from('sym_ranges')
+            ->where('symptoms_id',$sym_id)
+            ->get()->result();
+        return $ranges;
+    }
  
 	public function read_by_id($sym_id = null)
 	{

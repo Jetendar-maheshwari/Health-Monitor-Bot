@@ -1,7 +1,20 @@
+$(document).ready(function () {
+    // Client side validation
+    $('#patientSubmitSurveyForm').on('click', function(e) {
+        let $points = $('.result_out>h1>span').text();
+        if(!$points || ($points && parseInt($points, 10) < 1)){
+            $('#submitError').css('display','inline');
+            $('#submitError > span').text('Please choose symptoms before submit a form!');
+            e.preventDefault(); //prevent the default action
+        }
+    });
+});
+
+
 var calculateSCore = function(){
+    $('#submitError').css('display','none');
     var sum = 0;
     var options = $('input[type=radio]');
-
     for(var i=0; i<options.length; i++){
         if(options[i].checked){
             var split_value = (options[i].value).split('_');
@@ -10,9 +23,9 @@ var calculateSCore = function(){
     }
     var divR = $('.result_out');
     divR.empty();
-    divR.append('<h1 >' + sum + ' ' + (sum>1? 'Points' : 'Point') + '</h1>');
+    divR.append('<h1> <span>' + sum + '</span> ' + (sum>1? 'Points' : 'Point') + '</h1>');
     divR.append('<input type="hidden" id="points" name="'+ sum +'" >');
-
+    $('#total_score').val(sum);
 };
 
 $( document ).ready(function() {
@@ -50,6 +63,9 @@ $( document ).ready(function() {
                     }
                     strr+= '</table>';
                     div2.append(strr);
+
+                    //Add submit button now
+                    $('#patientSubmitSurveyForm').css('display','inline');
                 }
             }
         });
