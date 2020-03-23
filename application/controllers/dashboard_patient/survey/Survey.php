@@ -74,7 +74,6 @@ class Survey extends CI_Controller {
         echo json_encode($response);
     }
 
-
     public function delete($id = null)
     {
     	if ($this->document_model->delete($id)) {
