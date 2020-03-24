@@ -3,11 +3,32 @@
 class Survey_model extends CI_Model {
 
 	private $table = "patient_survey";
+	private $survey_child_table = 'patient_survey_child';
  
 	public function create($data = [])
 	{	 
 		return $this->db->insert($this->table,$data);
 	}
+
+	public function createWithChild($data){
+        $questions = null;
+        $this->db->insert($this->table,$data);
+        $survey_id = $this->db->insert_id();
+
+        foreach ($_POST as $key => $value) {
+            $split = explode('_', $key);
+            if($split[0] == 'questionId'){
+                $opt = explode('_', $value);
+                $questions[] = array(
+                    'ques_id' => $split[1],
+                    'opt_id' => $opt[0],
+                    'survey_id' => $survey_id
+                );
+            }
+        }
+
+        $this->db->insert_batch($this->survey_child_table, $questions);
+    }
   
 	public function symptoms_list()
 	{

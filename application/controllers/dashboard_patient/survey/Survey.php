@@ -65,7 +65,6 @@ class Survey extends CI_Controller {
     public function submitSurvey(){
         $points = $_POST['total_score'];
         $data = null;
-
         $range_object = null;
         // Range logic
         $ranges = $this->symptoms_model->read_by_sym_id($_POST['sym_id']);
@@ -83,7 +82,7 @@ class Survey extends CI_Controller {
         $data['total_score'] = $_POST['total_score'];
         $data['remarks'] = $range_object->remarks;
 
-        $this->survey_model->create($data);
+        $this->survey_model->createWithChild($data);
 
         $this->session->set_flashdata('message', display('save_successfully'));
         redirect('dashboard_patient/survey/survey/form');

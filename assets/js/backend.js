@@ -1,10 +1,10 @@
 $(document).ready(function () {
     // Client side validation
     $('#patientSubmitSurveyForm').on('click', function(e) {
-        let $points = $('.result_out>h1>span').text();
-        if(!$points || ($points && parseInt($points, 10) < 1)){
+        var options = $('input[type=radio]:checked');
+        if(numberOfQuestions != options.length){
             $('#submitError').css('display','inline');
-            $('#submitError > span').text('Please choose symptoms details before submit a form!');
+            $('#submitError > span').text('Please choose all symptoms details before submit a form!');
             e.preventDefault(); //prevent the default action
         }
     });
@@ -28,6 +28,7 @@ var calculateSCore = function(){
     $('#total_score').val(sum);
 };
 
+var numberOfQuestions = null;
 $( document ).ready(function() {
     $('#sym_id_dropdown').on('change', function() {
         $.ajax({
@@ -45,6 +46,7 @@ $( document ).ready(function() {
                     var symptoms = response.symptoms;
                     str+= '<h1> '+ symptoms.name +' </h1>'
                     var questions = symptoms.questions;
+                    numberOfQuestions = questions.length;
                     for (var i=0; i<questions.length; i++){
                         str+= '<h2 text-align="left" width:100%;>' + "Q. " + (  i+1) + "&nbsp;&nbsp;&nbsp;" + questions[i].ques_detail + '</h2>';
                         var options = questions[i].options;
