@@ -4,7 +4,7 @@ $(document).ready(function () {
         let $points = $('.result_out>h1>span').text();
         if(!$points || ($points && parseInt($points, 10) < 1)){
             $('#submitError').css('display','inline');
-            $('#submitError > span').text('Please choose symptoms before submit a form!');
+            $('#submitError > span').text('Please choose symptoms details before submit a form!');
             e.preventDefault(); //prevent the default action
         }
     });

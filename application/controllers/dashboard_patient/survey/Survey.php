@@ -19,7 +19,15 @@ class Survey extends CI_Controller {
 		$data['surveys'] = $this->survey_model->read($this->session->userdata('user_id'));
 		$data['content'] = $this->load->view('dashboard_patient/survey/survey', $data, true);
 		$this->load->view('dashboard_patient/main_wrapper',$data);
-	} 
+	}
+
+    public function detail($survey_id)
+    {
+        $data['title'] = display('survey_list');
+        $data['surveydetails'] = $this->survey_model->surveyDetail($survey_id);
+        $data['content'] = $this->load->view('dashboard_patient/survey/detail', $data, true);
+        $this->load->view('dashboard_patient/main_wrapper',$data);
+    }
 
     public function form()
     {

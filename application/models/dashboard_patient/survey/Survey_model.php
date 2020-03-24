@@ -133,6 +133,24 @@ class Survey_model extends CI_Model {
             ->result();
     }
 
+    public function surveyDetail($id = null)
+    {
+        return $this->db->query("
+			SELECT 
+				patient_survey.*,
+				symptoms.name As Sym_name
+			FROM 
+				patient_survey
+			INNER JOIN 
+				symptoms ON symptoms.sym_id = patient_survey.sym_id
+			
+			WHERE 
+				patient_survey.survey_id = $id
+			
+			")
+            ->row();
+    }
+
 
 
 	public function delete($id = null)
