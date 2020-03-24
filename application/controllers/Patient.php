@@ -10,7 +10,7 @@ class Patient extends CI_Controller {
 		$this->load->model(array(
 			'patient_model',
 			'doctor_model',
-            'document_model' 
+            'document_model'
 		));
 
 		if ($this->session->userdata('isLogIn') == false
@@ -226,6 +226,13 @@ class Patient extends CI_Controller {
     |----------------------------------------------
     */
 
+    public function survey()
+    {
+        $data['title'] = display('survey_list');
+        $data['surveys'] = $this->patient_model->survey();
+        $data['content'] = $this->load->view('survey', $data, true);
+        $this->load->view('layout/main_wrapper',$data);
+    }
 
 	public function document()
 	{ 

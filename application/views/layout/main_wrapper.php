@@ -180,6 +180,7 @@ $settings = $this->db->select("site_align")
                     <ul class="treeview-menu">
                         <li><a href="<?php echo base_url("patient/create") ?>"><?php echo display('add_patient') ?></a></li>
                         <li><a href="<?php echo base_url("patient") ?>"><?php echo display('patient_list') ?></a></li>
+                        <li><a href="<?php echo base_url("patient/survey") ?>"><?php echo display('survey_response_list') ?></a></li>
                         <li><a href="<?php echo base_url("patient/document_form") ?>"><?php echo display('add_document') ?></a></li>
                         <li><a href="<?php echo base_url("patient/document") ?>"><?php echo display('document_list') ?></a></li>
                     </ul>

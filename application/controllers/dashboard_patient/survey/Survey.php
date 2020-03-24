@@ -82,6 +82,7 @@ class Survey extends CI_Controller {
         $data['filled_date'] = Date('Y-m-d');
         $data['total_score'] = $_POST['total_score'];
         $data['remarks'] = $range_object->remarks;
+
         $this->survey_model->create($data);
 
         $this->session->set_flashdata('message', display('save_successfully'));

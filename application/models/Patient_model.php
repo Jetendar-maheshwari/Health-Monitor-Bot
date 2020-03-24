@@ -43,6 +43,27 @@ class Patient_model extends CI_Model {
 		} else {
 			return false;
 		}
-	} 
+	}
+
+    public function survey()
+    {
+        return $this->db->query("
+			SELECT 
+				patient_survey.*,
+				symptoms.name As Sym_name,
+				concat(patient.firstname, ' ' ,  patient.patient_id)  AS Patient_name
+				
+			FROM 
+				patient_survey
+			INNER JOIN 
+				symptoms ON symptoms.sym_id = patient_survey.sym_id
+			INNER JOIN 
+				patient ON patient.id = patient_survey.patient_id
+			
+		
+			
+			")
+            ->result();
+    }
   
 }

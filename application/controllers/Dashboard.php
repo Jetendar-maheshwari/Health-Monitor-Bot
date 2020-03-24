@@ -113,7 +113,7 @@ class Dashboard extends CI_Controller {
         $data['title'] = display('home');
         #------------------------------#
         $data['notify']   = $this->dashboard_model->notify(); 
-        $data['enquires'] = $this->dashboard_model->enquiry();  
+        $data['surveys'] = $this->dashboard_model->surveys();
         $data['chart']    = $this->dashboard_model->chart();    
         $data['content']  = $this->load->view('home',$data,true);
         $this->load->view('layout/main_wrapper',$data);

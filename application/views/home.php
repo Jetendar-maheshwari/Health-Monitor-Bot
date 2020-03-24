@@ -36,7 +36,7 @@
         <div class="panel panel-bd">
             <div class="panel-body">
                 <div class="statistic-box">
-                    <h2><span class="count-number"><?php echo (!empty($notify->total_representative) ? $notify->total_representative : null) ?></span> <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i></span></h2>
+                    <h2><span class="count-number"><?php echo (!empty($notify->total_survey) ? $notify->total_survey : null) ?></span> <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i></span></h2>
                     <div class="small">Symptoms</div>
                     <div class="sparkline4"></div>
                 </div>
@@ -63,22 +63,27 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3>Patient Survey </h3>
+                <h3>Patient Survey Response</h3>
                 <span>Latest Survey Filled</span>
             </div>
             <div class="panel-body"> 
                 <div class="message_inner">
-                    <?php if (!empty($enquires)) {  ?>
-                        <?php foreach ($enquires as $enquiry) {  ?>
-                        <a href="<?php echo base_url("enquiry/view/$enquiry->enquiry_id") ?>">
+                    <?php if (!empty($surveys)) {  ?>
+                        <?php foreach ($surveys as $survey) {  ?>
+                        <a href="<?php echo base_url("enquiry/view/$survey->survey_id") ?>">
                             <div class="inbox-item">
-                                <strong class="inbox-item-author"><?php echo $enquiry->name; ?></strong>
+                                <h5><?php echo $survey->Patient_name; ?></h5>
+                                <strong class="inbox-item-author"><?php echo $survey->Sym_name; ?></strong>
                                 <span class="inbox-item-date"></span>
-                                <p class="inbox-item-text"><?php echo character_limiter(strip_tags($enquiry->enquiry),70); ?></p>
+                                <p class="inbox-item-text"><?php echo character_limiter(strip_tags($survey->remarks),70); ?></p>
+                                <p><?php echo $survey->filled_date; ?></p>
+
                             </div>
                         </a>
                         <?php } ?>
                     <?php } ?>
+
+                    <button type="button"  style="float: left" class="btn btn-link"><a href="<?php echo base_url("patient/survey") ?>">View All Response</a></button>
                 </div> 
             </div>
         </div>

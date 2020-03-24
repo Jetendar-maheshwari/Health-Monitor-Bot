@@ -50,22 +50,45 @@ class Dashboard_model extends CI_Model {
 			SELECT COUNT(*) AS total_app,
 				(SELECT COUNT(*) FROM patient) AS total_patient,
 				(SELECT COUNT(*) FROM user WHERE user_role = 2) AS total_doctor,
-				(SELECT COUNT(*) FROM user WHERE user_role = 3) AS total_representative
+				(SELECT COUNT(*) FROM patient_survey ) AS total_survey
 			FROM appointment
 		')
 		->row();
 	}
 
-	public function enquiry()
+	public function surveys()
 	{
-		return $this->db->select('enquiry_id, name, email, enquiry')
+		/*return $this->db->select('enquiry_id, name, email, enquiry')
 			->from('enquiry')
 			->limit(4)
 			->order_by('checked','asc')
 			->order_by('created_date','desc')
 			->order_by('enquiry_id','desc')
 			->get()
-			->result();
+			->result();*/
+
+
+        return $this->db->query("
+			SELECT 
+				patient_survey.*,
+				symptoms.name As Sym_name,
+				concat(patient.firstname, ' ' ,  patient.patient_id) AS Patient_name
+			FROM 
+				patient_survey
+			INNER JOIN 
+				symptoms ON symptoms.sym_id = patient_survey.sym_id
+				
+			INNER JOIN 
+				patient ON patient.id = patient_survey.patient_id  
+				
+		    ORDER  BY patient_survey.survey_id DESC 
+		    
+		    
+		    Limit 3
+		      
+			
+			")
+            ->result();
 	}
 
  
