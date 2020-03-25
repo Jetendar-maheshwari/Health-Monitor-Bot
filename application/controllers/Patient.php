@@ -234,6 +234,16 @@ class Patient extends CI_Controller {
         $this->load->view('layout/main_wrapper',$data);
     }
 
+    public function survey_detail($survey_id)
+    {
+        $data['title'] = display('survey_list');
+        $data['surveydetails'] = $this->patient_model->surveyDetail($survey_id);
+        $data['questiondetails'] = $this->patient_model->questionDetail($survey_id);
+
+        $data['content'] = $this->load->view('survey_detail', $data, true);
+        $this->load->view('layout/main_wrapper',$data);
+    }
+
 	public function document()
 	{ 
 		$data['title'] = display('document_list');

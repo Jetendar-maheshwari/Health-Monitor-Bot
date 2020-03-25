@@ -30,7 +30,7 @@
 
                                 <td><?php echo $survey->remarks; ?></td>
                                 <td><?php echo (($survey->condition_status == 0) ? "<i class='label label-warning'>not seen</label>" : "<i class='label label-success'>seen</label>"); ?></td>
-                                <td><a href="<?php echo base_url("dashboard_patient/survey/survey/detail/$survey->survey_id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a></td>
+                                <td><a href="<?php echo base_url("patient/survey_detail/$survey->survey_id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a></td>
                             </tr>
                             <?php $sl++; ?>
                         <?php } ?>

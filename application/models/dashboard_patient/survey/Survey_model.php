@@ -173,7 +173,6 @@ class Survey_model extends CI_Model {
     }
 
 
-
 	public function delete($id = null)
 	{
 		return $this->db->where('id', $id)

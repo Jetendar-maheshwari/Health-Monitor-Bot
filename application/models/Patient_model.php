@@ -65,5 +65,39 @@ class Patient_model extends CI_Model {
 			")
             ->result();
     }
+
+    public function questionDetail($id = null){
+        return $this->db->query("
+			
+			SELECT *, question.ques_detail as questionname , opttion.opt_descr as optionname 
+			
+			FROM  patient_survey_child
+            Join question on question.ques_id =  patient_survey_child.ques_id
+            join opttion on opttion.opt_id  = patient_survey_child.opt_id
+            			
+			WHERE 
+				survey_id = $id
+			
+			")
+            ->result();
+    }
+
+    public function surveyDetail($id = null)
+    {
+        return $this->db->query("
+			SELECT 
+				patient_survey.*,
+				symptoms.name As Sym_name
+			FROM 
+				patient_survey
+			INNER JOIN 
+				symptoms ON symptoms.sym_id = patient_survey.sym_id
+			
+			WHERE 
+				patient_survey.survey_id = $id
+			
+			")
+            ->row();
+    }
   
 }
