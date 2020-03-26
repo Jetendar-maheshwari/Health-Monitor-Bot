@@ -58,7 +58,7 @@ class Home extends CI_Controller {
                 );
             }
         endif;
-        $data['items'] = $dataItem; 
+        $data['items'] = $dataItem;
 
         #-------------All Data-----------#  
         $data['latest_news'] = $this->home_model->latest_news(3); 
@@ -116,9 +116,6 @@ class Home extends CI_Controller {
         $emailfrom = $this->input->post('emailfrom',true);
         $contactno = $this->input->post('contactno',true);
         $message = $this->input->post('message',true);
-
-        var_dump($name, $hospitalname);
-        die;
 
         //Load email library
         $this->load->library('email');

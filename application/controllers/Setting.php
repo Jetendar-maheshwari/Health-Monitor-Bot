@@ -139,9 +139,9 @@ class Setting extends CI_Controller {
 	{
 		if ($this->db->count_all('setting') == 0) {
 			$this->db->insert('setting',[
-				'title' => 'Demo Hospital Limited',
-				'description' => '123/A, Street, State-12345, Demo',
-				'footer_text' => '2016&copy;Copyright',
+				'title' => 'Demo HMB System',
+				'description' => '457/B, Street, State-12345, Demo',
+				'footer_text' => '2020&copy;Copyright',
 			]);
 		}
 	}

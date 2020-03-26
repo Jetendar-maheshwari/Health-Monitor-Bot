@@ -144,14 +144,11 @@
 
                             <input type="email" placeholder="Email Address" name="forgetpassword"  required id="forgetpassword" class="form-control">
 
-                            
-                            
-                         <button type="button" class="btn btn-primary fp ">Send
+
+
+                         <button type="button"  id="forgetpassword" name ="forgetpassword" class="btn btn-primary fp ">Send
                          </button>
                         </div>
-                        
-
-
                 </div>
             </div>
 
@@ -449,6 +446,20 @@
     $(document).ready(function(){
         $(".forgotbtn").click(function(){
             $("#forgotpannel").show();
+        });
+    });
+
+    $(document).on("click" , "#forgetpassword" , function (e) {
+
+        $.ajax({
+            url: "Dashboard/checkpassword",
+            method:"POST",
+            data:{
+                [csrfName]: csrfHash
+            },
+            success:function(data){
+
+            }
         });
     });
 

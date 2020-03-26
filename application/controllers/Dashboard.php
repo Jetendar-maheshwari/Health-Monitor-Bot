@@ -15,6 +15,7 @@ class Dashboard extends CI_Controller {
  
     public function index()
     {
+
    /// echo("hello");exit;
         // redirect to dashboard home page
         if($this->session->userdata('isLogIn')) 
@@ -80,6 +81,10 @@ class Dashboard extends CI_Controller {
         } 
     }  
 
+    public function checkpassword(){
+        var_dump("Here");
+        die;
+    }
 
     public function redirectTo($user_role = null)
     {
