@@ -473,7 +473,7 @@
         var message = $('#message').val();
 
         $.ajax({
-            url: "dashboard_patient/Survey/getSymptomsDetail",
+            url: "dashboard_patient/survey/Survey/getSymptomsDetail",
             method:"POST",
             data:{
                 [csrfName]: csrfHash,
