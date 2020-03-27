@@ -235,13 +235,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="username">User Name <i class="text-danger">*</i></label>
                                 <div class="col-sm-12">
-                                <input type="text" placeholder="Name" name="username" id="username" required class="form-control" >
+                                    <input type="text" placeholder="Name" name="username" id="username" required class="form-control" >
                                 </div>
-                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label  col-sm-3" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
                                 <div class="col-sm-12">
-                                <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
+                                    <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -249,7 +249,7 @@
                                 <div class="col-sm-12">
                                     <input type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
                                 </div>
-                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label  col-sm-3" for="contactno">Contact No</label>
                                 <div class="col-sm-12">
@@ -261,7 +261,7 @@
                             <div class="form-group">
                                 <label class="control-label  col-sm-3" for="message">Message <i class="text-danger">*</i></label>
                                 <div class="col-sm-12">
-                                <input type="text-area"  name="message" id="message" required class="form-control">
+                                    <input type="text-area"  name="message" id="message" required class="form-control">
                                 </div>
                             </div>
 
@@ -271,7 +271,7 @@
 
                                 <div class="col-sm-2">
                                     <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                <button  class="btn btn-primary btn-sm" >Save</button>
+                                    <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Save</button>
                                 </div>
                             </div>
                         </form>
@@ -465,7 +465,7 @@
 
     $(document).on("click", "#sendMail", function (e) {
         e.preventDefault();
-
+        console.log("Send Mail");
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
         var emailaddress = $('#emailaddress').val();

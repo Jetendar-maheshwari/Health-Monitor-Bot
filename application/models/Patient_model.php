@@ -99,5 +99,12 @@ class Patient_model extends CI_Model {
 			")
             ->row();
     }
-  
+
+    public function updateSurveyStatus($data = [])
+    {
+        return $this->db->where('survey_id',$data['survey_id'])
+            ->update("patient_survey",$data);
+    }
+
+
 }

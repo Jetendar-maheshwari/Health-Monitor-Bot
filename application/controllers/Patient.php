@@ -66,7 +66,7 @@ class Patient extends CI_Controller {
 		$this->form_validation->set_rules('sex', display('sex'),'required|max_length[10]');
 		$this->form_validation->set_rules('date_of_birth', display('date_of_birth'),'required|max_length[10]');
 		$this->form_validation->set_rules('address', display('address'),'required|max_length[255]');
-		$this->form_validation->set_rules('status', display('status'),'required');
+
 
 		#-------------------------------#
 		//picture upload
@@ -106,7 +106,7 @@ class Patient extends CI_Controller {
 				'affliate'     => null,
 				'create_date'  => date('Y-m-d'),
 				'created_by'   => $this->session->userdata('user_id'),
-				'status'       => $this->input->post('status'),
+				'status'       => 1,
 			]; 
 		} else { // update patient
 			$data['patient'] = (object)$postData = [
@@ -125,7 +125,7 @@ class Patient extends CI_Controller {
 				'picture'      => (!empty($picture)?$picture:$this->input->post('old_picture')),
 				'affliate'     => null, 
 				'created_by'   => $this->session->userdata('user_id'),
-				'status'       => $this->input->post('status'),
+				'status'       => 1,
 			]; 
 		}
 		#-------------------------------#
@@ -240,6 +240,13 @@ class Patient extends CI_Controller {
         $data['surveydetails'] = $this->patient_model->surveyDetail($survey_id);
         $data['questiondetails'] = $this->patient_model->questionDetail($survey_id);
 
+        $this->patient_model->updateSurveyStatus(
+            array(
+                'survey_id' => $survey_id,
+                'condition_status' => 1
+            )
+        );
+
         $data['content'] = $this->load->view('survey_detail', $data, true);
         $this->load->view('layout/main_wrapper',$data);
     }
@@ -352,8 +359,4 @@ class Patient extends CI_Controller {
 
     	redirect($_SERVER['HTTP_REFERER']);
     }
-
-
-
-
 }

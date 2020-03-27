@@ -4,7 +4,7 @@
         <div class="panel panel-default thumbnail">
             <div class="panel-heading  no-print">
                 <div class="btn-group">
-                    <a class="btn btn-success" href="<?php echo base_url("dashboard_patient/survey/survey") ?>"> <i class="fa fa-list"></i>  View History </a>
+                    <a class="btn btn-success" href="<?php echo base_url("patient/survey") ?>"> <i class="fa fa-list"></i>  View History </a>
                     <button type="button" onclick="printContent('PrintMe')" class="btn btn-danger"><i class="fa fa-print"></i></button> 
                 </div> 
             </div>

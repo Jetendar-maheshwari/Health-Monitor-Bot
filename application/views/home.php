@@ -70,7 +70,7 @@
                 <div class="message_inner">
                     <?php if (!empty($surveys)) {  ?>
                         <?php foreach ($surveys as $survey) {  ?>
-                        <a href="<?php echo base_url("enquiry/view/$survey->survey_id") ?>">
+                        <a href="<?php echo base_url("patient/survey_detail/$survey->survey_id") ?>">
                             <div class="inbox-item">
                                 <h5><?php echo $survey->Patient_name; ?></h5>
                                 <strong class="inbox-item-author"><?php echo $survey->Sym_name; ?></strong>
