@@ -113,12 +113,14 @@ class Home extends CI_Controller {
 
         $name = $this->input->post('name',true);
         $hospitalname = $this->input->post('hospitalname',true);
-        $emailfrom = $this->input->post('emailfrom',true);
+        $emailfrom = $this->input->post('emailaddress',true);
         $contactno = $this->input->post('contactno',true);
         $message = $this->input->post('message',true);
 
         //Load email library
         $this->load->library('email');
+
+        $this->config->item('smtp_user');
 
         //SMTP & mail configuration
         $config = array(
@@ -133,6 +135,9 @@ class Home extends CI_Controller {
         $this->email->initialize($config);
         $this->email->set_mailtype("html");
         $this->email->set_newline("\r\n");
+
+        $content = file_get_contents($this->load->view('mail/contact_us', '' , TRUE));
+//        $mail->MsgHTML($content);
 
 //Email content
         $htmlContent = '<h1>Sending email via Gmail SMTP server</h1>';
@@ -153,6 +158,7 @@ class Home extends CI_Controller {
         $this->email->from($emailfrom,$emailfrom);
         $this->email->subject($hospitalname);
         $this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno);
+
 
         var_dump($this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno));
         die;

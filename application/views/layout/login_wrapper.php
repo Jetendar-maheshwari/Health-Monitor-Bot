@@ -182,24 +182,24 @@
                         <form class="form-horizontal" id="myForm" name="contact" action="#">
                         <div class="form-group">
                             <label class="control-label" for="username">User Name <i class="text-danger">*</i></label>
-                            <input type="text" placeholder="Name" name="username" id="username" class="form-control" >
+<!--                            <input type="text" placeholder="Name" name="username" id="username" class="form-control" >-->
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
-                            <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
+<!--                            <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">-->
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="emailaddress">Email Address <i class="text-danger">*</i></label>
-                            <input type="email" placeholder="Email Address" name="emailaddress"  required id="emailaddress" class="form-control">
+<!--                            <input type="email" placeholder="Email Address" name="emailaddress"  required id="emailaddress" class="form-control">-->
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="contactno">Contact No</label>
-                            <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">
+<!--                            <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">-->
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="message">Message</label>
-                            <input type="text-area"  name="message" id="message" class="form-control">
+<!--                            <input type="text-area"  name="message" id="message" class="form-control">-->
                         </div>
 
                             <div class="form-group">
@@ -465,7 +465,6 @@
 
     $(document).on("click", "#sendMail", function (e) {
         e.preventDefault();
-        console.log("Send Mail");
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
         var emailaddress = $('#emailaddress').val();
@@ -473,7 +472,7 @@
         var message = $('#message').val();
 
         $.ajax({
-            url: "dashboard_patient/survey/Survey/getSymptomsDetail",
+            url: "home/requestTrail",
             method:"POST",
             data:{
                 [csrfName]: csrfHash,
