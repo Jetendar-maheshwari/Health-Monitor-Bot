@@ -110,6 +110,7 @@ class Home extends CI_Controller {
     }
 
     public function requestTrail(){
+        
 
         $name = $this->input->post('name',true);
         $hospitalname = $this->input->post('hospitalname',true);
