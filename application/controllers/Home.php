@@ -110,7 +110,6 @@ class Home extends CI_Controller {
     }
 
     public function requestTrail(){
-        
 
         $name = $this->input->post('name',true);
         $hospitalname = $this->input->post('hospitalname',true);
@@ -121,15 +120,13 @@ class Home extends CI_Controller {
         //Load email library
         $this->load->library('email');
 
-        $this->config->item('smtp_user');
-
         //SMTP & mail configuration
         $config = array(
             'protocol' => 'smtp',
-            'smtp_host' => 'ssl://mail.thinkbots.tech',
+            'smtp_host' => $this->config->item('smtp_host'),
             'smtp_port' => 465,
-            'smtp_user' => 'info@thinkbots.tech',
-            'smtp_pass' => 'Chemnitz05!',
+            'smtp_user' => $this->config->item('smtp_user'),
+            'smtp_pass' => $this->config->item('smtp_pass'),
             'mailtype' => 'html',
             'charset' => 'iso-8859-1'
         );
@@ -137,7 +134,7 @@ class Home extends CI_Controller {
         $this->email->set_mailtype("html");
         $this->email->set_newline("\r\n");
 
-        $content = file_get_contents($this->load->view('mail/contact_us', '' , TRUE));
+        //$content = file_get_contents($this->load->view('mail/contact_us', '' , TRUE));
 //        $mail->MsgHTML($content);
 
 //Email content
@@ -160,25 +157,29 @@ class Home extends CI_Controller {
         $this->email->subject($hospitalname);
         $this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno);
 
-
-        var_dump($this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno));
-        die;
-
-//Send email
         if($this->email->send()){
             echo 'Email Sent Successfully';
-
             die;
-
         } else {
             echo 'Unable to send email. Please try again.';
             die;
         }
-
     }
 
-    public function savePatient(){
+    public function forgotPassword(){
+        $emailaddress = $this->input->post('emailaddress',true);
+        $data['mail']  = $this->home_model->checkMail($emailaddress);
+
+        if($data['mail'] == 0) {
+            $this->form_validation->set_message('email_check', 'The {field} field must contain a unique value.');
+        }
+    }
+
+    public function registerPatient(){
+        $data['title'] = display('survey_list');
+        $this->load->view('Modal/modal_request_trail', $data, true);
         var_dump("Here");
         die;
     }
+
 }

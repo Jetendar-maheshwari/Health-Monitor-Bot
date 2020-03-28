@@ -525,3 +525,10 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 $config['smtp_user'] = 'info@thinkbots.tech';
+$config['protocol'] = 'smtp';
+$config['smtp_host'] = 'ssl://mail.thinkbots.tech';
+$config['smtp_port'] = '456';
+$config['smtp_user'] = 'info@thinkbots.tech';
+$config['smtp_pass'] = 'Chemnitz05!';
+$config['mailtype'] = 'html';
+$config['charset'] = 'iso-8859-1';

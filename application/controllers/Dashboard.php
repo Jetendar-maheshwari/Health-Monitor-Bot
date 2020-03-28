@@ -15,9 +15,6 @@ class Dashboard extends CI_Controller {
  
     public function index()
     {
-
-   /// echo("hello");exit;
-        // redirect to dashboard home page
         if($this->session->userdata('isLogIn')) 
         $this->redirectTo($this->session->userdata('user_role'));
 
@@ -80,11 +77,6 @@ class Dashboard extends CI_Controller {
             $this->load->view('layout/login_wrapper',$data);
         } 
     }  
-
-    public function checkpassword(){
-        var_dump("Here");
-        die;
-    }
 
     public function redirectTo($user_role = null)
     {
@@ -149,6 +141,25 @@ class Dashboard extends CI_Controller {
             return true;
         }
     }
+
+    public function email_patientMail()
+    {
+
+        $email = $this->input->post('emailaddress',true);
+        $emailExists = $this->db->select('email')
+            ->where('email',$email)
+            ->get('patient')
+            ->num_rows();
+
+
+
+        if ($emailExists ==  0) {
+            $this->form_validation->set_rules('user_role',display('user_role'),'required');
+            echo "Incoorect";
+        }
+    }
+
+
 
 
     public function form()

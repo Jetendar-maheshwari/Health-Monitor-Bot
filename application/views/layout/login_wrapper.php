@@ -432,13 +432,13 @@
     $(document).on("click", ".patient_register", function (e) {
         e.preventDefault();
         $.ajax({
-            url: "<?php echo base_url();?>" + "patient/create",
+            url: "home/registerPatient",
             method:"POST",
             data:{
                 [csrfName]: csrfHash,
             },
             success:function(data){
-                alert("testing" + data);
+
             }
         });
     });
@@ -450,11 +450,12 @@
     });
 
     $(document).on("click" , "#forgetpassword" , function (e) {
-
+        var emailaddress = $('#forgetpassword').val();
         $.ajax({
-            url: "Dashboard/checkpassword",
+            url: "dashboard/email_patientMail",
             method:"POST",
             data:{
+                emailaddress:emailaddress,
                 [csrfName]: csrfHash
             },
             success:function(data){
@@ -483,7 +484,8 @@
                 message:message
             },
             success:function(data){
-                //alert("Data Send");
+                $('#myFormModal').modal('hide')
+                alert("Mail Send");
             }
         });
     });

@@ -17,7 +17,6 @@ class Setting extends CI_Controller {
 		redirect('login'); 
 	}
  
-
 	public function index()
 	{
 		$data['title'] = display('application_setting');

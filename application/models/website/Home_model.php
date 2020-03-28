@@ -15,7 +15,7 @@ class Home_model extends CI_Model
             ->get('ws_slider')
             ->result();
 	} 
- 
+
 	public function slider_details($id = null)
 	{
 		return $this->db->select("*") 
@@ -127,7 +127,14 @@ class Home_model extends CI_Model
 			->order_by('ws_comment.date','desc')
 			->get()
 			->result();
-	} 
+	}
+
+	public function  checkMail($emailaddress){
+        return $this->db->select("email")
+            ->where('email',$emailaddress)
+            ->get('patient')
+            ->num_rows();
+    }
 
  
 
