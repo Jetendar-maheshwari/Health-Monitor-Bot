@@ -60,7 +60,13 @@ class Symptoms_model extends CI_Model {
 		} else {
 			return false;
 		}
-	} 
+        deletesurveyBySym($sym_id);
+	}
+
+	private function  deletesurveyBySym($sym_id){
+        $this->db->where('sym_id',$sym_id)
+            ->delete("patient_survey");
+    }
 
 	public function department_list()
 	{
