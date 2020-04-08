@@ -180,7 +180,6 @@ class Dashboard extends CI_Controller {
         $this->form_validation->set_rules('sex', display('sex'),'required|max_length[10]');
         $this->form_validation->set_rules('date_of_birth', display('date_of_birth'),'max_length[10]');
         $this->form_validation->set_rules('address',display('address'),'required|max_length[255]');
-        $this->form_validation->set_rules('status',display('status'),'required');
         #-------------------------------#
         //picture upload
         $picture = $this->fileupload->do_upload(
