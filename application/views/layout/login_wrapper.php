@@ -75,7 +75,7 @@
 
         <div id="content">
             <div class="section section-blue" id="section-loginBox">
-                <div id="loginBox">
+                <div id="loginBox" >
 
                     <?php echo form_open('login','id="loginForm" novalidate'); ?>
 
@@ -154,22 +154,7 @@
 
         </div>
 
-        <div id="testmodal" class="modal fade">
-        <div class="wingBanner banner-solo" id="About" >
-
-            <h2>About </h2>
-            <p class="text-large">
-                Health Monitoring Bot is a great application that helps hospitals to minimise loads of paperwork when it comes to
-                monitoring their patients' health. It gives patients/users control to fill any symptom survey online in the comfort
-                of their home without any time restrictions. HMB will then analyse the users' responses automatically and generate
-                results on both hospital and patient accounts. Based on the results, HMB will send notifications/alerts to hospital
-                staff, informing them that a patient may need to be examined by doctors. It will then help arrange an appointment
-                between the patient and the hospital.
-            </p>
-        </div>
-        </div>
-
-        <!--Modal for Trail Request-->
+        <!--Modal for demo Request-->
         <div id="requestmodal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -204,7 +189,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-3">
-                                    <button  class="btn btn-primary btn-sm">Save</button>
+                                    <button  class="btn btn-primary btn-sm">Submit</button>
                                 </div>
                                 <div class="col-sm-3">
                                     <button type="reset" class="btn btn-primary btn-sm">Reset</button>
@@ -271,7 +256,7 @@
 
                                 <div class="col-sm-2">
                                     <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                    <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Save</button>
+                                    <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -365,7 +350,7 @@
         <div class="col-md-4">
             <h3 class="underline-text">Address</h3>
             <div id="borderbottom"></div>
-            <p class= "address">Technische Universität Chemnitz Straße der Nationen 62
+            <p class= "address">Technical University of Chemnitz Strasse der Nationen 62
                 09111 Chemnitz, Germany</p>
                
         </div>
@@ -393,7 +378,8 @@
 </div>
     
 </div>
-<div class =copy-right> <p style= "text-align: center">&copy; 2020 Thinkbots<p></div>
+
+<footer class="col-xs-12 col-md-12 col-lg-12 copy-right"> <p style= "text-align: center">&copy; 2020 Thinkbots</p></footer>
 <!-- footer end -->
 
 
