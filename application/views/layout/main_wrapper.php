@@ -210,11 +210,6 @@ $settings = $this->db->select("site_align")
                     <ul class="treeview-menu">
                         <li><a href="<?php echo base_url("appointment/create") ?>"><?php echo display('add_appointment') ?></a></li>
                         <li><a href="<?php echo base_url("appointment") ?>"><?php echo display('appointment_list') ?></a></li>
-
-
-                        <li><a href="<?php echo base_url("report/assign_by_all") ?>"> <?php echo display('assign_by_all') ?> </a></li>
-                        <li><a href="<?php echo base_url("report/assign_by_all_doctor") ?>"><?php echo display('assign_by_doctor') ?> </a></li>
-                        <li><a href="<?php echo base_url("report/assign_by_all_representative") ?>"> <?php echo display('assign_by_representative') ?>  </a></li>
                         <li><a href="<?php echo base_url("report/assign_to_all_doctor") ?>"> <?php echo display('assign_to_doctor') ?></a></li>
 
                     </ul>

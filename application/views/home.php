@@ -82,9 +82,10 @@
                         </a>
                         <?php } ?>
                     <?php } ?>
-
-                    <button type="button"  style="float: left" class="btn btn-link"><a href="<?php echo base_url("patient/survey") ?>">View All Response</a></button>
-                </div> 
+                    <?php if(count($surveys) > 3){ ?>
+                        <button type="button"  style="float: left" class="btn btn-link"><a href="<?php echo base_url("patient/survey") ?>">View All Response</a></button>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </div>

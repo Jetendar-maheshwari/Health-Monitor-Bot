@@ -53,14 +53,15 @@ class Symptoms_model extends CI_Model {
 	{
 		$this->db->where('sym_id',$sym_id)
 			->delete($this->table);
-        $instance = new Ranges_model();
-        $instance->deleteAllBySympId($sym_id);
+        //$instance = new Ranges_model();
+        //$instance->deleteAllBySympId($sym_id);
+        //$this->deletesurveyBySym($sym_id);
 		if ($this->db->affected_rows()) {
 			return true;
 		} else {
 			return false;
 		}
-        deletesurveyBySym($sym_id);
+
 	}
 
 	private function  deletesurveyBySym($sym_id){
