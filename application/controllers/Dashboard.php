@@ -31,20 +31,24 @@ class Dashboard extends CI_Controller {
         $data['user'] = (object)$postData = [
             'email'     => $this->input->post('email',true),
             'password'  => md5($this->input->post('password',true)),
-            'user_role' => $this->input->post('user_role',true),
-        ]; 
+            'user_role' => $this->input->post('user_role',true)
+        ];
+
         #-------------------------------#
         if ($this->form_validation->run() === true) {
             //check user data
-            $check_user = $this->dashboard_model->check_user($postData); 
+            $check_user = $this->dashboard_model->check_user($postData);
+
 
             if ($postData['user_role'] == 10) {
-                $check_user = $this->dashboard_model->check_patient($postData); 
+                $check_user = $this->dashboard_model->check_patient($postData);
+
             } else {
                 $check_user = $this->dashboard_model->check_user($postData); 
             }
 
             if ($check_user->num_rows() === 1) {
+
                 //retrive setting data and store to session
 
                 //store data in session
@@ -74,6 +78,7 @@ class Dashboard extends CI_Controller {
             }
 
         } else {
+
             $this->load->view('layout/login_wrapper',$data);
         } 
     }  
@@ -142,7 +147,7 @@ class Dashboard extends CI_Controller {
         }
     }
 
-    public function email_patientMail()
+    public function checkAndSendMail()
     {
 
         $email = $this->input->post('emailaddress',true);
@@ -150,8 +155,6 @@ class Dashboard extends CI_Controller {
             ->where('email',$email)
             ->get('patient')
             ->num_rows();
-
-
 
         if ($emailExists ==  0) {
             $this->form_validation->set_rules('user_role',display('user_role'),'required');

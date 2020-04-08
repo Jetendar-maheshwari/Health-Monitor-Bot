@@ -438,7 +438,7 @@
     $(document).on("click" , "#forgetpassword" , function (e) {
         var emailaddress = $('#forgetpassword').val();
         $.ajax({
-            url: "dashboard/email_patientMail",
+            url: "dashboard/checkAndSendMail",
             method:"POST",
             data:{
                 emailaddress:emailaddress,

@@ -6,14 +6,16 @@ class Dashboard_model extends CI_Model {
  
 	public function check_user($data = [])
 	{
-		return $this->db->select("*")
+
+
+		return  $this->db->select("*")
 			->from($this->table)
 			->where('email',$data['email'])
 			->where('password',$data['password'])
 			->where('user_role',$data['user_role'])
-			->where('status',1)
+            ->where('status',1)
 			->get();
-	} 
+    }
  
 	public function check_patient($data = [])
 	{
