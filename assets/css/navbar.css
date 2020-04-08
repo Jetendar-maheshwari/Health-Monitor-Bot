@@ -99,7 +99,7 @@ body {
 #section-loginBox #loginBox {
     z-index: 60;
     position: relative;
-    width: 33%;
+    width: 30%;
     padding: 85px 0 0 20px; }
 
 #section-loginBox #loginBox p {
@@ -156,9 +156,9 @@ margin-top: 15px;
 
     #navbar {
         margin: 0 -15px; }
-
+/*
     #section-loginBox {
-        background-position: right -150px center; }
+        background-position: right -150px center; }*/
 
     #section-loginBox #loginBox {
         width: 44%; }
@@ -200,7 +200,12 @@ margin-top: 15px;
     #section-moreTurnover .watermark {
         left: -420px; } }
 
-.test
-{
-    color:red;
+
+#navbar #modalToggle  button{
+    width: 34px;
+    height: 30px;
+  
+
+    margin: 25px 30px 0px 60px;
 }
+

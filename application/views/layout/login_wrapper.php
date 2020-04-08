@@ -43,43 +43,52 @@
 
 <!-- navbar -->
     <div class="content">
-
             <div id="navbar">
                 <div class="row">
-
                     <div id="logo" class="col-xs-8 col-md-3">
-
                         <img src="assets/images/mylogo.png" class="image-style">
                     </div>
-
                     <div class="visible-xs visible-sm col-xs-4" id="modalToggle">
-                        <button type="button" data-toggle="modal" data-target="#mobileNav"></button>
+                        <button type="button" data-toggle="modal" data-target="#mobileNav">
+                            <span class="navbar-toggler-icon">   
+                                <i class="fa fa-navicon toggle-style"></i>
+                            </span>
+                        </button>
                     </div>
-
                     <div id="menu" class="hidden-xs hidden-sm col-md-9">
                         <ul id="mainmenu">
-
                             <li ><a href="#About" title="About">About</a></li>
                             <li ><a href="#offer" title="We offer">We offer</a></li>
                             <li ><a href="#" title="Contact">Contact</a></li>
                             <li> <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
-
                             </li>
                         </ul>
-
-
                     </div>
 
                 </div>
+            
+             <div class="modal fade" id="mobileNav">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                             <ul id="mainmenu">
+                                <li ><a href="#About" title="About">About</a></li>
+                            <li ><a href="#offer" title="We offer">We offer</a></li>
+                            <li ><a href="#" title="Contact">Contact</a></li>
+                            <li> <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
+                            </ul>                       
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
 
         <div id="content">
-            <div class="section section-blue" id="section-loginBox">
+            <div class="section" id="section-loginBox">
                 <div id="loginBox" >
 
                     <?php echo form_open('login','id="loginForm" novalidate'); ?>
-
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label class="control-label" for="user_role"><?= display('user_role') ?></label>
                         <?php
                         $userRoles = array(

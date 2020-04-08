@@ -196,7 +196,7 @@ body.hold-transition .main-header .logo {
 
 ::selection {
     color: #fff;
-    background: #37a000;
+    background: red;
     text-shadow: none;
 }
 
@@ -237,7 +237,7 @@ p {
 /* General Links */
 
 a {
-    color: #37a000;
+    color: #162D63;
     text-decoration: none;
 }
 
@@ -6078,3 +6078,15 @@ div.survey_questions_out.row h2 {
         width: 90%;
         margin: 0 auto;
     }
+
+    .toggle-style
+    {
+        color:#337ab7;
+         font-size:30px;
+    }
+
+    ul {
+    list-style: none;
+}
+
+
