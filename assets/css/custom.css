@@ -176,16 +176,18 @@ body.hold-transition .main-header .logo {
 .content {
     margin-right: auto;
     margin-left: auto;
-    padding: 0 30px 10px;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .content {
         padding: 0 15px 10px;
     }
+} */
+
+div#content ,div.content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
-
-
 /*--- selectin ---*/
 
 ::-moz-selection {
@@ -201,14 +203,17 @@ body.hold-transition .main-header .logo {
 }
 
 /* set logo height and width */
-.image-style
-{
-    margin-left: 55px;
+div#logo {
+    margin-left: 56px;
     margin-top: 5px;
     margin-bottom: 10px;
 }
 
-
+@media (max-width: 868px) {
+div#logo.col-xs-8.col-md-3 {
+margin-left: 5px;
+}
+}
 
 /* H1 - H6 font */
 
@@ -5714,7 +5719,7 @@ pre .arg {
     -webkit-transition: none;
 }
 
-
+ 
 
 
 /*----------CUSTOMIZE STYLE-----------*/
@@ -5923,7 +5928,7 @@ p.step
 {
     padding-top: 20px;
     width: 120px;
-    margin-left: 38%;
+    margin-left: 34%;
 }
 p.address {
     line-height: 1.8
@@ -6079,14 +6084,62 @@ div.survey_questions_out.row h2 {
         margin: 0 auto;
     }
 
-    .toggle-style
-    {
-        color:#337ab7;
-         font-size:30px;
+
+.main-menu {
+    overflow: hidden;
+    margin-right: 30px;
+  }
+  
+  .main-menu a {
+    display: inline-block;
+    text-align: left;
+    padding: 5px 12px 5px 12px;
+    text-decoration: none;
+    font-size: 16px;
+
+  }
+  @media screen and (max-width: 868px) {
+  .main-menu a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  }
+  .main-menu .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 868px) {
+    .main-menu a {display: none;}
+    .main-menu a.icon {
+      float: right;
+      display: block;
     }
+  }
+  
+  @media screen and (max-width: 868px) {
+    .main-menu.responsive {position: relative;}
+    .main-menu.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .main-menu.responsive a {
+      float: left;
+      display: inline-block;
+    }
+    @media screen and (max-width: 868px) {
+        c.fa {
+           display: none;
+         }
+      }
+      i.fa.fa-bars {
+       color: #1fa5c4;   
+      }
 
-    ul {
-    list-style: none;
-}
-
-
+      i.fa.fa-bars:hover {
+        color: #37a000 ;   
+       }

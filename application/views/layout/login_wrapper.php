@@ -6,6 +6,7 @@
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><!--
     <title><?/*= display('login') */?> - <?php /*echo (!empty($title)?$title:null) */?></title>-->
 
@@ -48,38 +49,21 @@
                     <div id="logo" class="col-xs-8 col-md-3">
                         <img src="assets/images/mylogo.png" class="image-style">
                     </div>
-                    <div class="visible-xs visible-sm col-xs-4" id="modalToggle">
-                        <button type="button" data-toggle="modal" data-target="#mobileNav">
-                            <span class="navbar-toggler-icon">   
-                                <i class="fa fa-navicon toggle-style"></i>
-                            </span>
-                        </button>
-                    </div>
-                    <div id="menu" class="hidden-xs hidden-sm col-md-9">
-                        <ul id="mainmenu">
-                            <li ><a href="#About" title="About">About</a></li>
-                            <li ><a href="#offer" title="We offer">We offer</a></li>
-                            <li ><a href="#" title="Contact">Contact</a></li>
-                            <li> <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
-                            </li>
-                        </ul>
+                    
+                    <div id="menu" class="col-md-9 main-menu">
+                            <a href="#About" title="About">About</a>
+                            <a href="#offer" title="We offer">We offer</a>
+                            <a href="#" title="Contact">Contact</a>
+                            <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
+                            <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+                    
                     </div>
 
                 </div>
             
-             <div class="modal fade" id="mobileNav">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                             <ul id="mainmenu">
-                                <li ><a href="#About" title="About">About</a></li>
-                            <li ><a href="#offer" title="We offer">We offer</a></li>
-                            <li ><a href="#" title="Contact">Contact</a></li>
-                            <li> <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
-                            </ul>                       
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -525,6 +509,16 @@ function fadeMenuWrap() {
         jQuery('.fa-arrow-up').fadeOut(300); 
     } 
 } 
+
+function navFunction() {
+  var x = document.getElementById("menu");
+  if (x.className === "main-menu") {
+    x.className += " responsive";
+  } else {
+    x.className = "main-menu";
+  }
+}
+
 </script>
 </body>
 </html>
