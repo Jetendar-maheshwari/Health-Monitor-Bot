@@ -156,10 +156,60 @@ class Dashboard extends CI_Controller {
             ->get('patient')
             ->num_rows();
 
+        $getpassword = $this->db->select('password')
+            ->where('email',$email)
+            ->get('patient')
+            ->result();
+
+
         if ($emailExists ==  0) {
             $this->form_validation->set_rules('user_role',display('user_role'),'required');
-            echo "Incoorect";
+            echo "In Valid Email Address";
         }
+        else{
+
+            $data['email'] = (object)$postData = array(
+                'from'        => 'info@thinkbots.tech',
+                'to'          => $this->input->post('emailaddress'),
+                'subject'     => 'Recover Your Password',
+                'message'     => 'Your Password:',
+            );
+
+            $setting = $this->setting_model->read();
+
+            /* --------INITIAL CONFIG---------*/
+
+            $config = array(
+                'protocol' => 'smtp',
+                'smtp_host' => $this->config->item('smtp_host'),
+                'smtp_port' => 465,
+                'smtp_user' => $this->config->item('smtp_user'),
+                'smtp_pass' => $this->config->item('smtp_pass'),
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1'
+            );
+            $this->email->initialize($config);
+            $this->email->set_mailtype("html");
+            $this->email->set_newline("\r\n");
+
+            $this->email->to($postData['to']);
+            $this->email->from($postData['from']);
+            $this->email->subject($postData['subject']);
+            $this->email->message($postData['message']);
+
+            if ($this->email->send()) {
+
+                #set success message
+                $this->session->set_flashdata('message', display('message_sent'));
+
+                echo "For Further Detail Please Check Your Email Address";
+            }
+            else {
+                #set exception message
+                $this->session->set_flashdata('exception',display('please_try_again'));
+            }
+        }
+
     }
 
 
