@@ -96,11 +96,34 @@ body {
     color: #FFFFFF;
     text-align: left; }
 
+    @media screen and (max-width: 868px) {
+        #section-loginBox {
+            position: relative;
+            background: #020C17 ;
+            height: auto;
+            padding: 0;
+            color: #FFFFFF;
+            text-align: left;
+            padding-bottom: 10px;
+        }
+      }
+
 #section-loginBox #loginBox {
     z-index: 60;
     position: relative;
     width: 30%;
     padding: 85px 0 0 20px; }
+
+
+    @media screen and (max-width: 868px) {
+        #section-loginBox #loginBox {
+            z-index: 60;
+            position: relative;
+            width: 98%;
+            padding-top: 10px;
+            
+         }
+      }
 
 #section-loginBox #loginBox p {
     text-shadow: 1px 1px 1px #000; }
@@ -110,10 +133,23 @@ body {
     margin-top: 45px;
     margin-left: 30px; }
 
+    @media screen and (max-width: 868px) {
+        #section-loginBox form {
+            margin: 10px 10px 0px 0px;
+         }
+      }
+
 /* for login and forgot password*/
 #section-loginBox form .btn {
 
     width: 49%; }
+
+    @media screen and (max-width: 868px) {
+        #section-loginBox form .btn.btn-transparent {
+        width: 100%;
+        margin-top: 10px;
+    }
+    }
 
     button.btn.btn-primary.fp  {
 width: 100px !important;
@@ -201,11 +237,10 @@ margin-top: 15px;
         left: -420px; } }
 
 
-#navbar #modalToggle  button{
-    width: 34px;
-    height: 30px;
-  
 
-    margin: 25px 30px 0px 60px;
+#navbar #menu {
+    
+    float: right !important;
+    width: auto;
+    margin-right: 60px;
 }
-
