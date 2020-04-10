@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 
         $this->load->model(array(
             'dashboard_patient/home_model', 
-            'dashboard_patient/prescription/prescription_model' 
+            'dashboard_patient/appointment/appointment_model'
         )); 
  
         
@@ -23,7 +23,7 @@ class Home extends CI_Controller {
     {
         $data['title'] = display('home');
         #-------------------------------#
-        $data['prescription'] = $this->prescription_model->read(); 
+        $data['appointment'] = $this->appointment_model->read();
         $data['content'] = $this->load->view('dashboard_patient/home/dashboard',$data,true);
         $this->load->view('dashboard_patient/main_wrapper',$data);
     }
