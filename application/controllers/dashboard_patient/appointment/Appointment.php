@@ -8,8 +8,8 @@ class Appointment extends CI_Controller {
         parent::__construct();
 
         $this->load->model(array(
-            'dashboard_doctor/appointment/appointment_model',
-            'dashboard_doctor/appointment/department_model'
+            'dashboard_patient/appointment/appointment_model',
+            'dashboard_patient/appointment/department_model'
         ));
  
         if ($this->session->userdata('isLogIn') == false
@@ -22,8 +22,8 @@ class Appointment extends CI_Controller {
         $data['title'] = display('appointment');
         /* ------------------------------- */
         $data['appointments'] = $this->appointment_model->read();
-        $data['content'] = $this->load->view('dashboard_doctor/appointment/appointment',$data,true);
-        $this->load->view('dashboard_doctor/main_wrapper',$data);
+        $data['content'] = $this->load->view('dashboard_patient/appointment/appointment',$data,true);
+        $this->load->view('dashboard_patient/main_wrapper',$data);
     } 
 
     public function create()
@@ -76,23 +76,24 @@ class Appointment extends CI_Controller {
                 /*set exception message*/
                 $this->session->set_flashdata('exception',display('please_try_again'));
             }
-            redirect('dashboard_doctor/appointment/appointment/view/'.$postData['appointment_id']);
+            redirect('dashboard_patient/appointment/appointment/view/'.$postData['appointment_id']);
 
         } else {
             $data['department_list'] = $this->department_model->department_list(); 
-            $data['content'] = $this->load->view('dashboard_doctor/appointment/appointment_form',$data,true);
-            $this->load->view('dashboard_doctor/main_wrapper',$data);
+            $data['content'] = $this->load->view('dashboard_patient/appointment/appointment_form',$data,true);
+            $this->load->view('dashboard_patient/main_wrapper',$data);
         } 
     }
  
 
       public function view($appointment_id = null)
-      {  
+      {
+
         $data['title'] = display('appointment');
         /* ------------------------------- */
         $data['appointment'] = $this->appointment_model->read_by_id($appointment_id);
-        $data['content'] = $this->load->view('dashboard_doctor/appointment/appointment_view',$data,true);
-        $this->load->view('dashboard_doctor/main_wrapper',$data);
+        $data['content'] = $this->load->view('dashboard_patient/appointment/appointment_view',$data,true);
+        $this->load->view('dashboard_patient/main_wrapper',$data);
       } 
 
 

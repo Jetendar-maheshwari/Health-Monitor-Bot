@@ -32,6 +32,7 @@ class Document_model extends CI_Model {
 
 	public function read($id = null)
 	{
+
 		return $this->db->query("
 			SELECT 
 				document.*,
@@ -41,7 +42,7 @@ class Document_model extends CI_Model {
 				document
 			INNER JOIN 
 				patient ON patient.patient_id = document.patient_id
-			INNER JOIN 
+			LEFT JOIN 
 				cm_patient ON cm_patient.patient_id = document.patient_id
 			LEFT JOIN 
 				user u1 ON u1.user_id = document.doctor_id

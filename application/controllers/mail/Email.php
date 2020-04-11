@@ -39,13 +39,17 @@ class Email extends CI_Controller {
 
             $setting = $this->setting_model->read();
             /* --------INITIAL CONFIG---------*/
-            $this->email->initialize(array(
-                'protocol' => (!empty($setting->protocol) ? $setting->protocol : 'sendmail '),
-                'mailpath' => (!empty($setting->mailpath) ? $setting->mailpath : '/usr/sbin/sendmail'),
-                'mailtype' => (!empty($setting->mailtype) ? $setting->mailtype : 'html'),
-                'validate_email' => (!empty($setting->validate_email) ? $setting->validate_email : false),
-                'wordwrap' => (!empty($setting->wordwrap) ? $setting->wordwrap : true),
-            )); 
+
+            $config = array(
+                'protocol' => 'smtp',
+                'smtp_host' => $this->config->item('smtp_host'),
+                'smtp_port' => 465,
+                'smtp_user' => $this->config->item('smtp_user'),
+                'smtp_pass' => $this->config->item('smtp_pass'),
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1'
+            );
+            $this->email->initialize($config);
 
             $this->email->to($postData['to']);
             $this->email->from($postData['from']);

@@ -136,7 +136,7 @@
 
 
 
-                         <button type="button"  id="forgetpassword" name ="forgetpassword" class="btn btn-primary fp ">Send
+                         <button type="button"  id="btnforgetpassword" name ="btnforgetpassword" class="btn btn-primary fp ">Send
                          </button>
                         </div>
                 </div>
@@ -540,7 +540,7 @@
         });
     });
 
-    $(document).on("click" , "#forgetpassword" , function (e) {
+    $(document).on("click" , "#btnforgetpassword" , function (e) {
         var emailaddress = $('#forgetpassword').val();
         $.ajax({
             url: "dashboard/checkAndSendMail",

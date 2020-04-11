@@ -18,19 +18,19 @@
                     </thead>
                     <tbody>
                         <?php 
-                        if (!empty($prescription)) {
+                        if (!empty($appointment)) {
                             $sl = 1;
-                            foreach ($prescription as $value) {
+                            foreach ($appointment as $value) {
                         ?>
                             <tr>
                                 <td><?php echo $sl; ?></td>
                                 <td><?php echo $value->appointment_id; ?></td>
 
-                                <td><?php echo $value->doctor_name; ?></td>
+                                <td><?php echo $value->firstname; ?></td>
 
                                 <td><?php echo date('d-m-Y', strtotime($value->date)); ?></td>
                                 <td class="center">
-                                    <a href="<?php echo base_url("dashboard_patient/prescription/prescription/view/$value->id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a> 
+                                    <a href="<?php echo base_url("dashboard_patient/home/view/$value->appointment_id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                         <?php 

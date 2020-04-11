@@ -49,6 +49,7 @@ class Dashboard extends CI_Controller {
 
             if ($check_user->num_rows() === 1) {
 
+
                 //retrive setting data and store to session
 
                 //store data in session
@@ -155,11 +156,74 @@ class Dashboard extends CI_Controller {
             ->where('email',$email)
             ->get('patient')
             ->num_rows();
+        $getpassword  =$this->randomStringGererate();
+        $encrptpassword = md5($getpassword);
 
         if ($emailExists ==  0) {
-            $this->form_validation->set_rules('user_role',display('user_role'),'required');
-            echo "Incoorect";
+            $this->session->set_flashdata('exception',display('This Email Address is not Register'));
         }
+        else{
+
+                //Update Temporary Password in Database
+                $this->db->set('password', $encrptpassword);
+                $this->db->where('email', $email);
+                $this->db->update('patient');
+
+                $message = 'Dear Customer,' .   "<br/><br/>"  . 'You recently requested to reset your password. Please find your temporary password below.'
+                    . "<br/>" .  $getpassword . "<br/><br/>" .  "Best Regards ThinkBots";
+
+                $data['email'] = (object)$postData = array(
+                'from'        => 'info@thinkbots.tech',
+                'to'          => $this->input->post('emailaddress'),
+                'subject'     => 'Recover Your Password',
+                'message'     =>   $message,
+
+                );
+
+            /* --------INITIAL CONFIG---------*/
+            $config = array(
+                'protocol' => 'smtp',
+                'smtp_host' => $this->config->item('smtp_host'),
+                'smtp_port' => 465,
+                'smtp_user' => $this->config->item('smtp_user'),
+                'smtp_pass' => $this->config->item('smtp_pass'),
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1'
+            );
+            $this->email->initialize($config);
+            $this->email->set_mailtype("html");
+            $this->email->set_newline("\r\n");
+
+            $this->email->to($postData['to']);
+            $this->email->from($postData['from']);
+            $this->email->subject($postData['subject']);
+            $this->email->message($postData['message']);
+
+            if ($this->email->send()) {
+
+                #set success message
+                $this->session->set_flashdata('message', display('For Further Detail Please Check Your Email Address'));
+
+                echo "For Further Detail Please Check Your Email Address";
+            }
+            else {
+                #set exception message
+                $this->session->set_flashdata('exception',display('please_try_again'));
+            }
+        }
+
+    }
+
+
+    private function randomStringGererate()
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 5 ; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
 

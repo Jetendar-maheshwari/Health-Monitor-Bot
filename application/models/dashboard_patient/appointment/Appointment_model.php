@@ -23,8 +23,38 @@ class Appointment_model extends CI_Model {
 			->order_by('appointment.id','desc')
 			->get()
 			->result();
-	} 
- 
+	}
+
+    /**
+     * @param $user_id
+     * @return mixed
+     */
+
+    public function readByUserId($user_id)
+    {
+
+        $patientId = $this->db->select("patient_id")
+            ->where('id',$user_id)
+            ->from("patient")
+            ->get()
+            ->row();
+
+
+        return $this->db->select("
+				appointment.*, 
+				user.firstname, 
+				user.lastname,  
+				department.name
+			")
+            ->where('patient_id',$patientId->patient_id)
+            ->from($this->table)
+            ->join('user','user.user_id = appointment.doctor_id')
+            ->join('department','department.dprt_id = appointment.department_id')
+            ->order_by('appointment.id','desc')
+            ->get()
+            ->result();
+    }
+
 	public function read_by_id($appointment_id = null)
 	{ 
 		return $this->db->select("
