@@ -12,7 +12,7 @@
                 <dl class="dl-horizontal">
                     <dt>Symptoms</dt>
                     <dd><?php echo $surveydetails->Sym_name ?></dd>
-                    <dt>Remarks</dt>
+                    <dt>Disease Level</dt>
                     <dd><?php echo $surveydetails->remarks ?></dd>
                     <dt>Filled Date</dt>
                     <dd><?php echo $surveydetails->filled_date ?></dd>

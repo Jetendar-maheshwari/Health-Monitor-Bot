@@ -244,3 +244,30 @@ margin-top: 15px;
     width: auto;
     margin-right: 60px;
 }
+
+input#demoform-email {
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #e4e5e7 !important;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+}
+input#signupform-email {
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #e4e5e7 !important;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+}
+div.modal-content button.close{
+   display: none;
+}
+.required {
+    color: red;
+  }

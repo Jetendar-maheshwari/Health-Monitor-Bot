@@ -4951,7 +4951,7 @@ pre .arg {
 
 .alert-info {
     color: white;
-    background-color: #53d4fa;
+    background-color: #29b1d0;
     border-color: #00b1e6;
 }
 
@@ -5631,13 +5631,12 @@ pre .arg {
 }
 
 .modal-header {
-    padding: 15px;
-    border-bottom: 1px solid #e1e6ef;
-    background-color: #f7f9fa;
+    background-color: #29b1d0;
 }
 
 .modal-title {
     text-align: center;
+    color: #fff;
 }
 
 .modal-success .modal-header {
@@ -6143,3 +6142,4 @@ div.survey_questions_out.row h2 {
       i.fa.fa-bars:hover {
         color: #37a000 ;   
        }
+      

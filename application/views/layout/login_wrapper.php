@@ -54,16 +54,13 @@
                             <a href="#About" title="About">About</a>
                             <a href="#offer" title="We offer">We offer</a>
                             <a href="#" title="Contact">Contact</a>
-                            <a class="btn btn-primary requestdemo" data-toggle="modal" >Request Demo </a>
+                            <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestdemoForm">Request Demo </a>
                             <a href="javascript:void(0);" class="icon" onclick="navFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
+                             <i class="fa fa-bars"></i></a>
 
                     
                     </div>
-
                 </div>
-            
             </div>
         </div>
 
@@ -105,7 +102,7 @@
                     </button>
 
 
-                    <a class="btn btn-primary patient_register" data-toggle="modal" >Patient Register </a>
+                    <a class="btn btn-primary patient_register" data-toggle="modal" data-target="#modalRegisterForm" >Patient Sign up </a>
 
                     <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
 
@@ -147,8 +144,125 @@
 
         </div>
 
-        <!--Modal for demo Request-->
-        <div id="requestmodal" class="modal fade">
+
+     <!-------------------------- Request Demo Modal  ------------------------>
+        <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
+          <input type="text" id="demoform-name" class="form-control validate" required />
+        </div>
+
+        <div class="md-form mb-4">
+        <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
+          <input type="text" id="demoform-orgname" class="form-control validate" required/>
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
+        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="demoform-email" required />
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
+          <input type="tel" id="demoform-phone" class="form-control validate" required/>
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
+        <textarea id="txtArea" rows="5" cols="70"></textarea>
+        </div>
+        
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-primary btn-sm">Submit</button>
+        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-------------------------- Request Demo Modal Finished  ------------------------>
+
+
+        <!-------------------------- Patient Registeration Modal  ------------------------>
+
+        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-name">First Name</label><span class="required">*</span>
+          <input type="text" id="orangeForm-name" class="form-control validate" required />
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-name">Last Name</label><span class="required">*</span>
+          <input type="text" id="orangeForm-name" class="form-control validate" required />
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
+        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="signupform-email" required />
+        </div>
+
+        <div class="md-form mb-4">
+        <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label><span class="required">*</span>
+          <input type="password" id="orangeForm-pass" class="form-control validate" required />
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Mobile No</label><span class="required">*</span>
+          <input type="tel" id="orangeForm-email" class="form-control validate" required />
+        </div>
+
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Date of Birth</label><span class="required">*</span>
+          <input type="date" id="orangeForm-email" class="form-control validate" required />
+        </div>
+        <br>
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Sex</label>
+        <input type="radio" name="sex" value="male" checked> Male
+         <input type="radio" name="sex" value="female"> Female
+        </div>
+        <br>
+        <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">Your Address</label><span class="required">*</span>
+        <textarea id="txtArea" rows="5" cols="70"></textarea>
+        </div>
+        
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-primary btn-sm">Sign up</button>
+        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!--------------------- Patient Registeration Modal Finished ---------------------->
+
+        <!-- <div id="requestmodal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -160,24 +274,24 @@
                         <form class="form-horizontal" id="myForm" name="contact" action="#">
                         <div class="form-group">
                             <label class="control-label" for="username">User Name <i class="text-danger">*</i></label>
-<!--                            <input type="text" placeholder="Name" name="username" id="username" class="form-control" >-->
+                            <input type="text" placeholder="Name" name="username" id="username" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
-<!--                            <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">-->
+                            <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="emailaddress">Email Address <i class="text-danger">*</i></label>
-<!--                            <input type="email" placeholder="Email Address" name="emailaddress"  required id="emailaddress" class="form-control">-->
+                            <input type="email" placeholder="Email Address" name="emailaddress"  required id="emailaddress" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="contactno">Contact No</label>
-<!--                            <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">-->
+                            <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="message">Message</label>
-<!--                            <input type="text-area"  name="message" id="message" class="form-control">-->
+                            <input type="text-area"  name="message" id="message" class="form-control">
                         </div>
 
                             <div class="form-group">
@@ -196,16 +310,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
-        <div id="myFormModal" class="modal fade" >
+        <!-- <div id="myFormModal" class="modal fade" >
             <div class="modal-dialog">
 
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add details</h4>
+                        <h4 class="modal-title">Request for the Demo</h4>
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal" id="myForm" name="contact" action="#">
@@ -256,9 +370,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-    </div>
+        </div>  -->
 
 
 
@@ -355,8 +467,8 @@
             <div class= "contact">
             <p><strong>Email:</strong> info@thinkbots.tech</p>
             <p><strong>Phone:</strong> +15776798658</p>
-            <a href="https://www.facebook.com/thinkbots5" class="fa fa-facebook"></a>
-            <a href="https://twitter.com/thinkbots5" class="fa fa-twitter"></a>
+            <a href="https://www.facebook.com/thinkbots5" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/thinkbots5" target="_blank" class="fa fa-twitter"></a>
                                 </div>
                                 
     </div>
@@ -372,7 +484,7 @@
     
 </div>
 
-<footer class="col-xs-12 col-md-12 col-lg-12 copy-right"> <p style= "text-align: center">&copy; 2020 Thinkbots</p></footer>
+<footer class="col-xs-12 col-md-12 col-lg-12 copy-right"> <p style= "text-align: center">&copy; 2020 Thinkbots </p></footer>
 <!-- footer end -->
 
 
