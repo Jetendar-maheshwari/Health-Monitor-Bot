@@ -160,7 +160,7 @@ class Dashboard extends CI_Controller {
         $encrptpassword = md5($getpassword);
 
         if ($emailExists ==  0) {
-            $this->session->set_flashdata('exception',display('This Email Address is not Register'));
+            echo "This Email Address is not Register Please Check You Email Again";
         }
         else{
 
@@ -200,15 +200,12 @@ class Dashboard extends CI_Controller {
             $this->email->message($postData['message']);
 
             if ($this->email->send()) {
-
                 #set success message
-                $this->session->set_flashdata('message', display('For Further Detail Please Check Your Email Address'));
-
                 echo "For Further Detail Please Check Your Email Address";
             }
             else {
                 #set exception message
-                $this->session->set_flashdata('exception',display('please_try_again'));
+                echo "Email Not Send";
             }
         }
 
