@@ -98,6 +98,9 @@
                     <div class="flasherror js-hint alert alert-danger" style="display: none">
                     </div>
 
+                    <div class="js-hint alert alert-success" style="display: none">
+                    </div>
+
                     <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
                     </button>
 
@@ -145,11 +148,12 @@
         </div>
 
 
-     <!-------------------------- Request Demo Modal  ------------------------>
-        <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     <!-------------------------- Request Demo Modal Changed  ------------------------>
+  <form name="requestDemoSubmitForm" id="requestDemoSubmitForm" method="POST" action="#">
+    <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+      <div class="modal-content">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -182,9 +186,8 @@
         <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
         <textarea id="txtArea" rows="5" cols="70"></textarea>
         </div>
-        
-
       </div>
+
       <div class="modal-footer d-flex justify-content-center">
         <button type="button" class="btn btn-primary btn-sm">Submit</button>
         <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
@@ -192,6 +195,7 @@
     </div>
   </div>
 </div>
+  </form>
         <!-------------------------- Request Demo Modal Finished  ------------------------>
 
 
@@ -550,7 +554,22 @@
                 [csrfName]: csrfHash
             },
             success:function(data){
+                debugger;
+                data = JSON.parse(data);
+                if(data.status === 200){
+                    $('.alert-danger').css('display', 'none');
+                    $('.alert-success').css('display', 'block');
+                    $('.alert-success').text(data.message);
+                } else {
+                    $('.alert-suceess').css('display', 'none');
+                    $('.alert-danger').css('display', 'block');
+                    $('.alert-danger').text(data.message);
+                }
 
+                setInterval(function () {
+                    $('.alert-danger').css('display', 'none');
+                    $('.alert-success').css('display', 'none');
+                }, 5000)
             }
         });
     });
@@ -620,7 +639,12 @@ function fadeMenuWrap() {
     } else { 
         jQuery('.fa-arrow-up').fadeOut(300); 
     } 
-} 
+}
+
+
+$('#modalRegisterForm').onsubmit(function (event) {
+    event.defaultPrevent();
+});
 
 function navFunction() {
   var x = document.getElementById("menu");

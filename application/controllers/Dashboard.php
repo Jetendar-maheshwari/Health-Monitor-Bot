@@ -156,11 +156,12 @@ class Dashboard extends CI_Controller {
             ->where('email',$email)
             ->get('patient')
             ->num_rows();
-        $getpassword  =$this->randomStringGererate();
+
+        $getpassword  = $this->randomStringGererate();
         $encrptpassword = md5($getpassword);
 
         if ($emailExists ==  0) {
-            echo "This Email Address is not Register Please Check You Email Again";
+            echo json_encode(array('status'=>404, 'message'=>'This Email Address is not Register Please Check You Email Again'));
         }
         else{
 
@@ -201,11 +202,11 @@ class Dashboard extends CI_Controller {
 
             if ($this->email->send()) {
                 #set success message
-                echo "For Further Detail Please Check Your Email Address";
+                echo json_encode(array('status'=>200, 'message'=>'For Further Detail Please Check Your Email Address'));
             }
             else {
                 #set exception message
-                echo "Email Not Send";
+                echo json_encode(array('status'=>500, 'message'=>'Something went wrong!'));
             }
         }
 
