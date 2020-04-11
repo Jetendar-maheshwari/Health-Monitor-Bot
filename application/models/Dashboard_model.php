@@ -23,7 +23,6 @@ class Dashboard_model extends CI_Model {
 			->from("patient")
 			->where('email',$data['email'])
 			->where('password',$data['password'])
-			->where('status',1)
 			->get();
 	}  
 

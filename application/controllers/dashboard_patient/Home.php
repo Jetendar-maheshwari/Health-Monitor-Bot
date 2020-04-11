@@ -23,7 +23,8 @@ class Home extends CI_Controller {
     {
         $data['title'] = display('home');
         #-------------------------------#
-        $data['appointment'] = $this->appointment_model->read();
+        $user_id = $this->session->userdata('user_id');
+        $data['appointment'] = $this->appointment_model->readByUserId($user_id);
         $data['content'] = $this->load->view('dashboard_patient/home/dashboard',$data,true);
         $this->load->view('dashboard_patient/main_wrapper',$data);
     }
@@ -139,7 +140,18 @@ class Home extends CI_Controller {
             $this->load->view('dashboard_patient/main_wrapper',$data);
         } 
     }
- 
+
+
+    public function view($appointment_id = null)
+    {
+
+        $data['title'] = display('appointment');
+        /* ------------------------------- */
+        $data['appointment'] = $this->appointment_model->read_by_id($appointment_id);
+        $data['content'] = $this->load->view('dashboard_patient/appointment/appointment_view',$data,true);
+        $this->load->view('dashboard_patient/main_wrapper',$data);
+    }
+
 
     public function logout()
     {  

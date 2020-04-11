@@ -10,7 +10,6 @@ class Report extends CI_Controller {
 		$this->load->model(array(
 			'report_model',
 			'doctor_model',
-			'representative_model',
 		));
  
 		if ($this->session->userdata('isLogIn') == false

@@ -30,7 +30,7 @@
 
                                 <td><?php echo date('d-m-Y', strtotime($value->date)); ?></td>
                                 <td class="center">
-                                    <a href="<?php echo base_url("appointment/view/$value->appointment_id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+                                    <a href="<?php echo base_url("dashboard_patient/home/view/$value->appointment_id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                         <?php 
