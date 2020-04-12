@@ -93,19 +93,17 @@
                         <input type="password"  placeholder="<?= display('password') ?>" name="password" id="password" class="form-control">
                     </div>
 
+                    <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
+                    </button>
 
+                    <a class="btn btn-primary patient_register" data-toggle="modal" data-target="#modalRegisterForm" >Patient Sign up </a>
 
+                    <br/>
                     <div class="flasherror js-hint alert alert-danger" style="display: none">
                     </div>
 
                     <div class="js-hint alert alert-success" style="display: none">
                     </div>
-
-                    <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
-                    </button>
-
-
-                    <a class="btn btn-primary patient_register" data-toggle="modal" data-target="#modalRegisterForm" >Patient Sign up </a>
 
                     <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
 
@@ -149,53 +147,62 @@
 
 
      <!-------------------------- Request Demo Modal Changed  ------------------------>
-  <form name="requestDemoSubmitForm" id="requestDemoSubmitForm" method="POST" action="#">
+
     <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+               <form class="form-horizontal" id="myForm" name="contact" action="#">
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
+                    <input type="text"  name="username" id="username" required class="form-control" >
+                </div>
+
+                <div class="md-form mb-4">
+                <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
+                    <input type="text"  name="hospitalname" id="hospitalname" required class="form-control validate">
+                </div>
+
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
+
+                    <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
+                </div>
+
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
+                    <input type="tel"  name="contactno"  id="contactno" class="form-control validate">
+                </div>
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
+
+                <textarea id="txtArea" rows="5" cols="75" name="message" id="message" required></textarea>
+                </div>
+
+                   <div class="modal-footer d-flex justify-content-center">
+                       <button type="submit">Submit</button>
+                       <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Submit</button>
+                       <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+                   </div>
+
+               </form>
+
+              </div>
+
+
+
+          </div>
       </div>
-      <div class="modal-body mx-3">
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
-          <input type="text" id="demoform-name" class="form-control validate" required />
-        </div>
-
-        <div class="md-form mb-4">
-        <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
-          <input type="text" id="demoform-orgname" class="form-control validate" required/>
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
-        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="demoform-email" required />
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
-          <input type="tel" id="demoform-phone" class="form-control validate" required/>
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
-        <textarea id="txtArea" rows="5" cols="70"></textarea>
-        </div>
-      </div>
-
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="button" class="btn btn-primary btn-sm">Submit</button>
-        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>
-  </form>
+
         <!-------------------------- Request Demo Modal Finished  ------------------------>
 
 
@@ -265,118 +272,6 @@
 </div>
 
  <!--------------------- Patient Registeration Modal Finished ---------------------->
-
-        <!-- <div id="requestmodal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3 class="modal-title">Request For Trail</h3>
-
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" id="myForm" name="contact" action="#">
-                        <div class="form-group">
-                            <label class="control-label" for="username">User Name <i class="text-danger">*</i></label>
-                            <input type="text" placeholder="Name" name="username" id="username" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
-                            <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="emailaddress">Email Address <i class="text-danger">*</i></label>
-                            <input type="email" placeholder="Email Address" name="emailaddress"  required id="emailaddress" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="contactno">Contact No</label>
-                            <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" for="message">Message</label>
-                            <input type="text-area"  name="message" id="message" class="form-control">
-                        </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-offset-3 col-sm-3">
-                                    <button  class="btn btn-primary btn-sm">Submit</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button type="reset" class="btn btn-primary btn-sm">Reset</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div id="myFormModal" class="modal fade" >
-            <div class="modal-dialog">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Request for the Demo</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" id="myForm" name="contact" action="#">
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="username">User Name <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="text" placeholder="Name" name="username" id="username" required class="form-control" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="emailaddress">Email Address <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="contactno">Contact No</label>
-                                <div class="col-sm-12">
-                                    <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="message">Message <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="text-area"  name="message" id="message" required class="form-control">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-
-
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                    <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>  -->
-
-
 
     <div class="container" id="offer">
         <div class="container-wrapper">
@@ -569,20 +464,26 @@
                 setInterval(function () {
                     $('.alert-danger').css('display', 'none');
                     $('.alert-success').css('display', 'none');
-                }, 5000)
+                }, 7000)
             }
         });
     });
 
+    $('#requestdemoForm').onsubmit(function() {
+        e.preventDefault();
+    });
+
     $(document).on("click", "#sendMail", function (e) {
         e.preventDefault();
+
+
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
         var emailaddress = $('#emailaddress').val();
         var contactno = $('#contactno').val();
         var message = $('#message').val();
 
-        $.ajax({
+       /* $.ajax({
             url: "home/requestTrail",
             method:"POST",
             data:{
@@ -594,10 +495,10 @@
                 message:message
             },
             success:function(data){
-                $('#myFormModal').modal('hide')
+                $('#requestdemoForm').modal('hide')
                 alert("Mail Send");
             }
-        });
+        });*/
     });
 
 
