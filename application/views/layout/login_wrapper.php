@@ -476,7 +476,6 @@
     $(document).on("click", "#sendMail", function (e) {
         e.preventDefault();
 
-
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
         var emailaddress = $('#emailaddress').val();
