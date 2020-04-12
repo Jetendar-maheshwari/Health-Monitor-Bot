@@ -54,7 +54,7 @@
                             <a href="#About" title="About">About</a>
                             <a href="#offer" title="We offer">We offer</a>
                             <a href="#" title="Contact">Contact</a>
-                            <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestdemoForm">Request Demo </a>
+                            <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestDemoMainModal">Request Demo </a>
                             <a href="javascript:void(0);" class="icon" onclick="navFunction()">
                              <i class="fa fa-bars"></i></a>
 
@@ -140,6 +140,7 @@
                          <button type="button"  id="btnforgetpassword" name ="btnforgetpassword" class="btn btn-primary fp ">Send
                          </button>
                         </div>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
 
@@ -148,7 +149,7 @@
 
      <!-------------------------- Request Demo Modal Changed  ------------------------>
 
-    <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <div class="modal fade" id="requestDemoMainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -187,8 +188,7 @@
                 </div>
 
                    <div class="modal-footer d-flex justify-content-center">
-                       <button type="submit">Submit</button>
-                       <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Submit</button>
+                       <button  class="btn btn-primary btn-sm" id="submitBtn" name="submitBtn" >Submit</button>
                        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
                    </div>
 
@@ -469,11 +469,8 @@
         });
     });
 
-    $('#requestdemoForm').onsubmit(function() {
-        e.preventDefault();
-    });
-
-    $(document).on("click", "#sendMail", function (e) {
+    $('#requestDemoMainModal').submit(function() {
+        debugger;
         e.preventDefault();
 
         var name = $('#username').val();
@@ -482,23 +479,24 @@
         var contactno = $('#contactno').val();
         var message = $('#message').val();
 
-       /* $.ajax({
-            url: "home/requestTrail",
-            method:"POST",
-            data:{
-                [csrfName]: csrfHash,
-                name:name,
-                hospitalname:hospitalname,
-                emailaddress:emailaddress,
-                contactno:contactno,
-                message:message
-            },
-            success:function(data){
-                $('#requestdemoForm').modal('hide')
-                alert("Mail Send");
-            }
-        });*/
+        /* $.ajax({
+         url: "home/requestTrail",
+         method:"POST",
+         data:{
+         [csrfName]: csrfHash,
+         name:name,
+         hospitalname:hospitalname,
+         emailaddress:emailaddress,
+         contactno:contactno,
+         message:message
+         },
+         success:function(data){
+         $('#requestdemoForm').modal('hide')
+         alert("Mail Send");
+         }
+         });*/
     });
+
 
 
 
