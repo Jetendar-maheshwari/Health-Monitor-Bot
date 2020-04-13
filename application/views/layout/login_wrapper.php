@@ -174,21 +174,22 @@
                 <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
 
-                    <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
+                    <input  type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
                 </div>
 
                 <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
-                    <input type="tel"  name="contactno"  id="contactno" class="form-control validate">
+                    <input type="tel" class="form-control " id="contactno" name="contactno" required>
+
                 </div>
                 <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
 
-                <textarea id="txtArea" rows="5" cols="75" name="message" id="message" required></textarea>
+                <textarea id="message" rows="5" cols="75" name="message" id="message"></textarea>
                 </div>
 
                    <div class="modal-footer d-flex justify-content-center">
-                       <button  class="btn btn-primary btn-sm" id="submitBtn" name="submitBtn" >Submit</button>
+                       <button  class="btn btn-primary btn-sm" id="submitBtnDemo" name="submitBtn" >Submit</button>
                        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
                    </div>
 
@@ -206,70 +207,86 @@
         <!-------------------------- Request Demo Modal Finished  ------------------------>
 
 
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <form class="form-horizontal" id="modalRegisterForm" name="modalRegisterForm" action="#">
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">First Name</label><span class="required">*</span>
+                        <input type="text"  name="rfname" id="rfname" required class="form-control" >
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Last Name</label><span class="required">*</span>
+                        <input type="text" id="rlname" name="rlname" class="form-control validate" required />
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
+                        <input type="email" name="remail" value="" id="remail" required class="form-control validate" />
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label><span class="required">*</span>
+                        <input type="password" value="" name ="rpassword" id="rpassword" class="form-control validate" required />
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Mobile No</label><span class="required">*</span>
+                        <input type="tel" id="rtel" name="rtel" class="form-control validate" required />
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Date of Birth</label><span class="required">*</span>
+                        <input type="date" id="rdob" name="rdob" class="form-control validate" required />
+                    </div>
+                    <br>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Sex</label>
+                        <div class="form-check">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex" value="Male" <?php echo  set_radio('sex', 'Male', TRUE); ?> ><?php echo display('male') ?>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex" value="Female" <?php echo  set_radio('sex', 'Female'); ?> ><?php echo display('female') ?>
+                            </label>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Your Address</label><span class="required">*</span>
+                        <textarea id="raddress" name="raddress" rows="5" cols="70"></textarea>
+
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button  class="btn btn-primary btn-sm" id="submitBtnDemo" name="submitBtn" >Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
         <!-------------------------- Patient Registeration Modal  ------------------------>
 
-        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-name">First Name</label><span class="required">*</span>
-          <input type="text" id="orangeForm-name" class="form-control validate" required />
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-name">Last Name</label><span class="required">*</span>
-          <input type="text" id="orangeForm-name" class="form-control validate" required />
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
-        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="signupform-email" required />
-        </div>
-
-        <div class="md-form mb-4">
-        <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label><span class="required">*</span>
-          <input type="password" id="orangeForm-pass" class="form-control validate" required />
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Mobile No</label><span class="required">*</span>
-          <input type="tel" id="orangeForm-email" class="form-control validate" required />
-        </div>
-
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Date of Birth</label><span class="required">*</span>
-          <input type="date" id="orangeForm-email" class="form-control validate" required />
-        </div>
-        <br>
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Sex</label>
-        <input type="radio" name="sex" value="male" checked> Male
-         <input type="radio" name="sex" value="female"> Female
-        </div>
-        <br>
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Your Address</label><span class="required">*</span>
-        <textarea id="txtArea" rows="5" cols="70"></textarea>
-        </div>
-        
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-      <button type="button" class="btn btn-primary btn-sm">Sign up</button>
-        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
  <!--------------------- Patient Registeration Modal Finished ---------------------->
 
@@ -419,19 +436,6 @@
     var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
         csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 
-    $(document).on("click", ".patient_register", function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: "home/registerPatient",
-            method:"POST",
-            data:{
-                [csrfName]: csrfHash,
-            },
-            success:function(data){
-
-            }
-        });
-    });
 
     $(document).ready(function(){
         $(".forgotbtn").click(function(){
@@ -449,7 +453,6 @@
                 [csrfName]: csrfHash
             },
             success:function(data){
-                debugger;
                 data = JSON.parse(data);
                 if(data.status === 200){
                     $('.alert-danger').css('display', 'none');
@@ -469,17 +472,71 @@
         });
     });
 
-    $('#requestDemoMainModal').submit(function() {
-        debugger;
+    $('#modalRegisterForm').submit(function(e) {
+
         e.preventDefault();
 
+        var rfname = $('#rfname').val();
+        var rlname = $('#rlname').val();
+        var remail = $('#remail').val();
+        var rpassword = $('#rpassword').val();
+        var rtel = $('#rtel').val();
+        var rdob = $('#rdob').val();
+        var sex = $('#sex').val();
+        var raddress = $('#raddress').val();
+
+        $.ajax({
+            url: "dashboard/registerPatient",
+            method:"POST",
+            data:{
+                [csrfName]: csrfHash,
+                rfname:rfname,
+                rlname:rlname,
+                remail:remail,
+                rpassword:rpassword,
+                rtel:rtel,
+                rdob:rdob,
+                sex:sex,
+                raddress:raddress,
+            },
+            success:function(data){
+                data = JSON.parse(data);
+                if(data.status == 204){
+                    alert(data.message);
+                }
+                if(data.status === 200){
+                    $('#rfname').val("");
+                    $('#rlname').val("");
+                    $('#remail').val("");
+                    $('#rpassword').val("");
+                    $('#rtel').val("");
+                    $('#rdob').val("");
+                    $('#sex').val("");
+                    $('#raddress').val("");
+                    alert(data.message);
+                    $('#modalRegisterForm').modal('hide')
+                }
+                if(data.status === 500){
+                    $('#modalRegisterForm').modal('hide')
+                    alert(data.message);
+
+                }
+
+            }
+        });
+
+    });
+
+    $('#requestDemoMainModal').submit(function(e) {
+
+        e.preventDefault();
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
         var emailaddress = $('#emailaddress').val();
         var contactno = $('#contactno').val();
         var message = $('#message').val();
 
-        /* $.ajax({
+         $.ajax({
          url: "home/requestTrail",
          method:"POST",
          data:{
@@ -491,67 +548,72 @@
          message:message
          },
          success:function(data){
-         $('#requestdemoForm').modal('hide')
-         alert("Mail Send");
+             data = JSON.parse(data);
+             if(data.status === 200){
+                alert(data.message);
+                 $('#username').val("");
+                 $('#hospitalname').val("");
+                 $('#emailaddress').val("");
+                 $('#contactno').val("");
+                 $('#message').val("");
+             }
+             if(data.status === 500){
+                 alert(data.message);
+             }
+             $('#requestDemoMainModal').modal('hide')
          }
-         });*/
+         });
     });
 
 
-
-
     $(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+    // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+          // Store hash
+          var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
       });
-    } // End if
-  });
-});
+    });
 
-jQuery(document).ready(function() { 
-    fadeMenuWrap(); 
-    jQuery(window).scroll(fadeMenuWrap);
-});
+    jQuery(document).ready(function() {
+        fadeMenuWrap();
+        jQuery(window).scroll(fadeMenuWrap);
+    });
 
-function fadeMenuWrap() { 
-    var scrollPos = window.pageYOffset || document.documentElement.scrollTop; 
-    if (scrollPos > 300) { 
-        jQuery('.fa-arrow-up').fadeIn(300); 
-    } else { 
-        jQuery('.fa-arrow-up').fadeOut(300); 
-    } 
-}
+    function fadeMenuWrap() {
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollPos > 300) {
+            jQuery('.fa-arrow-up').fadeIn(300);
+        } else {
+            jQuery('.fa-arrow-up').fadeOut(300);
+        }
+    }
 
 
-$('#modalRegisterForm').onsubmit(function (event) {
-    event.defaultPrevent();
-});
-
-function navFunction() {
-  var x = document.getElementById("menu");
-  if (x.className === "main-menu") {
-    x.className += " responsive";
-  } else {
-    x.className = "main-menu";
-  }
-}
+    function navFunction() {
+      var x = document.getElementById("menu");
+      if (x.className === "main-menu") {
+        x.className += " responsive";
+      } else {
+        x.className = "main-menu";
+      }
+    }
 
 </script>
 </body>

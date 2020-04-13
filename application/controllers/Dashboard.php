@@ -212,6 +212,42 @@ class Dashboard extends CI_Controller {
 
     }
 
+    public function registerPatient(){
+
+        $email = $this->input->post('remail');
+
+        $emailExists = $this->db->select('email')
+            ->where('email',$email)
+            ->get('user')
+            ->num_rows();
+
+        if($emailExists === 1){
+            echo json_encode(array('status'=>204, 'message'=>'This Email is Already Registered!'));
+        }
+        else{
+            $data['patient'] = (object)$postData = [
+                'patient_id'   => "P".$this->randStrGen(2,7),
+                'firstname'  =>  $this->input->post('rfname'),
+                'lastname' => $this->input->post('rlname'),
+                'email' => $this->input->post('remail'),
+                'password' => md5($this->input->post('rpassword')),
+                'mobile' => $this->input->post('rtel'),
+                'date_of_birth' => $this->input->post('rdob'),
+                'sex' => $this->input->post('sex'),
+                'address' => $this->input->post('raddress'),
+                'status' => 0
+            ];
+
+
+            if ($this->dashboard_model->createPatient($postData)) {
+                echo json_encode(array('status'=>200, 'message'=>'Patient Register Successfully'));
+            }else{
+                echo json_encode(array('status'=>500, 'message'=>'Something went wrong!'));
+            }
+        }
+
+    }
+
 
     private function randomStringGererate()
     {
@@ -314,8 +350,26 @@ class Dashboard extends CI_Controller {
             $this->load->view('layout/main_wrapper',$data);
         } 
     }
- 
 
+    public function randStrGen($mode = null, $len = null){
+        $result = "";
+        if($mode == 1):
+            $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        elseif($mode == 2):
+            $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        elseif($mode == 3):
+            $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        elseif($mode == 4):
+            $chars = "0123456789";
+        endif;
+
+        $charArray = str_split($chars);
+        for($i = 0; $i < $len; $i++) {
+            $randItem = array_rand($charArray);
+            $result .="".$charArray[$randItem];
+        }
+        return $result;
+    }
 
 
     public function logout()

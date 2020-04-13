@@ -69,11 +69,13 @@
                                     </div>
                                     <label for="name" class="col-xs-1 col-form-label mark"> Remark </label>
                                     <div class="col-xs-9">
-                                        <textarea rows="2"<?php echo $key;?>  value="<?php echo $range->remarks; ?>"  class="form-control mark" >
-                                         <?php echo $range->remarks; ?>
-                                        </textarea>
+
+                                        <textarea name="remarks<?php echo $key;?>" class="form-control mark" placeholder="Remarks"
+                                                  maxlength="140" rows="2"> <?php echo $range->remarks ?></textarea>
+
                                         <input type="hidden" value="<?php echo $range->symptoms_id; ?>" name="symptoms_id<?php echo $key;?>" />
                                     </div>
+
                                 </div>
                                  <script> i++;  </script>
                             <?php }} ?>

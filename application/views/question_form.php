@@ -43,7 +43,7 @@
                                         </div>
                                         <label for="option" class="col-xs-1 col-form-label option"> Option </label>
                                         <div class="col-xs-6">
-                                        <textarea rows="2"<?php echo $key;?>" value="<?php echo $option->opt_descr; ?>"  type="text" class="form-control"></textarea>
+                                            <input name="option<?php echo $key;?>" value="<?php echo $option->opt_descr; ?>"  type="text" class="form-control">
                                         </div>
                                         <label for="score" class="col-xs-1 col-form-label"> Score </label>
                                         <div class="col-xs-2">
@@ -80,9 +80,9 @@
 <script>
     function  dynamic_add() {
         let str =  `<div class="form-group row col-sm-12">
-                <div class="col-xs-3"> </div>
+                <div class="col-xs-2"> </div>
                 <label for="option" class="col-xs-1 col-form-label"> option </label>
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                     <input name="option`+i+`"  type="text" class="form-control" id="option`+i+`">
                 </div>
                 <label for="score" class="col-xs-1 col-form-label"> Score </label>

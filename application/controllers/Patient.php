@@ -57,7 +57,6 @@ class Patient extends CI_Controller {
 			$this->form_validation->set_rules('email',display('email'), "required|max_length[50]|valid_email|callback_email_check[$id]");
 		}
 
-		$this->form_validation->set_rules('password', display('password'),'required|max_length[32]');
 		$this->form_validation->set_rules('phone', display('phone'),'max_length[20]');
 		$this->form_validation->set_rules('postal_code', display('postal_code'),'required|max_length[20]');
 
@@ -88,6 +87,7 @@ class Patient extends CI_Controller {
 		}
 		#-------------------------------#
 		if ($this->input->post('id') == null) { //create a patient
+            $this->form_validation->set_rules('password', display('password'),'required|max_length[32]');
 			$data['patient'] = (object)$postData = [
 				'id'   		   => $this->input->post('id'),
 				'patient_id'   => "P".$this->randStrGen(2,7),
@@ -106,7 +106,7 @@ class Patient extends CI_Controller {
 				'affliate'     => null,
 				'create_date'  => date('Y-m-d'),
 				'created_by'   => $this->session->userdata('user_id'),
-				'status'       => 1,
+                'status'       => $this->input->post('status'),
 			]; 
 		} else { // update patient
 			$data['patient'] = (object)$postData = [
@@ -125,7 +125,7 @@ class Patient extends CI_Controller {
 				'picture'      => (!empty($picture)?$picture:$this->input->post('old_picture')),
 				'affliate'     => null, 
 				'created_by'   => $this->session->userdata('user_id'),
-				'status'       => 1,
+                'status'       => $this->input->post('status'),
 			]; 
 		}
 		#-------------------------------#
@@ -173,10 +173,13 @@ class Patient extends CI_Controller {
 
 
 	public function edit($patient_id = null) 
-	{ 
+	{
+
+        $data['mode'] = "edit";
 		$data['title'] = display('patient_edit');
 		#-------------------------------#
 		$data['patient'] = $this->patient_model->read_by_id($patient_id);
+
 		$data['content'] = $this->load->view('patient_form',$data,true);
 		$this->load->view('layout/main_wrapper',$data);
 	}
