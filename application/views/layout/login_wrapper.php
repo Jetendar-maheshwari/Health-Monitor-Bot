@@ -53,7 +53,7 @@
                     <div id="menu" class="col-md-9 main-menu">
                             <a href="#About" title="About">About</a>
                             <a href="#offer" title="We offer">We offer</a>
-                            <a href="#" title="Contact">Contact</a>
+                            <a href="#contact" title="Contact">Contact</a>
                             <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestDemoMainModal">Request Demo </a>
                             <a href="javascript:void(0);" class="icon" onclick="navFunction()">
                              <i class="fa fa-bars"></i></a>
@@ -360,7 +360,7 @@
 
 
     <div id="content">
-    <div class="container-footer">
+    <div class="container-footer" id="contact">
         <div class="col-md-4 ">
             <div id= "thinkbots">
             <a href="https://thinkbots.tech/" target="_blank"><img src="assets/images/thinkbots.jpg" class="image-stylee"></a>

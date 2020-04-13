@@ -71,7 +71,7 @@
                                     <div class="col-xs-9">
 
                                         <textarea name="remarks<?php echo $key;?>" class="form-control mark" placeholder="Remarks"
-                                                  maxlength="140" rows="2"> <?php echo $range->remarks ?></textarea>
+                                                  maxlength="1000" rows="2"> <?php echo $range->remarks ?></textarea>
 
                                         <input type="hidden" value="<?php echo $range->symptoms_id; ?>" name="symptoms_id<?php echo $key;?>" />
                                     </div>
@@ -127,7 +127,7 @@
                 </div>
                 <label for="name" class="col-xs-1 col-form-label"> Remark </label>
                 <div class="col-xs-9">
-                    <textarea name="remarks`+i+`"  type="text" class="form-control mark" id="remarks`+i+`"></textarea>
+                    <textarea rows="2" maxlength="1000"  name="remarks`+i+`"  type="text" class="form-control mark" id="remarks`+i+`"></textarea>
                     <input type="hidden" value="`+sym_id+`" name="symptoms_id`+i+`" />
                 </div>
                 </div>`;

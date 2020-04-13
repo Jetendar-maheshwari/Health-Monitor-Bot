@@ -320,7 +320,7 @@ class Dashboard extends CI_Controller {
             'degree'       => $this->input->post('degree',true),
             'created_by'   => $this->session->userdata('user_id'),
             'create_date'  => date('Y-m-d'),
-            'status'       => $this->input->post('status',true),
+            'status'       => 1,
         ]; 
         #-------------------------------#
         if ($this->form_validation->run() === true) {

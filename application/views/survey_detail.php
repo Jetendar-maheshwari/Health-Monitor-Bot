@@ -18,7 +18,6 @@
                     <dd><?php echo $surveydetails->filled_date ?></dd>
                     <dt>Score</dt>
                     <dd><?php echo $surveydetails->total_score ?></dd>
-                    <dt>Status</dt>
                 </dl>
             </div>
 
