@@ -1,0 +1,1 @@
+A generic UK term for personal patient-identifiable details, including name(s) address, phone, sex, marital status, NHS number, etc.

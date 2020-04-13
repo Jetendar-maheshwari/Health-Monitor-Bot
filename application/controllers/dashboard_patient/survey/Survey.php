@@ -9,7 +9,8 @@ class Survey extends CI_Controller {
 		
 		$this->load->model(array(
 			'dashboard_patient/survey/survey_model',
-            'symptoms_model'
+            'symptoms_model',
+            'patient_model'
 		));
 	}
 
@@ -25,6 +26,7 @@ class Survey extends CI_Controller {
     {
         $data['title'] = display('survey_list');
         $data['surveydetails'] = $this->survey_model->surveyDetail($survey_id);
+        $data['questiondetails'] = $this->patient_model->questionDetail($survey_id);
         $data['content'] = $this->load->view('dashboard_patient/survey/detail', $data, true);
         $this->load->view('dashboard_patient/main_wrapper',$data);
     }

@@ -3,14 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><!--
     <title><?/*= display('login') */?> - <?php /*echo (!empty($title)?$title:null) */?></title>-->
 
@@ -47,183 +43,168 @@
 <!-- Content Wrapper -->
 
 <!-- navbar -->
-    <div class="content">
-            <div id="navbar">
-                <div class="row">
-                    <div id="logo" class="col-xs-8 col-md-3">
-                    <a href="/hmb_project"><img src="assets/images/mylogo.png" class="image-style"></a>
-                    </div>
-                    
-                    <div id="menu" class="col-md-9 main-menu">
-                            <a href="#About" title="About">About</a>
-                            <a href="#offer" title="We offer">We offer</a>
-                            <a href="#contact" title="Contact">Contact</a>
-                            <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestDemoMainModal">Request Demo </a>
-                            <a href="javascript:void(0);" class="icon" onclick="navFunction()">
-                             <i class="fa fa-bars"></i></a>
-
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="content">
-            <div class="section" id="section-loginBox">
-                <div id="loginBox" >
-
-                    <?php echo form_open('login','id="loginForm" novalidate'); ?>
-                    <div class="form-group ">
-                        <label class="control-label" for="user_role"><?= display('user_role') ?></label>
-                        <?php
-                        $userRoles = array(
-                            ''  => display('select_user_role'),
-                            '1' => display('admin'),
-                            '10' => display('patient')
-                        );
-                        echo form_dropdown('user_role', $userRoles, $user->user_role, 'class="form-control" id="user_role" ');
-
-                        ?>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="email"><?= display('email') ?></label>
-                        <input type="text" placeholder="<?= display('email') ?>" name="email" id="email" class="form-control">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="control-label" for="password"><?= display('password') ?></label>
-                        <input type="password"  placeholder="<?= display('password') ?>" name="password" id="password" class="form-control">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
-                    </button>
-
-                    <a class="btn btn-primary patient_register" data-toggle="modal" data-target="#modalRegisterForm" >Patient Sign up </a>
-
-                    <br/>
-                    <div class="flasherror js-hint alert alert-danger" style="display: none">
-                    </div>
-
-                    <div class="js-hint alert alert-success" style="display: none">
-                    </div>
-
-                    <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
-
-
-
-                                <!-- alert message -->
-                                <?php if ($this->session->flashdata('message') != null) {  ?>
-                                    <div class="alert alert-info alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <?php echo $this->session->flashdata('message'); ?>
-                                    </div>
-                                <?php } ?>
-
-                                <?php if ($this->session->flashdata('exception') != null) {  ?>
-                                    <div class="alert alert-danger alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <?php echo $this->session->flashdata('exception'); ?>
-                                    </div>
-                                <?php } ?>
-
-                                <?php if (validation_errors()) {  ?>
-                                    <div class="alert alert-danger alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <?php echo validation_errors(); ?>
-                                    </div>
-                                <?php } ?>
-
-                    <div class="form-group" style="display:none" id="forgotpannel" >
-
-                            <input type="email" placeholder="Email Address" name="forgetpassword"  required id="forgetpassword" class="form-control">
-
-
-
-                         <button type="button"  id="btnforgetpassword" name ="btnforgetpassword" class="btn btn-primary fp ">Send
-                         </button>
-                        </div>
-                    <?php echo form_close(); ?>
-                </div>
+<div class="content">
+    <div id="navbar">
+        <div class="row">
+            <div id="logo" class="col-xs-8 col-md-3">
+                <a href="/hmb_project"><img src="assets/images/mylogo.png" class="image-style"></a>
             </div>
 
+            <div id="menu" class="col-md-9 main-menu">
+                <a href="#About" title="About">About</a>
+                <a href="#offer" title="We offer">We offer</a>
+                <a href="#contact" title="Contact">Contact</a>
+                <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestDemoMainModal">Request Demo </a>
+                <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+                    <i class="fa fa-bars"></i></a>
+
+
+            </div>
         </div>
+    </div>
+</div>
+
+<div id="content">
+    <div class="section" id="section-loginBox">
+        <div id="loginBox" >
+
+            <?php echo form_open('login','id="loginForm" novalidate'); ?>
+            <div class="form-group ">
+                <label class="control-label" for="user_role"><?= display('user_role') ?></label>
+                <?php
+                $userRoles = array(
+                    ''  => display('select_user_role'),
+                    '1' => display('admin'),
+                    '10' => display('patient')
+                );
+                echo form_dropdown('user_role', $userRoles, $user->user_role, 'class="form-control" id="user_role" ');
+
+                ?>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="email"><?= display('email') ?></label>
+                <input type="text" placeholder="<?= display('email') ?>" name="email" id="email" class="form-control">
+            </div>
 
 
-<<<<<<< HEAD
-     <!-------------------------- Request Demo Modal  ------------------------>
-        <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class=" modal-body mx-3">
-=======
-     <!-------------------------- Request Demo Modal Changed  ------------------------>
+            <div class="form-group">
+                <label class="control-label" for="password"><?= display('password') ?></label>
+                <input type="password"  placeholder="<?= display('password') ?>" name="password" id="password" class="form-control">
+            </div>
 
-    <div class="modal fade" id="requestDemoMainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+            <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
+            </button>
+
+            <a class="btn btn-primary patient_register" data-toggle="modal" data-target="#modalRegisterForm" >Patient Sign up </a>
+
+            <br/>
+            <div class="flasherror js-hint alert alert-danger" style="display: none">
+            </div>
+
+            <div class="js-hint alert alert-success" style="display: none">
+            </div>
+
+            <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
+
+
+
+            <!-- alert message -->
+            <?php if ($this->session->flashdata('message') != null) {  ?>
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $this->session->flashdata('message'); ?>
+                </div>
+            <?php } ?>
+
+            <?php if ($this->session->flashdata('exception') != null) {  ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $this->session->flashdata('exception'); ?>
+                </div>
+            <?php } ?>
+
+            <?php if (validation_errors()) {  ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo validation_errors(); ?>
+                </div>
+            <?php } ?>
+
+            <div class="form-group" style="display:none" id="forgotpannel" >
+
+                <input type="email" placeholder="Email Address" name="forgetpassword"  required id="forgetpassword" class="form-control">
+
+
+
+                <button type="button"  id="btnforgetpassword" name ="btnforgetpassword" class="btn btn-primary fp ">Send
                 </button>
-              </div>
-              <div class="modal-body mx-3">
-               <form class="form-horizontal" id="myForm" name="contact" action="#">
-                <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
-                    <input type="text"  name="username" id="username" required class="form-control" >
-                </div>
->>>>>>> 32c64375f158ac79c261db09f533beb026a2d662
-
-                <div class="md-form mb-4">
-                <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
-                    <input type="text"  name="hospitalname" id="hospitalname" required class="form-control validate">
-                </div>
-
-                <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
-
-                    <input  type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
-                </div>
-
-                <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
-                    <input type="tel" class="form-control " id="contactno" name="contactno" required>
-
-                </div>
-                <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
-
-                <textarea id="message" rows="5" cols="75" name="message" id="message"></textarea>
-                </div>
-
-                   <div class="modal-footer d-flex justify-content-center">
-                       <button  class="btn btn-primary btn-sm" id="submitBtnDemo" name="submitBtn" >Submit</button>
-                       <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                   </div>
-
-               </form>
-
-              </div>
-
-
-
-          </div>
-      </div>
-
+            </div>
+            <?php echo form_close(); ?>
+        </div>
     </div>
 
-        <!-------------------------- Request Demo Modal Finished  ------------------------>
+</div>
+
+
+<!-------------------------- Request Demo Modal Changed  ------------------------>
+
+<div class="modal fade" id="requestDemoMainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <form class="form-horizontal" id="myForm" name="contact" action="#">
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
+                        <input type="text"  name="username" id="username" required class="form-control" >
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
+                        <input type="text"  name="hospitalname" id="hospitalname" required class="form-control validate">
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
+
+                        <input  type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
+                        <input type="tel" class="form-control " id="contactno" name="contactno" required>
+
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
+
+                        <textarea id="message" rows="5" cols="65" name="message" id="message"></textarea>
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button  class="btn btn-primary btn-sm" id="submitBtnDemo" name="submitBtn" >Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-------------------------- Request Demo Modal Finished  ------------------------>
 
 
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -283,7 +264,7 @@
                     <br>
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="orangeForm-email">Your Address</label><span class="required">*</span>
-                        <textarea id="raddress" name="raddress" rows="5" cols="70"></textarea>
+                        <textarea id="raddress" name="raddress" rows="5" cols="65"></textarea>
 
                     </div>
 
@@ -303,120 +284,120 @@
 
 </div>
 
-        <!-------------------------- Patient Registeration Modal  ------------------------>
+<!-------------------------- Patient Registeration Modal  ------------------------>
 
 
 
- <!--------------------- Patient Registeration Modal Finished ---------------------->
+<!--------------------- Patient Registeration Modal Finished ---------------------->
 
-    <div class="container" id="offer">
-        <div class="container-wrapper">
-            <c class='fa fa-hand-o-right faa-wrench animated fa-4x'></c>
-            <h1>Health Monitoring in Few Steps
-            </h1>
-         </div>
+<div class="container" id="offer">
+    <div class="container-wrapper">
+        <c class='fa fa-hand-o-right faa-wrench animated fa-4x'></c>
+        <h1>Health Monitoring in Few Steps
+        </h1>
+    </div>
 
-        <div class="row row-style">
-            <div class="col-md-6">
-                  <h1 class="heading-h1">Step 1</h1>
-               
-                 <div class="icon-center">
+    <div class="row row-style">
+        <div class="col-md-6">
+            <h1 class="heading-h1">Step 1</h1>
+
+            <div class="icon-center">
                 <i class="fa fa-wpforms fa-4x font-style"   aria-hidden="true"></i>
             </div>
             <p class="step">The patient has to register first after registration he has to login
                 with the credientials.After that he has to fill the symptoms forms to see his health state.He can also see his previous history.Get the appointment with the doctor</p>
 
-            </div>
-
-            <div class="col-md-6">
-
-                <h1 class="heading-h1">Step 2</h1>
-
-                <div class="icon-center">
-                    <i class="fa fa-exclamation-circle fa-4x font-style" ></i>
-                </div>
-
-
-                <p class="step">When the patient condition is critical or moderate he can get the 
-                auto appointment with the doctor and get the alert from hospital that the appointment with the
-                doctor has been fixed  </p>
-            </div>
         </div>
 
-        <div class="row row-style">
-            <div class="col-md-6">
-                <h1 class="heading-h1">Step 3</h1>
-                 <div class="icon-center">
-                 <i class="fa fa-calendar fa-4x font-style" aria-hidden="true"></i>
-             </div>
-             <p class="step">The admin of the hospital can see all the patient condition.He can add the sympton survey form.He can make urgent appointment with the doctors  </p>
+        <div class="col-md-6">
+
+            <h1 class="heading-h1">Step 2</h1>
+
+            <div class="icon-center">
+                <i class="fa fa-exclamation-circle fa-4x font-style" ></i>
             </div>
-            <div class="col-md-6">
-                <h1 class="heading-h1">Step 4</h1>
-                 <div class="icon-center">
+
+
+            <p class="step">When the patient condition is critical or moderate he can get the
+                auto appointment with the doctor and get the alert from hospital that the appointment with the
+                doctor has been fixed  </p>
+        </div>
+    </div>
+
+    <div class="row row-style">
+        <div class="col-md-6">
+            <h1 class="heading-h1">Step 3</h1>
+            <div class="icon-center">
+                <i class="fa fa-calendar fa-4x font-style" aria-hidden="true"></i>
+            </div>
+            <p class="step">The admin of the hospital can see all the patient condition.He can add the sympton survey form.He can make urgent appointment with the doctors  </p>
+        </div>
+        <div class="col-md-6">
+            <h1 class="heading-h1">Step 4</h1>
+            <div class="icon-center">
                 <i class="fa fa-smile-o fa-4x font-style" aria-hidden="true"></i>
             </div>
             <p class="step">At the last step, the patient is very happy that he can save a lot of time and effort if the patient's condition is normal or critical he can get an appointment.The system is beneficial for both the patient and the hospital</p>
-            </div>
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="wingBanner banner-solo" id="About" >
-
-            <h2>About </h2>
-            <p class="text-large">
-                Health Monitoring Bot is a great application that helps hospitals to minimise loads of paperwork when it comes to
-                monitoring their patients' health. It gives patients/users control to fill any symptom survey online in the comfort
-                of their home without any time restrictions. HMB will then analyse the users' responses automatically and generate
-                results on both hospital and patient accounts. Based on the results, HMB will send notifications/alerts to hospital
-                staff, informing them that a patient may need to be examined by doctors. It will then help arrange an appointment
-                between the patient and the hospital.
-            </p>
         </div>
     </div>
+
+</div>
+<div class="container">
+    <div class="wingBanner banner-solo" id="About" >
+
+        <h2>About </h2>
+        <p class="text-large">
+            Health Monitoring Bot is a great application that helps hospitals to minimise loads of paperwork when it comes to
+            monitoring their patients' health. It gives patients/users control to fill any symptom survey online in the comfort
+            of their home without any time restrictions. HMB will then analyse the users' responses automatically and generate
+            results on both hospital and patient accounts. Based on the results, HMB will send notifications/alerts to hospital
+            staff, informing them that a patient may need to be examined by doctors. It will then help arrange an appointment
+            between the patient and the hospital.
+        </p>
+    </div>
+</div>
 <!-- footer started -->
 
 
-    <div id="content">
+<div id="content">
     <div class="container-footer" id="contact">
         <div class="col-md-4 ">
             <div id= "thinkbots">
-            <a href="https://thinkbots.tech/" target="_blank"><img src="assets/images/thinkbots.jpg" class="image-stylee"></a>
-                                </div>
-                                <div id="borderbottom"></div>
-                               <p class="intro"> We create automated solutions that help our customers work smarter.</p>
+                <a href="https://thinkbots.tech/" target="_blank"><img src="assets/images/thinkbots.jpg" class="image-stylee"></a>
             </div>
+            <div id="borderbottom"></div>
+            <p class="intro"> We create automated solutions that help our customers work smarter.</p>
+        </div>
         <div class="col-md-4">
             <h3 class="underline-text">Address</h3>
             <div id="borderbottom"></div>
             <p class= "address">Technical University of Chemnitz Strasse der Nationen 62
                 09111 Chemnitz, Germany</p>
-               
+
         </div>
-       
+
 
         <div class="col-md-4">
             <h3 class="underline-text">Contact</h3>
             <div id="borderbottom"></div>
             <div class= "contact">
-            <p><strong>Email:</strong> info@thinkbots.tech</p>
-            <p><strong>Phone:</strong> +15776798658</p>
-            <a href="https://www.facebook.com/thinkbots5" target="_blank" class="fa fa-facebook"></a>
-            <a href="https://twitter.com/thinkbots5" target="_blank" class="fa fa-twitter"></a>
-                                </div>
-                                
+                <p><strong>Email:</strong> info@thinkbots.tech</p>
+                <p><strong>Phone:</strong> +15776798658</p>
+                <a href="https://www.facebook.com/thinkbots5" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/thinkbots5" target="_blank" class="fa fa-twitter"></a>
+            </div>
+
+        </div>
+
     </div>
-   
-    </div>
-    
+
 </div>
-    <div class="page-border bottom colors-e background-solid" style= bottom:15px right:10px>
+<div class="page-border bottom colors-e background-solid" style= bottom:15px right:10px>
     <a href="#navbar" class="hover-effect totop">
         <i class="fa fa-arrow-up fa-arrow-up"></i>
     </a>
 </div>
-    
+
 </div>
 
 <footer class="col-xs-12 col-md-12 col-lg-12 copy-right"> <p style= "text-align: center">&copy; 2020 Thinkbots </p></footer>
@@ -555,59 +536,59 @@
         var contactno = $('#contactno').val();
         var message = $('#message').val();
 
-         $.ajax({
-         url: "home/requestTrail",
-         method:"POST",
-         data:{
-         [csrfName]: csrfHash,
-         name:name,
-         hospitalname:hospitalname,
-         emailaddress:emailaddress,
-         contactno:contactno,
-         message:message
-         },
-         success:function(data){
-             data = JSON.parse(data);
-             if(data.status === 200){
-                alert(data.message);
-                 $('#username').val("");
-                 $('#hospitalname').val("");
-                 $('#emailaddress').val("");
-                 $('#contactno').val("");
-                 $('#message').val("");
-             }
-             if(data.status === 500){
-                 alert(data.message);
-             }
-             $('#requestDemoMainModal').modal('hide')
-         }
-         });
+        $.ajax({
+            url: "home/requestTrail",
+            method:"POST",
+            data:{
+                [csrfName]: csrfHash,
+                name:name,
+                hospitalname:hospitalname,
+                emailaddress:emailaddress,
+                contactno:contactno,
+                message:message
+            },
+            success:function(data){
+                data = JSON.parse(data);
+                if(data.status === 200){
+                    alert(data.message);
+                    $('#username').val("");
+                    $('#hospitalname').val("");
+                    $('#emailaddress').val("");
+                    $('#contactno').val("");
+                    $('#message').val("");
+                }
+                if(data.status === 500){
+                    alert(data.message);
+                }
+                $('#requestDemoMainModal').modal('hide')
+            }
+        });
     });
 
 
     $(document).ready(function(){
-    // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
 
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-          // Prevent default anchor click behavior
-          event.preventDefault();
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
 
-          // Store hash
-          var hash = this.hash;
+                // Store hash
+                var hash = this.hash;
 
-          // Using jQuery's animate() method to add smooth page scroll
-          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top
-          }, 800, function(){
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
 
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
-          });
-        } // End if
-      });
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
     });
 
     jQuery(document).ready(function() {
@@ -626,12 +607,12 @@
 
 
     function navFunction() {
-      var x = document.getElementById("menu");
-      if (x.className === "main-menu") {
-        x.className += " responsive";
-      } else {
-        x.className = "main-menu";
-      }
+        var x = document.getElementById("menu");
+        if (x.className === "main-menu") {
+            x.className += " responsive";
+        } else {
+            x.className = "main-menu";
+        }
     }
 
 </script>

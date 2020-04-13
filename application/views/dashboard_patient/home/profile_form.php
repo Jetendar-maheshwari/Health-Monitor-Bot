@@ -137,7 +137,20 @@
                                     <input type="hidden" name="old_picture" value="<?php echo $patient->picture ?>">
                                 </div>
                             </div>
- 
+
+                        <div class="form-group row">
+                            <label class="col-sm-3"><?php echo display('status') ?></label>
+                            <div class="col-xs-9">
+                                <div class="form-check">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" value="1" <?php if ($patient->status  == '1') {echo ' checked ';} ?> <?php echo  set_radio('status', '1', TRUE); ?> ><?php echo display('active') ?>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" value="0" <?php if ($patient->status  == '0') {echo ' checked ';} ?> <?php echo  set_radio('status', '0'); ?> ><?php echo display('inactive') ?>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
 
                             <div class="form-group row">
