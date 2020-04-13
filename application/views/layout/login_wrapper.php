@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><!--
     <title><?/*= display('login') */?> - <?php /*echo (!empty($title)?$title:null) */?></title>-->
 
@@ -47,7 +51,7 @@
             <div id="navbar">
                 <div class="row">
                     <div id="logo" class="col-xs-8 col-md-3">
-                        <img src="assets/images/mylogo.png" class="image-style">
+                    <a href="/hmb_project"><img src="assets/images/mylogo.png" class="image-style"></a>
                     </div>
                     
                     <div id="menu" class="col-md-9 main-menu">
@@ -156,7 +160,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
+      <div class=" modal-body mx-3">
 
         <div class="md-form mb-5">
         <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>

@@ -220,7 +220,6 @@ margin-left: 5px;
 h1,
 h2,
 h3,
-h4,
 h5,
 h6,
 .h1,
@@ -884,6 +883,7 @@ hr {
     padding-right: 5px;
     margin-top: 3px;
     font-size: 11px;
+    color: #fff;
 }
 
 .user-panel .info a .fa,
@@ -6142,4 +6142,16 @@ div.survey_questions_out.row h2 {
       i.fa.fa-bars:hover {
         color: #37a000 ;   
        }
-      
+      h4 {
+        font-family: 'Alegreya Sans', sans-serif;
+        text-align: left;
+        color: #1fa5c4 !important; 
+      }
+
+      @media (min-width: 800px) {
+        .response {
+            margin-left: 35px;
+        }
+
+
+      }

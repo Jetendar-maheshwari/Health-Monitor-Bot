@@ -52,10 +52,6 @@ body {
 
     background-color: #FFFFFF; }
 
-#navbar #logo a {
-    display: inline-block;
-    margin: 15px 0 0 30px;}
-
 #navbar #menu {
     padding-top: 25px; }
 
@@ -270,4 +266,12 @@ div.modal-content button.close{
 }
 .required {
     color: red;
+  }
+  
+  @media (min-width: 800px) {
+    .response {
+        margin-left: 35px;
+    }
+
+
   }
