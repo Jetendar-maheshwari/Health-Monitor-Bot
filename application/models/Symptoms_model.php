@@ -51,11 +51,14 @@ class Symptoms_model extends CI_Model {
  
 	public function delete($sym_id = null)
 	{
-		$this->db->where('sym_id',$sym_id)
-			->delete($this->table);
+
         //$instance = new Ranges_model();
-        //$instance->deleteAllBySympId($sym_id);
-        //$this->deletesurveyBySym($sym_id);
+
+        $this->deletesurveyBySym($sym_id);
+
+        $this->db->where('sym_id',$sym_id)
+            ->delete($this->table);
+
 		if ($this->db->affected_rows()) {
 			return true;
 		} else {
@@ -65,8 +68,18 @@ class Symptoms_model extends CI_Model {
 	}
 
 	private function  deletesurveyBySym($sym_id){
+	    $psid = $this->db->select("survey_id")
+            ->from("patient_survey")
+            ->where('sym_id',$sym_id)
+            ->get()
+            ->row();
+
+        $this->db->where('survey_id', $psid->survey_id)
+            ->delete("patient_survey_child");
+
         $this->db->where('sym_id',$sym_id)
             ->delete("patient_survey");
+
     }
 
 	public function department_list()

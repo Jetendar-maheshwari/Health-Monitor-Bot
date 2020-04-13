@@ -89,6 +89,8 @@ class Symptoms extends CI_Controller {
                                 'remarks' =>$this->input->post('remarks'.$i),
                                 'symptoms_id' =>$this->input->post('symptoms_id'.$i),
                             );
+
+
                         } else {
                             $insertRecords[] = array(
                                 'range_from' => $this->input->post('from'.$i),
@@ -98,6 +100,8 @@ class Symptoms extends CI_Controller {
                             );
                         }
                     }
+
+
 
                     if($updateRecords != null && count($updateRecords) > 0){
                         $this->ranges_model->updateBatch($updateRecords);
@@ -128,6 +132,7 @@ class Symptoms extends CI_Controller {
         $result = $this->symptoms_model->read_by_id($sym_id);
 		$data['symptoms'] = $result[0];
         $data['ranges'] = $result[1];
+
 		$data['content'] = $this->load->view('symptoms_form',$data,true);
 		$this->load->view('layout/main_wrapper',$data);
 	}

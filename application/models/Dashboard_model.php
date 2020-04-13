@@ -127,5 +127,10 @@ class Dashboard_model extends CI_Model {
         return [$query1,$query2]; 
 	}
 
+    public function createPatient($data = [])
+    {
+        return $this->db->insert("Patient",$data);
+    }
+
   
 }

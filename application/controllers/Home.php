@@ -152,17 +152,29 @@ class Home extends CI_Controller {
 
         //$this->email->header($headers);
 
-        $this->email->to('info@thinkbots.tech');
-        $this->email->from($emailfrom,$emailfrom);
-        $this->email->subject($hospitalname);
-        $this->email->message("User Name: " . $name. "\n" . $message . "\n" . "Contact No." . $contactno);
+        $message = $name .   "<br/><br/>"  . $message
+            . "<br/>" .  $contactno . "<br/><br/>" ;
+
+        $data['email'] = (object)$postData = array(
+            'from'        => $emailfrom,
+            'to'          => 'info@thinkbots.tech',
+            'subject'     => 'New Request Demo',
+            'message'     =>   $message,
+
+        );
+
+        $this->email->to($postData['to']);
+        $this->email->from($postData['from']);
+        $this->email->subject($postData['subject']);
+        $this->email->message($postData['message']);
+
 
         if($this->email->send()){
-            echo 'Email Sent Successfully';
-            die;
+            echo json_encode(array('status'=>200, 'message'=>'Thank You! We have Received Your Request We Will Get In Touch Soon'));
+
         } else {
-            echo 'Unable to send email. Please try again.';
-            die;
+            echo json_encode(array('status'=>500, 'message'=>'Something Connection Issue or Try again Please'));
+
         }
     }
 
@@ -173,13 +185,6 @@ class Home extends CI_Controller {
         if($data['mail'] == 0) {
             $this->form_validation->set_message('email_check', 'The {field} field must contain a unique value.');
         }
-    }
-
-    public function registerPatient(){
-        $data['title'] = display('survey_list');
-        $this->load->view('Modal/modal_request_trail', $data, true);
-        var_dump("Here");
-        die;
     }
 
 }

@@ -38,12 +38,16 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password" class="col-xs-3 col-form-label"><?php echo display('password') ?> <i class="text-danger">*</i></label>
-                                <div class="col-xs-9">
-                                    <input name="password" type="password" class="form-control" id="password" placeholder="<?php echo display('password') ?>">
+                            <?php if($title === "Add Patient"){ ?>
+
+                                <div class="form-group row">
+                                    <label for="password" class="col-xs-3 col-form-label"><?php echo display('password') ?> <i class="text-danger">*</i></label>
+                                    <div class="col-xs-9">
+                                        <input name="password" type="password" class="form-control" id="password" placeholder="<?php echo display('password') ?>">
+                                    </div>
                                 </div>
-                            </div>
+
+                            <?php } ?>
 
                             <div class="form-group row">
                                 <label for="phone" class="col-xs-3 col-form-label"><?php echo display('phone') ?></label>
@@ -84,13 +88,13 @@
                                 <div class="col-xs-9">
                                     <div class="form-check">
                                         <label class="radio-inline">
-                                        <input type="radio" name="sex" value="Male" <?php echo  set_radio('sex', 'Male', TRUE); ?> ><?php echo display('male') ?>
+                                        <input type="radio" name="sex" value="Male" <?php if ($patient->sex  == 'Male') {echo ' checked ';} ?> <?php echo  set_radio('sex', 'Male'); ?> ><?php echo display('male') ?>
                                         </label>
                                         <label class="radio-inline">
-                                        <input type="radio" name="sex" value="Female" <?php echo  set_radio('sex', 'Female'); ?> ><?php echo display('female') ?>
+                                        <input type="radio" name="sex" value="Female" <?php if ($patient->sex  == 'Female') {echo ' checked ';} ?>  <?php echo  set_radio('sex', 'Female'); ?> ><?php echo display('female') ?>
                                         </label>
                                         <label class="radio-inline">
-                                        <input type="radio" name="sex" value="Other" <?php echo  set_radio('sex', 'Other'); ?> ><?php echo display('other') ?>
+                                        <input type="radio" name="sex" value="Other" <?php if ($patient->sex  == 'Other') {echo ' checked ';} ?>  <?php echo  set_radio('sex', 'Other'); ?> ><?php echo display('other') ?>
                                         </label>
                                     </div>
                                 </div>
@@ -134,6 +138,20 @@
                                     <input name="postal_code" class="form-control" type="text" placeholder="<?php echo display('postal_code') ?>" id="postal_code"  value="<?php echo $patient->postal_code ?>">
                                 </div>
                             </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3"><?php echo display('status') ?></label>
+                            <div class="col-xs-9">
+                                <div class="form-check">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" value="1"  <?php if ($patient->status  == '1') {echo ' checked ';} ?> <?php echo  set_radio('status', '1'); ?> ><?php echo display('active') ?>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" value="0" <?php if ($patient->status  == '0') {echo ' checked ';} ?> <?php echo  set_radio('status', '0'); ?> ><?php echo display('inactive') ?>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
                             <div class="form-group row">
                                 <div class="col-sm-offset-3 col-sm-6">

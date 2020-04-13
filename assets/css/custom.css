@@ -5984,6 +5984,11 @@ body {
 textarea.form-control.mark{
     margin-top: 15px;
 }
+.remarks_space {
+    margin-top: 15px;
+    height: 100px;
+}
+
 .col-xs-1.col-form-label {
     margin-top: 5px;
 }

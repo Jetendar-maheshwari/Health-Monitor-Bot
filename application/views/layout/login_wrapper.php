@@ -57,8 +57,8 @@
                     <div id="menu" class="col-md-9 main-menu">
                             <a href="#About" title="About">About</a>
                             <a href="#offer" title="We offer">We offer</a>
-                            <a href="#" title="Contact">Contact</a>
-                            <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestdemoForm">Request Demo </a>
+                            <a href="#contact" title="Contact">Contact</a>
+                            <a class="btn btn-primary requestdemo" data-toggle="modal" data-target="#requestDemoMainModal">Request Demo </a>
                             <a href="javascript:void(0);" class="icon" onclick="navFunction()">
                              <i class="fa fa-bars"></i></a>
 
@@ -97,16 +97,17 @@
                         <input type="password"  placeholder="<?= display('password') ?>" name="password" id="password" class="form-control">
                     </div>
 
-
-
-                    <div class="flasherror js-hint alert alert-danger" style="display: none">
-                    </div>
-
                     <button type="submit" class="btn btn-primary login-btn "><?= display('login') ?>
                     </button>
 
-
                     <a class="btn btn-primary patient_register" data-toggle="modal" data-target="#modalRegisterForm" >Patient Sign up </a>
+
+                    <br/>
+                    <div class="flasherror js-hint alert alert-danger" style="display: none">
+                    </div>
+
+                    <div class="js-hint alert alert-success" style="display: none">
+                    </div>
 
                     <a  class="btn btn-transparent forgotbtn" id ="forgotbtn" name="forgotbtn">Forgot your password?</a>
 
@@ -143,12 +144,14 @@
                          <button type="button"  id="btnforgetpassword" name ="btnforgetpassword" class="btn btn-primary fp ">Send
                          </button>
                         </div>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
 
         </div>
 
 
+<<<<<<< HEAD
      <!-------------------------- Request Demo Modal  ------------------------>
         <div class="modal fade" id="requestdemoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
@@ -161,222 +164,150 @@
         </button>
       </div>
       <div class=" modal-body mx-3">
+=======
+     <!-------------------------- Request Demo Modal Changed  ------------------------>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
-          <input type="text" id="demoform-name" class="form-control validate" required />
-        </div>
+    <div class="modal fade" id="requestDemoMainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Request Demo</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+               <form class="form-horizontal" id="myForm" name="contact" action="#">
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Full Name</label><span class="required">*</span>
+                    <input type="text"  name="username" id="username" required class="form-control" >
+                </div>
+>>>>>>> 32c64375f158ac79c261db09f533beb026a2d662
 
-        <div class="md-form mb-4">
-        <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
-          <input type="text" id="demoform-orgname" class="form-control validate" required/>
-        </div>
+                <div class="md-form mb-4">
+                <label data-error="wrong" data-success="right" for="orangeForm-pass">Organisation Name</label><span class="required">*</span>
+                    <input type="text"  name="hospitalname" id="hospitalname" required class="form-control validate">
+                </div>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
-        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="demoform-email" required />
-        </div>
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
-          <input type="tel" id="demoform-phone" class="form-control validate" required/>
-        </div>
+                    <input  type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
+                </div>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
-        <textarea id="txtArea" rows="5" cols="70"></textarea>
-        </div>
-        
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Telephone</label><span class="required">*</span>
+                    <input type="tel" class="form-control " id="contactno" name="contactno" required>
 
+                </div>
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Provide Any Additional Information</label>
+
+                <textarea id="message" rows="5" cols="75" name="message" id="message"></textarea>
+                </div>
+
+                   <div class="modal-footer d-flex justify-content-center">
+                       <button  class="btn btn-primary btn-sm" id="submitBtnDemo" name="submitBtn" >Submit</button>
+                       <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+                   </div>
+
+               </form>
+
+              </div>
+
+
+
+          </div>
       </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="button" class="btn btn-primary btn-sm">Submit</button>
-        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-      </div>
+
     </div>
-  </div>
-</div>
+
         <!-------------------------- Request Demo Modal Finished  ------------------------>
 
 
-        <!-------------------------- Patient Registeration Modal  ------------------------>
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <form class="form-horizontal" id="modalRegisterForm" name="modalRegisterForm" action="#">
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">First Name</label><span class="required">*</span>
+                        <input type="text"  name="rfname" id="rfname" required class="form-control" >
+                    </div>
 
-        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Last Name</label><span class="required">*</span>
+                        <input type="text" id="rlname" name="rlname" class="form-control validate" required />
+                    </div>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-name">First Name</label><span class="required">*</span>
-          <input type="text" id="orangeForm-name" class="form-control validate" required />
-        </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
+                        <input type="email" name="remail" value="" id="remail" required class="form-control validate" />
+                    </div>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-name">Last Name</label><span class="required">*</span>
-          <input type="text" id="orangeForm-name" class="form-control validate" required />
-        </div>
+                    <div class="md-form mb-4">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label><span class="required">*</span>
+                        <input type="password" value="" name ="rpassword" id="rpassword" class="form-control validate" required />
+                    </div>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label><span class="required">*</span>
-        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="signupform-email" required />
-        </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Mobile No</label><span class="required">*</span>
+                        <input type="tel" id="rtel" name="rtel" class="form-control validate" required />
+                    </div>
 
-        <div class="md-form mb-4">
-        <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label><span class="required">*</span>
-          <input type="password" id="orangeForm-pass" class="form-control validate" required />
-        </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Date of Birth</label><span class="required">*</span>
+                        <input type="date" id="rdob" name="rdob" class="form-control validate" required />
+                    </div>
+                    <br>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Sex</label>
+                        <div class="form-check">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex" value="Male" <?php echo  set_radio('sex', 'Male', TRUE); ?> ><?php echo display('male') ?>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex" value="Female" <?php echo  set_radio('sex', 'Female'); ?> ><?php echo display('female') ?>
+                            </label>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Mobile No</label><span class="required">*</span>
-          <input type="tel" id="orangeForm-email" class="form-control validate" required />
-        </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Your Address</label><span class="required">*</span>
+                        <textarea id="raddress" name="raddress" rows="5" cols="70"></textarea>
 
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Date of Birth</label><span class="required">*</span>
-          <input type="date" id="orangeForm-email" class="form-control validate" required />
-        </div>
-        <br>
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Sex</label>
-        <input type="radio" name="sex" value="male" checked> Male
-         <input type="radio" name="sex" value="female"> Female
-        </div>
-        <br>
-        <div class="md-form mb-5">
-        <label data-error="wrong" data-success="right" for="orangeForm-email">Your Address</label><span class="required">*</span>
-        <textarea id="txtArea" rows="5" cols="70"></textarea>
-        </div>
-        
+                    </div>
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-      <button type="button" class="btn btn-primary btn-sm">Sign up</button>
-        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-      </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button  class="btn btn-primary btn-sm" id="submitBtnDemo" name="submitBtn" >Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+        </div>
     </div>
-  </div>
+
 </div>
 
+        <!-------------------------- Patient Registeration Modal  ------------------------>
+
+
+
  <!--------------------- Patient Registeration Modal Finished ---------------------->
-
-        <!-- <div id="requestmodal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3 class="modal-title">Request For Trail</h3>
-
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" id="myForm" name="contact" action="#">
-                        <div class="form-group">
-                            <label class="control-label" for="username">User Name <i class="text-danger">*</i></label>
-                            <input type="text" placeholder="Name" name="username" id="username" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
-                            <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="emailaddress">Email Address <i class="text-danger">*</i></label>
-                            <input type="email" placeholder="Email Address" name="emailaddress"  required id="emailaddress" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="contactno">Contact No</label>
-                            <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" for="message">Message</label>
-                            <input type="text-area"  name="message" id="message" class="form-control">
-                        </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-offset-3 col-sm-3">
-                                    <button  class="btn btn-primary btn-sm">Submit</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button type="reset" class="btn btn-primary btn-sm">Reset</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div id="myFormModal" class="modal fade" >
-            <div class="modal-dialog">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Request for the Demo</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" id="myForm" name="contact" action="#">
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="username">User Name <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="text" placeholder="Name" name="username" id="username" required class="form-control" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="hospitalname">Hospital Name <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="text" placeholder="Hospital Name" name="hospitalname" id="hospitalname" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="emailaddress">Email Address <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="email" placeholder="Email Address" name="emailaddress"  required required id="emailaddress" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="contactno">Contact No</label>
-                                <div class="col-sm-12">
-                                    <input type="text" placeholder="Contact No" name="contactno" id="contactno" class="form-control">
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label  col-sm-3" for="message">Message <i class="text-danger">*</i></label>
-                                <div class="col-sm-12">
-                                    <input type="text-area"  name="message" id="message" required class="form-control">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-
-
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-primary btn-sm close-external-modal" data-dismiss="modal">Close</button>
-                                    <button  class="btn btn-primary btn-sm" id="sendMail" name="sendMail" >Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>  -->
-
-
 
     <div class="container" id="offer">
         <div class="container-wrapper">
@@ -448,7 +379,7 @@
 
 
     <div id="content">
-    <div class="container-footer">
+    <div class="container-footer" id="contact">
         <div class="col-md-4 ">
             <div id= "thinkbots">
             <a href="https://thinkbots.tech/" target="_blank"><img src="assets/images/thinkbots.jpg" class="image-stylee"></a>
@@ -524,19 +455,6 @@
     var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
         csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 
-    $(document).on("click", ".patient_register", function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: "home/registerPatient",
-            method:"POST",
-            data:{
-                [csrfName]: csrfHash,
-            },
-            success:function(data){
-
-            }
-        });
-    });
 
     $(document).ready(function(){
         $(".forgotbtn").click(function(){
@@ -554,12 +472,82 @@
                 [csrfName]: csrfHash
             },
             success:function(data){
+                data = JSON.parse(data);
+                if(data.status === 200){
+                    $('.alert-danger').css('display', 'none');
+                    $('.alert-success').css('display', 'block');
+                    $('.alert-success').text(data.message);
+                } else {
+                    $('.alert-suceess').css('display', 'none');
+                    $('.alert-danger').css('display', 'block');
+                    $('.alert-danger').text(data.message);
+                }
 
+                setInterval(function () {
+                    $('.alert-danger').css('display', 'none');
+                    $('.alert-success').css('display', 'none');
+                }, 7000)
             }
         });
     });
 
-    $(document).on("click", "#sendMail", function (e) {
+    $('#modalRegisterForm').submit(function(e) {
+
+        e.preventDefault();
+
+        var rfname = $('#rfname').val();
+        var rlname = $('#rlname').val();
+        var remail = $('#remail').val();
+        var rpassword = $('#rpassword').val();
+        var rtel = $('#rtel').val();
+        var rdob = $('#rdob').val();
+        var sex = $('#sex').val();
+        var raddress = $('#raddress').val();
+
+        $.ajax({
+            url: "dashboard/registerPatient",
+            method:"POST",
+            data:{
+                [csrfName]: csrfHash,
+                rfname:rfname,
+                rlname:rlname,
+                remail:remail,
+                rpassword:rpassword,
+                rtel:rtel,
+                rdob:rdob,
+                sex:sex,
+                raddress:raddress,
+            },
+            success:function(data){
+                data = JSON.parse(data);
+                if(data.status == 204){
+                    alert(data.message);
+                }
+                if(data.status === 200){
+                    $('#rfname').val("");
+                    $('#rlname').val("");
+                    $('#remail').val("");
+                    $('#rpassword').val("");
+                    $('#rtel').val("");
+                    $('#rdob').val("");
+                    $('#sex').val("");
+                    $('#raddress').val("");
+                    alert(data.message);
+                    $('#modalRegisterForm').modal('hide')
+                }
+                if(data.status === 500){
+                    $('#modalRegisterForm').modal('hide')
+                    alert(data.message);
+
+                }
+
+            }
+        });
+
+    });
+
+    $('#requestDemoMainModal').submit(function(e) {
+
         e.preventDefault();
         var name = $('#username').val();
         var hospitalname = $('#hospitalname').val();
@@ -567,73 +555,84 @@
         var contactno = $('#contactno').val();
         var message = $('#message').val();
 
-        $.ajax({
-            url: "home/requestTrail",
-            method:"POST",
-            data:{
-                [csrfName]: csrfHash,
-                name:name,
-                hospitalname:hospitalname,
-                emailaddress:emailaddress,
-                contactno:contactno,
-                message:message
-            },
-            success:function(data){
-                $('#myFormModal').modal('hide')
-                alert("Mail Send");
-            }
-        });
+         $.ajax({
+         url: "home/requestTrail",
+         method:"POST",
+         data:{
+         [csrfName]: csrfHash,
+         name:name,
+         hospitalname:hospitalname,
+         emailaddress:emailaddress,
+         contactno:contactno,
+         message:message
+         },
+         success:function(data){
+             data = JSON.parse(data);
+             if(data.status === 200){
+                alert(data.message);
+                 $('#username').val("");
+                 $('#hospitalname').val("");
+                 $('#emailaddress').val("");
+                 $('#contactno').val("");
+                 $('#message').val("");
+             }
+             if(data.status === 500){
+                 alert(data.message);
+             }
+             $('#requestDemoMainModal').modal('hide')
+         }
+         });
     });
 
 
-
     $(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+    // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+          // Store hash
+          var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
       });
-    } // End if
-  });
-});
+    });
 
-jQuery(document).ready(function() { 
-    fadeMenuWrap(); 
-    jQuery(window).scroll(fadeMenuWrap);
-});
+    jQuery(document).ready(function() {
+        fadeMenuWrap();
+        jQuery(window).scroll(fadeMenuWrap);
+    });
 
-function fadeMenuWrap() { 
-    var scrollPos = window.pageYOffset || document.documentElement.scrollTop; 
-    if (scrollPos > 300) { 
-        jQuery('.fa-arrow-up').fadeIn(300); 
-    } else { 
-        jQuery('.fa-arrow-up').fadeOut(300); 
-    } 
-} 
+    function fadeMenuWrap() {
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollPos > 300) {
+            jQuery('.fa-arrow-up').fadeIn(300);
+        } else {
+            jQuery('.fa-arrow-up').fadeOut(300);
+        }
+    }
 
-function navFunction() {
-  var x = document.getElementById("menu");
-  if (x.className === "main-menu") {
-    x.className += " responsive";
-  } else {
-    x.className = "main-menu";
-  }
-}
+
+    function navFunction() {
+      var x = document.getElementById("menu");
+      if (x.className === "main-menu") {
+        x.className += " responsive";
+      } else {
+        x.className = "main-menu";
+      }
+    }
 
 </script>
 </body>
