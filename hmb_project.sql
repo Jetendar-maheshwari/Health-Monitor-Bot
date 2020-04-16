@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 09:52 PM
+-- Generation Time: Apr 17, 2020 at 01:23 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -850,8 +850,7 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`id`, `patient_id`, `firstname`, `lastname`, `email`, `password`, `phone`, `mobile`, `address`, `postal_code`, `sex`, `blood_group`, `date_of_birth`, `affliate`, `picture`, `created_by`, `create_date`, `status`) VALUES
 (51, 'PASPKYIL', 'Syed', 'Yaman', 'yaman@thinkbots.tech', '22de19a68bdf46de3527c25391350168', '01782148995', '015776798658', 'Reichenhainer Str. 37/ 094', '09126', 'Male', 'O+', '1996-04-13', NULL, 'assets/images/patient/2020-04-13/y.jpg', 51, '2020-04-13', 1),
-(52, 'PRBL9B4D', 'Taymoor', 'Ahmad', 'taymoor@thinkbots.tech', 'e75fcabeb5cf11fac5faabbceace0f3f', '01782148995', '01781326208', 'Bahnostrasse 72, Chemnitz', '09120', 'Male', 'O+', '1991-01-10', NULL, 'assets/images/patient/2020-04-13/T.jpg', 2, '2020-04-13', 1),
-(54, 'PCIU6C9C', 'Jetendar', 'Maheshwari', 'admin@demo.com', '827ccb0eea8a706c4c34a16891f84e7b', NULL, '01782148995', 'Reichenhainer Str. 37/ 091', '', 'Male', NULL, '1995-12-31', NULL, NULL, NULL, NULL, 0);
+(52, 'PRBL9B4D', 'Taymoor', 'Ahmad', 'taymoor@thinkbots.tech', 'e75fcabeb5cf11fac5faabbceace0f3f', '01782148995', '01781326208', 'Bahnostrasse 72, Chemnitz', '09120', 'Male', 'O+', '1991-01-10', NULL, 'assets/images/patient/2020-04-13/T.jpg', 52, '2020-04-13', 1);
 
 -- --------------------------------------------------------
 
@@ -876,10 +875,10 @@ CREATE TABLE `patient_survey` (
 --
 
 INSERT INTO `patient_survey` (`survey_id`, `sym_id`, `patient_id`, `range_id`, `filled_date`, `total_score`, `condition_status`, `appointment_id`, `remarks`) VALUES
-(7, 30, 51, 56, '2020-04-13', 19, b'0000000000000000000000000000000000000000000000000000000000000001', 0, 'Moderate Symptoms'),
-(8, 35, 51, 78, '2020-04-13', 15, b'0000000000000000000000000000000000000000000000000000000000000000', 0, 'Probable depression'),
-(9, 35, 52, 76, '2020-04-13', 9, b'0000000000000000000000000000000000000000000000000000000000000000', 0, 'Depression possible'),
-(10, 33, 52, 70, '2020-04-13', 16, b'0000000000000000000000000000000000000000000000000000000000000000', 0, 'You are excessively sleepy and should consider seeking medic');
+(8, 35, 51, 78, '2020-04-09', 15, b'0000000000000000000000000000000000000000000000000000000000000000', 0, 'Probable depression'),
+(11, 31, 52, 60, '2020-04-14', 12, b'0000000000000000000000000000000000000000000000000000000000000000', 0, ' Moderate: Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment'),
+(12, 33, 52, 69, '2020-04-10', 13, b'0000000000000000000000000000000000000000000000000000000000000000', 0, 'You may be excessively sleepy depending on the situation. You may want to consider seeking medical attention.'),
+(13, 34, 51, 72, '2020-04-12', 27, b'0000000000000000000000000000000000000000000000000000000000000000', 0, 'May indicate moderate to severe knee arthritis. See your family\r\nphysician for an assessment and x-ray. Consider a consult with an\r\nOrthopaedic Surgeon.');
 
 -- --------------------------------------------------------
 
@@ -901,13 +900,6 @@ CREATE TABLE `patient_survey_child` (
 --
 
 INSERT INTO `patient_survey_child` (`psc_id`, `survey_id`, `ques_id`, `opt_id`, `sore`, `detail`) VALUES
-(9, 7, 58, 205, 0, ''),
-(10, 7, 59, 210, 0, ''),
-(11, 7, 60, 219, 0, ''),
-(12, 7, 61, 224, 0, ''),
-(13, 7, 62, 231, 0, ''),
-(14, 7, 63, 235, 0, ''),
-(15, 7, 64, 242, 0, ''),
 (16, 8, 102, 407, 0, ''),
 (17, 8, 103, 410, 0, ''),
 (18, 8, 104, 414, 0, ''),
@@ -918,24 +910,35 @@ INSERT INTO `patient_survey_child` (`psc_id`, `survey_id`, `ques_id`, `opt_id`, 
 (23, 8, 109, 434, 0, ''),
 (24, 8, 110, 438, 0, ''),
 (25, 8, 111, 443, 0, ''),
-(26, 9, 102, 405, 0, ''),
-(27, 9, 103, 409, 0, ''),
-(28, 9, 104, 414, 0, ''),
-(29, 9, 105, 418, 0, ''),
-(30, 9, 106, 422, 0, ''),
-(31, 9, 107, 426, 0, ''),
-(32, 9, 108, 430, 0, ''),
-(33, 9, 109, 434, 0, ''),
-(34, 9, 110, 438, 0, ''),
-(35, 9, 111, 443, 0, ''),
-(36, 10, 82, 314, 0, ''),
-(37, 10, 83, 319, 0, ''),
-(38, 10, 84, 322, 0, ''),
-(39, 10, 85, 327, 0, ''),
-(40, 10, 86, 332, 0, ''),
-(41, 10, 87, 336, 0, ''),
-(42, 10, 88, 339, 0, ''),
-(43, 10, 89, 343, 0, '');
+(44, 11, 65, 246, 0, ''),
+(45, 11, 66, 250, 0, ''),
+(46, 11, 67, 255, 0, ''),
+(47, 11, 68, 258, 0, ''),
+(48, 11, 69, 263, 0, ''),
+(49, 11, 71, 270, 0, ''),
+(50, 11, 72, 275, 0, ''),
+(51, 11, 73, 278, 0, ''),
+(52, 11, 74, 282, 0, ''),
+(53, 12, 82, 315, 0, ''),
+(54, 12, 83, 318, 0, ''),
+(55, 12, 84, 323, 0, ''),
+(56, 12, 85, 327, 0, ''),
+(57, 12, 86, 331, 0, ''),
+(58, 12, 87, 335, 0, ''),
+(59, 12, 88, 338, 0, ''),
+(60, 12, 89, 342, 0, ''),
+(61, 13, 90, 348, 0, ''),
+(62, 13, 91, 352, 0, ''),
+(63, 13, 92, 357, 0, ''),
+(64, 13, 93, 363, 0, ''),
+(65, 13, 94, 366, 0, ''),
+(66, 13, 95, 373, 0, ''),
+(67, 13, 96, 377, 0, ''),
+(68, 13, 97, 383, 0, ''),
+(69, 13, 98, 387, 0, ''),
+(70, 13, 99, 392, 0, ''),
+(71, 13, 100, 397, 0, ''),
+(72, 13, 101, 402, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1101,7 +1104,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`setting_id`, `title`, `description`, `email`, `phone`, `logo`, `favicon`, `language`, `site_align`, `footer_text`) VALUES
-(2, 'ThnikBots', 'Technische Universitat Chemnitz Strasse der Nationen 62', 'info@thinkbots.tech', '015776798658', 'assets/images/apps/2020-04-13/t.jpg', '', 'english', 'LTR', '© 2020 Thinkbots');
+(2, 'ThnikBots', 'Technische Universitat Chemnitz Strasse der Nationen 62', 'info@thinkbots.tech', '015776798658', 'assets/images/apps/2020-04-13/t.jpg', '', 'english', 'LTR', '? 2020 Thinkbots');
 
 -- --------------------------------------------------------
 
@@ -1151,19 +1154,19 @@ INSERT INTO `sym_ranges` (`range_id`, `symptoms_id`, `range_from`, `range_to`, `
 (55, 30, 0, 7, '', 'Mild symptoms'),
 (56, 30, 8, 19, '', 'Moderate Symptoms'),
 (57, 30, 20, 35, '', 'Severe symptoms'),
-(58, 31, 0, 4, '', 'None'),
-(59, 31, 5, 9, '', 'Mild'),
-(60, 31, 10, 14, '', 'Moderate'),
-(61, 31, 15, 19, '', 'Moderately Severe'),
-(62, 31, 20, 27, '', 'Severe'),
+(58, 31, 0, 4, '', 'Minimal or none: Monitor; may not require treatment'),
+(59, 31, 5, 9, '', ' Mild: Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment'),
+(60, 31, 10, 14, '', ' Moderate: Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment'),
+(61, 31, 15, 19, '', ' Moderately Severe: Warrants active treatment with psychotherapy, medications, or combination'),
+(62, 31, 20, 27, '', ' Severe: Warrants active treatment with psychotherapy, medications, or combination'),
 (63, 32, 0, 4, '', 'Minimal Anxiety'),
 (64, 32, 5, 9, '', 'Mild Anxiety'),
 (65, 32, 10, 14, '', 'Moderate Anxiety'),
 (66, 32, 15, 27, '', 'Severe Anxiety'),
-(67, 33, 0, 7, '', 'It is unlikely that you are abnormally sleepy.'),
-(68, 33, 8, 9, '', 'You have an average amount of daytime sleepiness.'),
-(69, 33, 10, 15, '', 'You may be excessively sleepy depending on the situation. Yo'),
-(70, 33, 16, 24, '', 'You are excessively sleepy and should consider seeking medic'),
+(67, 33, 0, 7, '', ' It is unlikely that you are abnormally sleepy.'),
+(68, 33, 8, 9, '', ' You have an average amount of daytime sleepiness.'),
+(69, 33, 10, 15, '', 'You may be excessively sleepy depending on the situation. You may want to consider seeking medical attention.'),
+(70, 33, 16, 24, '', 'You are excessively sleepy and should consider seeking medical attention.'),
 (71, 34, 0, 19, '', 'May indicate severe knee arthritis. It is highly likely that you may\r\nwell require some form of surgical intervention, contact your\r\nfamily physician for a consult with an Orthopaedic Surgeon.'),
 (72, 34, 20, 29, '', 'May indicate moderate to severe knee arthritis. See your family\r\nphysician for an assessment and x-ray. Consider a consult with an\r\nOrthopaedic Surgeon.'),
 (73, 34, 30, 39, '', 'May indicate mild to moderate knee arthritis. Consider seeing\r\nyour family physician for an assessment and possible x-ray. You\r\nmay benefit from non-surgical treatment, such as exercise,\r\nweight loss, and /or anti-inflammatory medication'),
@@ -1210,7 +1213,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `email`, `password`, `user_role`, `designation`, `department_id`, `address`, `phone`, `mobile`, `short_biography`, `picture`, `specialist`, `date_of_birth`, `sex`, `blood_group`, `degree`, `created_by`, `create_date`, `update_date`, `status`, `user_status`) VALUES
-(2, 'Jetendar', 'Maheshwari', 'info@thinkbots.tech', '827ccb0eea8a706c4c34a16891f84e7b', 1, NULL, NULL, 'Reichenhainer strasse 37 Chemnitz', NULL, '01782148995', NULL, 'assets/images/doctor/2020-04-13/J.jpg', NULL, '1970-01-01', 'Male', NULL, NULL, 2, '2020-04-13', NULL, 1, 'Active'),
+(2, 'Jetendar', 'Maheshwari', 'info@thinkbots.tech', '0e7517141fb53f21ee439b355b5a1d0a', 1, NULL, NULL, 'Reichenhainer strasse 37 Chemnitz', NULL, '01782148995', NULL, 'assets/images/doctor/2020-04-13/J.jpg', NULL, '1970-01-01', 'Male', NULL, NULL, 2, '2020-04-16', NULL, 1, 'Active'),
 (33, 'Israt', 'Mahmud', 'israt@thinkbots.tech', 'c5ac4c9809bf48def19be72a72e96515', 2, 'Senior Consultant ', 9, 'Reichenhainer Strasse', '', '01717653969', '', 'assets/images/doctor/2020-04-13/i.jpg', 'Neurologist', '1991-02-13', 'Male', 'B+', '', 2, '2020-04-13', NULL, 1, ''),
 (34, 'Soukaina', 'Hendy', 'soukaina@thinkbots.tech', '6a88d834bef8fada9a584a6338d2a293', 2, 'Consultant ', 10, 'Reichenhainer Str. 37', '', '01794111813', '', 'assets/images/doctor/2020-04-13/s.jpg', 'Dermatologist', '2020-04-13', 'Female', 'B+', '', 2, '2020-04-13', NULL, 1, '');
 
@@ -1249,12 +1252,12 @@ CREATE TABLE `ws_section` (
 --
 
 INSERT INTO `ws_section` (`id`, `name`, `title`, `description`, `featured_image`) VALUES
-(19, 'service', 'Service We Offer', 'Our department & special service ', 'assets_web/images/uploads/2016-11-02/b.jpg'),
-(20, 'about', 'About Us', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature froLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,m 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.', 'assets_web/images/uploads/2016-11-05/a1.jpg'),
-(23, 'appointment', 'Why Choose Us', 'Our department & special service ', 'assets_web/images/uploads/2016-11-06/d.png'),
-(26, 'doctor', 'OUR DOCTOR', 'Our department & special service ', 'assets_web/images/uploads/2016-11-05/d.png'),
+(19, 'service', 'Service We Offer', 'Our department & special service ', ''),
+(20, 'about', 'About Us', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature froLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,m 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.', ''),
+(23, 'appointment', 'Why Choose Us', 'Our department & special service ', ''),
+(26, 'doctor', 'OUR DOCTOR', 'Our department & special service ', ''),
 (27, 'department', 'DEPARTMENT', 'Our department & special service ', ''),
-(28, 'blog', 'Latest Blog', 'Latest topics of the webstie', 'assets_web/images/uploads/2016-11-05/c.png');
+(28, 'blog', 'Latest Blog', 'Latest topics of the webstie', '');
 
 -- --------------------------------------------------------
 
@@ -1515,19 +1518,19 @@ ALTER TABLE `opttion`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `patient_survey`
 --
 ALTER TABLE `patient_survey`
-  MODIFY `survey_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `survey_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `patient_survey_child`
 --
 ALTER TABLE `patient_survey_child`
-  MODIFY `psc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `psc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `pr_prescription`
