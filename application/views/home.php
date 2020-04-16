@@ -37,7 +37,7 @@
             <div class="panel-body">
                 <div class="statistic-box">
                     <h2><span class="count-number"><?php echo (!empty($notify->total_survey) ? $notify->total_survey : null) ?></span> <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i></span></h2>
-                    <div class="small">Symptoms</div>
+                    <div class="small">Survey Response</div>
                     <div class="sparkline4"></div>
                 </div>
             </div>

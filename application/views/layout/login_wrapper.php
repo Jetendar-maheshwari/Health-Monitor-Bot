@@ -47,7 +47,7 @@
     <div id="navbar">
         <div class="row">
             <div id="logo" class="col-xs-8 col-md-3">
-                <a href="/hmb_project"><img src="assets/images/mylogo.png" class="image-style"></a>
+                <img src="assets/images/mylogo.png" class="image-style">
             </div>
 
             <div id="menu" class="col-md-9 main-menu">

@@ -48,6 +48,8 @@ class Patient extends CI_Controller {
         //return json_encode(array("status"=>200, "message"=>"Successfully updated record!"));
 		$data['title'] = display('add_patient');
         $id = $this->input->post('id');
+
+
 		#-------------------------------#
 		$this->form_validation->set_rules('firstname', display('first_name'),'required|max_length[50]');
 		$this->form_validation->set_rules('lastname', display('last_name'),'required|max_length[50]');
@@ -126,7 +128,10 @@ class Patient extends CI_Controller {
 				'affliate'     => null, 
 				'created_by'   => $this->session->userdata('user_id'),
                 'status'       => $this->input->post('status'),
-			]; 
+			];
+
+            $checkpreviousstatus = $this->patient_model->checkpreviousstatus($id);
+            $newstatus = $this->input->post('status');
 		}
 		#-------------------------------#
 		if ($this->form_validation->run() === true) {
@@ -145,12 +150,98 @@ class Patient extends CI_Controller {
 				redirect('patient/profile/' . $patient_id);
 			} else {
 				if ($this->patient_model->update($postData)) {
-					#set success message
+
+				    if($checkpreviousstatus != $newstatus){
+                        if ($newstatus == 1){
+                            $message = 'Dear Customer,' .   "<br/><br/>"  . 'Your account has been been approved and ready to use.'
+                                . "<br/><br/>" .  "Best Regards" . "<br/>" . "ThinkBots";
+
+                            $data['email'] = (object)$postEmailData = array(
+                                'from'        => 'info@thinkbots.tech',
+                                'to'          => $this->input->post('email'),
+                                'subject'     => 'Your Account Registered',
+                                'message'     =>   $message,
+
+                            );
+
+                            /* --------INITIAL CONFIG---------*/
+                            $config = array(
+                                'protocol' => 'smtp',
+                                'smtp_host' => $this->config->item('smtp_host'),
+                                'smtp_port' => 465,
+                                'smtp_user' => $this->config->item('smtp_user'),
+                                'smtp_pass' => $this->config->item('smtp_pass'),
+                                'mailtype' => 'html',
+                                'charset' => 'iso-8859-1'
+                            );
+                            $this->email->initialize($config);
+                            $this->email->set_mailtype("html");
+                            $this->email->set_newline("\r\n");
+
+                            $this->email->to($postEmailData['to']);
+                            $this->email->from($postEmailData['from']);
+                            $this->email->subject($postEmailData['subject']);
+                            $this->email->message($postEmailData['message']);
+                            if ($this->email->send()) {
+                                #set success message
+                                echo ("Send Successfully");
+                            }
+                            else {
+                                #set exception message
+                                echo ("Something went wrong!");
+                            }
+
+                        }
+                        if ($newstatus == 0){
+                            $message = 'Dear Customer,' .   "<br/><br/>"  . 'Your account has been been de-registered and not more to use.'
+                                . "<br/><br/>" .  "Best Regards" . "<br/>" . "ThinkBots";
+
+                            $data['email'] = (object)$postEmailData = array(
+                                'from'        => 'info@thinkbots.tech',
+                                'to'          => $this->input->post('email'),
+                                'subject'     => 'Your Account has been de-registered',
+                                'message'     =>   $message,
+
+                            );
+
+                            /* --------INITIAL CONFIG---------*/
+                            $config = array(
+                                'protocol' => 'smtp',
+                                'smtp_host' => $this->config->item('smtp_host'),
+                                'smtp_port' => 465,
+                                'smtp_user' => $this->config->item('smtp_user'),
+                                'smtp_pass' => $this->config->item('smtp_pass'),
+                                'mailtype' => 'html',
+                                'charset' => 'iso-8859-1'
+                            );
+                            $this->email->initialize($config);
+                            $this->email->set_mailtype("html");
+                            $this->email->set_newline("\r\n");
+
+                            $this->email->to($postEmailData['to']);
+                            $this->email->from($postEmailData['from']);
+                            $this->email->subject($postEmailData['subject']);
+                            $this->email->message($postEmailData['message']);
+                            if ($this->email->send()) {
+                                #set success message
+                                echo ("Send Successfully");
+                            }
+                            else {
+                                #set exception message
+                                echo ("Something went wrong!");
+                            }
+                        }
+                    }
+
+				    #set success message
 					$this->session->set_flashdata('message', display('update_successfully'));
-				} else {
+				}
+
+				else {
 					#set exception message
 					$this->session->set_flashdata('exception', display('please_try_again'));
 				}
+
 				redirect('patient/edit/'.$postData['id']);
 			}
 
@@ -231,7 +322,7 @@ class Patient extends CI_Controller {
 
     public function survey()
     {
-        $data['title'] = display('survey_list');
+        $data['title'] = "Survey Response List";
         $data['surveys'] = $this->patient_model->survey();
         $data['content'] = $this->load->view('survey', $data, true);
         $this->load->view('layout/main_wrapper',$data);

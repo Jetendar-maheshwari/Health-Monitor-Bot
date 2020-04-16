@@ -106,5 +106,13 @@ class Patient_model extends CI_Model {
             ->update("patient_survey",$data);
     }
 
+    public function checkpreviousstatus($id){
+        return $this->db->select("status")
+            ->from($this->table)
+            ->where('id',$id)
+            ->get()
+            ->row()->status;
+    }
+
 
 }

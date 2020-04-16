@@ -12,9 +12,10 @@ class Dashboard extends CI_Controller {
             'setting_model'
         )); 
     }
- 
+
     public function index()
     {
+
         if($this->session->userdata('isLogIn')) 
         $this->redirectTo($this->session->userdata('user_role'));
 
@@ -218,7 +219,7 @@ class Dashboard extends CI_Controller {
 
         $emailExists = $this->db->select('email')
             ->where('email',$email)
-            ->get('user')
+            ->get('patient')
             ->num_rows();
 
         if($emailExists === 1){
@@ -238,9 +239,8 @@ class Dashboard extends CI_Controller {
                 'status' => 0
             ];
 
-
             if ($this->dashboard_model->createPatient($postData)) {
-                echo json_encode(array('status'=>200, 'message'=>'Patient Register Successfully'));
+                echo json_encode(array('status'=>200, 'message'=>'We have received your registration request. You will receive a conformation email soon'));
             }else{
                 echo json_encode(array('status'=>500, 'message'=>'Something went wrong!'));
             }

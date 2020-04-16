@@ -21,7 +21,7 @@ class Home extends CI_Controller {
  
     public function index()
     {
-        $data['title'] = display('home');
+        $data['title'] = display('appointment');
         #-------------------------------#
         $user_id = $this->session->userdata('user_id');
         $data['appointment'] = $this->appointment_model->readByUserId($user_id);

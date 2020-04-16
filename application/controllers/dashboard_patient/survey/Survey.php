@@ -16,7 +16,7 @@ class Survey extends CI_Controller {
 
 	public function index()
 	{ 
-		$data['title'] = display('survey_list');
+		$data['title'] = display('survey_history');
 		$data['surveys'] = $this->survey_model->read($this->session->userdata('user_id'));
 		$data['content'] = $this->load->view('dashboard_patient/survey/survey', $data, true);
 		$this->load->view('dashboard_patient/main_wrapper',$data);
@@ -33,7 +33,7 @@ class Survey extends CI_Controller {
 
     public function form()
     {
-        $data['title'] = display('add_document');
+        $data['title'] = display('fill_survey');
 
         /*----------VALIDATION RULES----------*/
         $this->form_validation->set_rules('description', display('description'),'trim');

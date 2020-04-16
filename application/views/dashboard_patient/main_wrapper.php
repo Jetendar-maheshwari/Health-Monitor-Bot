@@ -116,11 +116,10 @@ $settings = $this->db->select("site_align")
                     <ul class="sidebar-menu"> 
                         <li class="<?php echo (($this->uri->segment(2) == 'home') ? "active" : null) ?>">
                             <a href="<?php echo base_url('dashboard_patient/home') ?>"><i class="fa fa-clock-o"></i> <?php echo display('appointment') ?></a>
-                        </li>   
+                        </li>
 
 
-
-                        <li class="treeview <?php echo (($this->uri->segment(2) == "survey") ? "active" : null) ?>">
+                        <li class="treeview <?php echo (($this->uri->segment(2) == 'survey') ? "active" : null) ?>">
                             <a href="#">
                                 <i class="fa fa-align-left"></i><span>Symptoms Surveys</span>
                                 <span class="pull-right-container">
@@ -159,9 +158,7 @@ $settings = $this->db->select("site_align")
                     <div class="p-l-30 p-r-30">
                         <div class="header-icon"><i class="fa fa-medkit buttons-color"></i></div>
                         <div class="header-title">
-
-                            <h1><?php echo ucwords(str_replace('_', ' ', $this->uri->segment(1))) ?></h1>
-                            <small><?php echo (!empty($title)?$title:null) ?></small> 
+                            <h1><?php echo (!empty($title)?$title:null) ?></h1>
                         </div>
                     </div>
                 </section>
